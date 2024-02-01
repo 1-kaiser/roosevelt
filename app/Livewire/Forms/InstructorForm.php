@@ -24,6 +24,30 @@ class InstructorForm extends Form
     #[Rule('required|max:11', as: 'Contact')]
     public $contact;
 
+    public function setInstructor(Instructor $instructor) {
+        $this->instructor = $instructor;
+
+        $this->full_name = $instructor->full_name;
+        $this->gender = $instructor->gender;
+        $this->age = $instructor->age;
+        $this->contact = $instructor->contact;
+    }
+
+    public function store() {
+
+        Instructor::create($this->except(['instructor']));
+
+        $this->reset();
+    }
+
+    public function update() {
+        $this->instructor->update($this->except(['instructor']));
+    }
+
+    public function delete() {
+        $this->instructor->delete($this->except(['instructor']));
+    }
+
 }
 
 
