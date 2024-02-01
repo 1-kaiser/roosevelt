@@ -15,6 +15,14 @@
                     <x-nav-link href="{{ route('dashboard') }}" wire:navigate :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    <x-nav-link href="{{ route('instructor') }}" wire:navigate :active="request()->routeIs('instructor')">
+                        {{ __('Instructor') }}
+                    </x-nav-link>
+
+                    {{-- <x-nav-link href="{{ route('dashboard') }}" wire:navigate :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link> --}}
                 </div>
             </div>
 
