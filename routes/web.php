@@ -1,6 +1,9 @@
 <?php
 
 use App\Livewire\Admin\Instructor;
+use App\Livewire\Admin\Instructor\InstructorIndex;
+use App\Livewire\Admin\ScheduleList;
+use App\Livewire\Admin\ScheduleList\ScheduleListIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +28,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/instructor', Instructor::class)->name('instructor');
+    Route::get('/instructor', InstructorIndex::class)->name('instructor');
+    Route::get('/schedule-list', ScheduleListIndex::class)->name('schedule-list');
 });
