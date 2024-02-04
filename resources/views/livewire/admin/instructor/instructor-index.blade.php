@@ -9,6 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <livewire:admin.instructor.instructor-create />
+                <livewire:customer.customer-index />
             </div>
         </div>
     </div>
