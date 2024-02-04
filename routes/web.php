@@ -1,8 +1,6 @@
 <?php
 
-use App\Livewire\Admin\Instructor;
 use App\Livewire\Admin\Instructor\InstructorIndex;
-use App\Livewire\Admin\ScheduleList;
 use App\Livewire\Admin\ScheduleList\ScheduleListIndex;
 use Illuminate\Support\Facades\Route;
 
