@@ -31,8 +31,29 @@ class CustomerForm extends Form
     public $transmission;
 
     public function setCustomer(Customer $customer) {
-        
+        $this->customer = $customer;
 
+        $this->full_name = $customer->full_name;
+        $this->email = $customer->email;
+        $this->age = $customer->age;
+        $this->contact = $customer->contact;
+        $this->vehicle = $customer->vehicle;
+        $this->transmission = $customer->transmission;
+    }
+
+    public function store() {
+        
+        Customer::create($this->except(['customer']));
+
+        $this->reset();
+    }
+
+    public function update() {
+        $this->customer->update($this->except(['customer']));
+    }
+
+    public function delete() {
+        $this->customer->delete($this->except(['customer']));
     }
 
     

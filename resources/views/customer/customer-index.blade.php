@@ -1,7 +1,7 @@
 <div>
     <x-guest-layout>
 
-        <div class="navbar bg-neutral text-neutral-content sticky top-0 z-50">
+        <div class="navbar bg-neutral text-neutral-content sticky top-0 z-20">
             <div class="flex-1">
               <a class="btn btn-ghost text-xl">Roosevelt DriveSync</a>
             </div>
@@ -20,7 +20,7 @@
                 <div class="max-w-md">
                     <h1 class="mb-5 text-5xl font-bold">Roosevelt</h1>
                     <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button class="btn btn-primary">Enroll Now</button>
+                    <livewire:customer.customer-create />
                 </div>
             </div>
         </div>
