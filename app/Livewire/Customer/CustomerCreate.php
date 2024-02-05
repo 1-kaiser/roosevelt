@@ -14,11 +14,13 @@ class CustomerCreate extends Component
 
     public function save() {
         $this->validate();
-        $created = $this->form->store();
+        $this->form->store();
 
-        is_null($created)
-        ? $this->dispatch('notify', title: 'success', message: '')
-        : $this->dispatch('notify', title: 'fail', message: '');
+        $this->dispatch('swal',
+            title: 'Success',
+            text: 'Your application for enrollment has been processing now, please wait for the email confirmation',
+            icon: 'success',
+        );
     }
 
     public function render()

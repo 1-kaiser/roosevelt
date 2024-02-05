@@ -21,7 +21,7 @@ class CustomerForm extends Form
     #[Rule('required', as: 'Age')]
     public $age;
 
-    #[Rule('required|max:11', as: 'Contact')]
+    #[Rule('required|min:11|max:11', as: 'Contact')]
     public $contact;
 
     #[Rule('required', as: 'Vehicle')]
@@ -42,10 +42,7 @@ class CustomerForm extends Form
     }
 
     public function store() {
-        
         Customer::create($this->except(['customer']));
-
-        $this->reset();
     }
 
     public function update() {

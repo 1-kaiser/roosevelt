@@ -7,22 +7,60 @@
             </div>
             <div class="flex-none">
               <ul class="menu menu-horizontal px-4">
-                <li><a class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Home</a></li>
-                <li><a class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Mission</a></li>
-                <li><a class="hover:bg-neutral-400 px-4 py-2 hover:text-black">About Us</a></li>
+                <li><a href="#" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Home</a></li>
+                <li><a href="#Courses" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Courses</a></li>
+                <li><a href="#FAQs" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">FAQs</a></li>
+                <li><a class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Contact Us</a></li>
               </ul>
             </div>
           </div>
+          
 
-        <div class="hero min-h-screen" style="background-image: url('img/hero-img.avif');">
-        <div class="hero-overlay bg-opacity-70 bg-gray-900"></div>
+        <div class="hero min-h-screen" style="background-image: url('img/hero.jpg');">
+        <div class="hero-overlay bg-opacity-70 bg-black"></div>
             <div class="hero-content text-center text-neutral-content">
-                <div class="max-w-md">
-                    <h1 class="mb-5 text-5xl font-bold">Roosevelt</h1>
-                    <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <div class="max-w-full">
+                    <h1 class="mb-5 text-5xl font-bold">LEARN IN A SAFE AND <br /> CONTROLLED ENVIRONMENT</h1>
+                    <p class="mb-5">Simplifying the enrollment process so that you can start driving now!</p>
                     <livewire:customer.customer-create />
                 </div>
             </div>
+        </div>
+
+        <div id="Courses" class="mt-20 ml-10">
+          <strong class="text-3xl">Featured Courses & Services</strong>
+          <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
+        </div>
+        
+        <div class="flex py-10 items-center justify-center gap-4 pr-10 pl-10">
+          <div class="card card-compact w-2/6 bg-base-100 shadow-xl">
+            <figure><img src="img/TDC.jpeg" alt="TDC" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Theoretical Driving Course (TDC)</h2>
+              <p>Aspiring drivers are now required to attend 15-hour Theoretical Driving Course before applying for student permits.</p>
+            </div>
+          </div>
+
+          <div class="card card-compact w-3/6 bg-base-100 shadow-xl">
+            <figure><img src="img/PDC.jpg" alt="Shoes" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Practical Driving Course (PDC)</h2>
+              <p>Drive any of our 170+ latest training vehicles at scheduled time slots.</p>
+            </div>
+          </div>
+
+          <div class="card card-compact w-2/6 bg-base-100 shadow-xl">
+            <figure><img src="img/MRC.png" alt="Shoes" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Motorcyle Riding Course (MRC)</h2>
+              <p>Future riders can now learn how to navigate the roads safely.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="FAQs" class="mt-20 ml-10">
+          <strong class="text-3xl">Frequently Asked Questions</strong>
+          <p>Our courses and services are backed by four decades of experience.</p>
         </div>
 
         <div class="sm:px-30 md:px-44 md:py-20 lg:px-96">

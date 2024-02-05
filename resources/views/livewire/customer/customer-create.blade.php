@@ -7,7 +7,7 @@
         </x-slot>
     
         <x-slot name="content">
-            <div class="grid grid-cols-3 gap-4 mt-5">
+            <div class="grid grid-cols-2 gap-4 mt-5">
                 <div class="mt-1">
                     <x-label for="form.full_name" value="Full Name" />
                     <x-input wire:model.lazy="form.full_name" id="form.full_name" name="form.full_name" type="text" class="mt-2 w-full text-black" require autocomplete="form.full_name" />
@@ -52,11 +52,11 @@
                     <x-input-error for="form.transmission" class="mt-1"/>
                 </div>
 
-                <div class="mt-1">
-                    <x-label for="form.document" value="Supporting Document" />
+                {{-- <div class="mt-1">
+                    <x-label for="form.document" value="Valid ID" />
                     <x-input wire:model.lazy="form.document" id="form.document" name="form.document" type="file" class="mt-2 w-full text-black" require autocomplete="form.document" />
                     <x-input-error for="form.document" class="mt-1"/>
-                </div>
+                </div> --}}
             </div>
         </x-slot>
     
@@ -65,7 +65,7 @@
                 {{ __('Cancel') }}
             </x-secondary-button>
     
-            <x-button class="ms-3">
+            <x-button wire:click="save" class="ms-3">
                 Enroll
             </x-button>
         </x-slot>
