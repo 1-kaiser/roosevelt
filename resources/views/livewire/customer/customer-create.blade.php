@@ -65,9 +65,21 @@
                 {{ __('Cancel') }}
             </x-secondary-button>
     
-            <x-button wire:click="save" class="ms-3">
+            <x-button class="ms-3">
                 Enroll
             </x-button>
         </x-slot>
     </x-dialog-modal>
+
+    <script>
+        window.addEventListener("swal", (event) => {
+            let data = event.detail;
+
+            Swal.fire({
+                title: data.title,
+                text: data.text,
+                icon: data.icon,
+            });
+        });
+    </script>
 </div>

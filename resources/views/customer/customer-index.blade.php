@@ -1,7 +1,7 @@
 <div>
     <x-guest-layout>
 
-        <div class="navbar bg-neutral text-neutral-content sticky top-0 z-20">
+        <div class="navbar bg-neutral text-neutral-content sticky top-0 z-10">
             <div class="flex-1">
               <a class="btn btn-ghost text-xl">Roosevelt DriveSync</a>
             </div>
@@ -10,7 +10,7 @@
                 <li><a href="#" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Home</a></li>
                 <li><a href="#Courses" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Courses</a></li>
                 <li><a href="#FAQs" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">FAQs</a></li>
-                <li><a class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Contact Us</a></li>
+                <li><a href="#Contact" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Contact Us</a></li>
               </ul>
             </div>
           </div>
@@ -20,7 +20,7 @@
         <div class="hero-overlay bg-opacity-70 bg-black"></div>
             <div class="hero-content text-center text-neutral-content">
                 <div class="max-w-full">
-                    <h1 class="mb-5 text-5xl font-bold">LEARN IN A SAFE AND <br /> CONTROLLED ENVIRONMENT</h1>
+                    <h1 class="mb-5 font-bold leading-tight [font-size:_clamp(2em,4vw,7em)]">LEARN IN A SAFE AND <br /> CONTROLLED ENVIRONMENT</h1>
                     <p class="mb-5">Simplifying the enrollment process so that you can start driving now!</p>
                     <livewire:customer.customer-create />
                 </div>
@@ -111,7 +111,7 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.1962015711383!2d120.95088337384271!3d14.644801275995501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b5ea2f491df9%3A0xd2612a136dff8d1d!2sRosevelt%20Driving%20School%20(Lecture%20Room)!5e0!3m2!1sen!2sph!4v1707033224556!5m2!1sen!2sph" class="w-full h-4/6" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
-        <footer class="footer p-10 bg-neutral text-neutral-content">
+        <footer id="Contact" class="footer p-10 bg-neutral text-neutral-content">
             <nav>
               <h6 class="footer-title">Services</h6> 
               <a class="link link-hover">Branding</a>

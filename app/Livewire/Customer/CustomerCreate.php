@@ -21,6 +21,8 @@ class CustomerCreate extends Component
             text: 'Your application for enrollment has been processing now, please wait for the email confirmation',
             icon: 'success',
         );
+
+        $this->modalCustomerCreate = false;
     }
 
     public function render()
