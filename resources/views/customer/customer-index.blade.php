@@ -32,7 +32,7 @@
           <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
         </div>
         
-        <div class="flex py-10 items-center justify-center gap-4 pr-10 pl-10">
+        {{-- <div class="flex py-10 items-center justify-center gap-4 pr-10 pl-10">
           <div class="card card-compact w-2/6 bg-base-100 shadow-xl">
             <figure><img src="img/TDC.jpeg" alt="TDC" /></figure>
             <div class="card-body">
@@ -56,25 +56,220 @@
               <p>Future riders can now learn how to navigate the roads safely.</p>
             </div>
           </div>
+        </div> --}}
+
+        <div class="flex mt-16 items-center justify-center">
+          <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+            <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+              <div class="h-96 w-72">
+                <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/TDC.jpeg" alt="" />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+              <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                <h1 class="font-dmserif text-3xl font-bold text-white">TDC</h1>
+                <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Theoretical Driving Course</p>
+                <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Aspiring drivers are now required to attend 15-hour Theoretical Driving Course before applying for student permits.</span>
+                <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
+              </div>
+            </div>
+            <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+              <div class="h-96 w-72">
+                <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/PDC.jpg" alt="" />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+              <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                <h1 class="font-dmserif text-3xl font-bold text-white">PDC</h1>
+                <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Practical Driving Course</p>
+                <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Drive any of our 170+ latest training vehicles at scheduled time slots.</span>
+                <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
+              </div>
+            </div>
+            <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+              <div class="h-96 w-72">
+                <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/MRC.png" alt="" />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+              <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                <h1 class="font-dmserif text-3xl font-bold text-white">MRC</h1>
+                <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Motorcyle Riding Course</p>
+                <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Future riders can now learn how to navigate the roads safely.</span>
+                <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
+              </div>
+            </div>
+          </div>
         </div>
+        
 
         <div id="FAQs" class="mt-20 ml-10">
           <strong class="text-3xl">Frequently Asked Questions</strong>
           <p>Our courses and services are backed by four decades of experience.</p>
         </div>
 
-        <div class="sm:px-30 md:px-44 md:py-20 lg:px-96">
+        <div class="relative font-inter antialiased">
+
+          <main class="mt-16 flex flex-col justify-center bg-slate-50 overflow-hidden">
+              <div class="w-full max-w-2xl mx-auto px-4 md:px-6">
+      
+                  <!-- Accordion component -->
+                  <div class="divide-y divide-slate-200">
+                      <!-- Accordion item -->
+                      <div x-data="{ expanded: false }" class="py-2">
+                          <h2>
+                              <button
+                                  id="faqs-title-01"
+                                  type="button"
+                                  class="flex items-center justify-between w-full text-left font-semibold py-2"
+                                  @click="expanded = !expanded"
+                                  :aria-expanded="expanded"
+                                  aria-controls="faqs-text-01"
+                              >
+                                  <span>1. How much does your Practical Driving Course (PDC) cost?</span>
+                                  <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                  </svg>
+                              </button>
+                          </h2>
+                          <div
+                              id="faqs-text-01"
+                              role="region"
+                              aria-labelledby="faqs-title-01"
+                              class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                              :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                              >
+                              <div class="overflow-hidden">
+                                  <p class="pb-3">
+                                    Our course fees are designed depending on your level of need: Beginner (20-30 Hours), Intermediate (10-15 Hours) or Refresher (8 Hours). Fees starts at P4,000. Visit our Courses page for more info.
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Accordion item -->
+                      <div x-data="{ expanded: false }" class="py-2">
+                          <h2>
+                              <button
+                                  id="faqs-title-02"
+                                  type="button"
+                                  class="flex items-center justify-between w-full text-left font-semibold py-2"
+                                  @click="expanded = !expanded"
+                                  :aria-expanded="expanded"
+                                  aria-controls="faqs-text-02"
+                              >
+                                  <span>2. What do I need to bring during my practical driving sessions?</span>
+                                  <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                  </svg>
+                              </button>
+                          </h2>
+                          <div
+                              id="faqs-text-02"
+                              role="region"
+                              aria-labelledby="faqs-title-02"
+                              class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                              :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                              >
+                              <div class="overflow-hidden">
+                                  <p class="pb-3">
+                                    All students are required to bring their student permit or driver’s license (with LTO O.R.), A-1 ID and O.R. as proof of payment during actual driving lessons. Please wear proper clothing and footwear; sleeveless shirt, short pants, slippers and sandals are strictly not allowed.
+                                    <br /><br />
+                                    For security reasons, do not bring firearms or any deadly weapons and valuable belongings (ex: jewelries). A-1 Driving shall not be liable for any lost belongings.
+                                  </p>
+                              </div>
+                          </div>
+                      </div> 
+                      <!-- Accordion item -->
+                      <div x-data="{ expanded: false }" class="py-2">
+                          <h2>
+                              <button
+                                  id="faqs-title-03"
+                                  type="button"
+                                  class="flex items-center justify-between w-full text-left font-semibold py-2"
+                                  @click="expanded = !expanded"
+                                  :aria-expanded="expanded"
+                                  aria-controls="faqs-text-03"
+                              >
+                                  <span>3. What happens if I didn’t attend my scheduled practical driving session?</span>
+                                  <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                  </svg>
+                              </button>
+                          </h2>
+                          <div
+                              id="faqs-text-03"
+                              role="region"
+                              aria-labelledby="faqs-title-03"
+                              class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                              :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                              >
+                              <div class="overflow-hidden">
+                                  <p class="pb-3">
+                                    All students must arrive 15 minutes before the scheduled driving session at the training station.
+                                    <br /><br />
+                                    For cancellation of schedule, student should call the registrar at least 48 hours prior to their scheduled driving lesson. Your absence without informing A-1 Driving will be considered counted.
+                                  </p>
+                              </div>
+                          </div>
+                      </div> 
+                      <!-- Accordion item -->
+                      <div x-data="{ expanded: false }" class="py-2">
+                          <h2>
+                              <button
+                                  id="faqs-title-04"
+                                  type="button"
+                                  class="flex items-center justify-between w-full text-left font-semibold py-2"
+                                  @click="expanded = !expanded"
+                                  :aria-expanded="expanded"
+                                  aria-controls="faqs-text-04"
+                              >
+                                  <span>4. Why do I need to start my first few practical driving sessions inside the training center?</span>
+                                  <svg class="fill-indigo-500 shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                      <rect y="7" width="16" height="2" rx="1" class="transform origin-center rotate-90 transition duration-200 ease-out" :class="{'!rotate-180': expanded}" />
+                                  </svg>
+                              </button>
+                          </h2>
+                          <div
+                              id="faqs-text-04"
+                              role="region"
+                              aria-labelledby="faqs-title-04"
+                              class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+                              :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                              >
+                              <div class="overflow-hidden">
+                                  <p class="pb-3">
+                                    Our modern Training Centers have many advantages:
+                                    <br /><br />
+                                    * Complete training ground away from daily motoring traffic <br>
+                                    * Safe and secure environment <br>
+                                    * Free from distractions from other road users <br>
+                                    * Develop confidence and skill <br>
+                                    * Actual road signs, traffic lights & pavement markings are present in the facility <br>
+                                    * Can easily review backing, maneuvering, parking and hanging lessons <br>
+                                    * Facility is also suitable for night driving <br>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>                                                                        
+                  </div>
+                  <!-- End: Accordion component -->
+              </div>
+          </main>
+      </div>
+
+        {{-- <div class="sm:px-30 md:px-44 lg:px-96 mt-8 mb-8">
             <div class="chat chat-start">
                 <div class="chat-image avatar">
                 <div class="w-10 rounded-full">
-                    <img alt="Tailwind CSS chat bubble component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <img alt="Tailwind CSS chat bubble component" src="img/Iverson.jpg" />
                 </div>
                 </div>
                 <div class="chat-header">
-                Obi-Wan Kenobi
-                <time class="text-xs opacity-50">12:45</time>
+                Iverson Norberte
+                <time class="text-xs opacity-50">12:45 PM</time>
                 </div>
-                <div class="chat-bubble">You were the Chosen One!</div>
+                <div class="chat-bubble">How much does your Practical Driving Course (PDC) cost?</div>
                 <div class="chat-footer opacity-50">
                 Delivered
                 </div>
@@ -82,24 +277,23 @@
             <div class="chat chat-end">
                 <div class="chat-image avatar">
                 <div class="w-10 rounded-full">
-                    <img alt="Tailwind CSS chat bubble component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <img alt="Tailwind CSS chat bubble component" src="img/Robert.jpg" />
                 </div>
                 </div>
                 <div class="chat-header">
-                Anakin
-                <time class="text-xs opacity-50">12:46</time>
+                John Robert Castillo
+                <time class="text-xs opacity-50">12:46 PM</time>
                 </div>
-                <div class="chat-bubble">goods</div>
+                <div class="chat-bubble">Our course fees are designed depending on your level of need: Beginner (20-30 Hours), Intermediate (10-15 Hours) or Refresher (8 Hours). Fees starts at P4,000. Visit our Courses page for more info.</div>
                 <div class="chat-footer opacity-50">
-                Seen at 12:46
+                Seen at 12:46 PM
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- lg -->
-        <span class="md:w-full flex justify-center items-center mb-3">Send us your rating</span>
-        <div class="rating rating-lg cone md:w-full flex justify-center items-center mb-8">
-            
+        <span class="md:w-full flex justify-center items-center mt-16">Send us your rating</span>
+        <div class="rating rating-lg cone md:w-full flex justify-center items-center mb-16">
             <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" />
             <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" />
             <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" />
