@@ -9,6 +9,7 @@
               <ul class="menu menu-horizontal px-4">
                 <li><a href="#" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Home</a></li>
                 <li><a href="#Courses" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Courses</a></li>
+                <li><a href="#About" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">About Roosevelt</a></li>
                 <li><a href="#FAQs" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">FAQs</a></li>
                 <li><a href="#Contact" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Contact Us</a></li>
               </ul>
@@ -31,32 +32,6 @@
           <strong class="text-3xl">Featured Courses & Services</strong>
           <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
         </div>
-        
-        {{-- <div class="flex py-10 items-center justify-center gap-4 pr-10 pl-10">
-          <div class="card card-compact w-2/6 bg-base-100 shadow-xl">
-            <figure><img src="img/TDC.jpeg" alt="TDC" /></figure>
-            <div class="card-body">
-              <h2 class="card-title">Theoretical Driving Course (TDC)</h2>
-              <p>Aspiring drivers are now required to attend 15-hour Theoretical Driving Course before applying for student permits.</p>
-            </div>
-          </div>
-
-          <div class="card card-compact w-3/6 bg-base-100 shadow-xl">
-            <figure><img src="img/PDC.jpg" alt="Shoes" /></figure>
-            <div class="card-body">
-              <h2 class="card-title">Practical Driving Course (PDC)</h2>
-              <p>Drive any of our 170+ latest training vehicles at scheduled time slots.</p>
-            </div>
-          </div>
-
-          <div class="card card-compact w-2/6 bg-base-100 shadow-xl">
-            <figure><img src="img/MRC.png" alt="Shoes" /></figure>
-            <div class="card-body">
-              <h2 class="card-title">Motorcyle Riding Course (MRC)</h2>
-              <p>Future riders can now learn how to navigate the roads safely.</p>
-            </div>
-          </div>
-        </div> --}}
 
         <div class="flex mt-16 items-center justify-center">
           <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
@@ -69,6 +44,7 @@
                 <h1 class="font-dmserif text-3xl font-bold text-white">TDC</h1>
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Theoretical Driving Course</p>
                 <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Aspiring drivers are now required to attend 15-hour Theoretical Driving Course before applying for student permits.</span>
+                <strong class="text-red-400 mb-3">Starts at Php 1,000</strong>
                 <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
               </div>
             </div>
@@ -81,6 +57,7 @@
                 <h1 class="font-dmserif text-3xl font-bold text-white">PDC</h1>
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Practical Driving Course</p>
                 <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Drive any of our 170+ latest training vehicles at scheduled time slots.</span>
+                <strong class="text-red-400 mb-3">Starts at Php 4,000</strong>
                 <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
               </div>
             </div>
@@ -93,13 +70,111 @@
                 <h1 class="font-dmserif text-3xl font-bold text-white">MRC</h1>
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Motorcyle Riding Course</p>
                 <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Future riders can now learn how to navigate the roads safely.</span>
+                <strong class="text-red-400 mb-3">Starts at Php 2,500</strong>
                 <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
               </div>
             </div>
           </div>
         </div>
-        
 
+
+
+        <div class="bg-black mt-28">
+          <section id="features"
+              class="relative block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 bg-neutral-900/30">
+    
+              <div class="relative mx-auto max-w-5xl text-center">
+                  {{-- <span class="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
+                  About Roosevelt Driving School
+                  </span> --}}
+                  <h2
+                      class="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+                      About Roosevelt Driving School
+                  </h2>
+                  <p
+                      class="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
+                      Our templates allow for maximum customization. No technical skills required – our intuitive design tools
+                      let
+                      you get the job done easily.
+                  </p>
+              </div>
+      
+      
+              <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+                  <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+                      <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
+                          style="background-image: linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%); border-color: rgb(93, 79, 240);">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-color-swatch" width="24"
+                              height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                              stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                              <path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2"></path>
+                              <path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9"></path>
+                              <path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12"></path>
+                              <line x1="17" y1="17" x2="17" y2="17.01"></line>
+                          </svg>
+                      </div>
+                      <h3 class="mt-6 text-gray-400">Customizable</h3>
+                      <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">Tailor your landing page's
+                          look
+                          and feel, from the color scheme to the font size, to the design of the page.
+                      </p>
+                  </div>
+      
+      
+                  <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+                      <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
+                          style="background-image: linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%); border-color: rgb(93, 79, 240);">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bolt" width="24"
+                              height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                              stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                              <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline>
+                          </svg>
+                      </div>
+                      <h3 class="mt-6 text-gray-400">Fast Performance</h3>
+                      <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">We build our templates for
+                          speed in mind, for super-fast load times so your customers never waver.
+                      </p>
+                  </div>
+      
+      
+                  <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+                      <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
+                          style="background-image: linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%); border-color: rgb(93, 79, 240);">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools" width="24"
+                              height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                              stroke-linecap="round" stroke-linejoin="round">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                              <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"></path>
+                              <line x1="14.5" y1="5.5" x2="18.5" y2="9.5"></line>
+                              <polyline points="12 8 7 3 3 7 8 12"></polyline>
+                              <line x1="7" y1="8" x2="5.5" y2="9.5"></line>
+                              <polyline points="16 12 21 17 17 21 12 16"></polyline>
+                              <line x1="16" y1="17" x2="14.5" y2="18.5"></line>
+                          </svg>
+                      </div>
+                      <h3 class="mt-6 text-gray-400">Fully Featured</h3>
+                      <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
+                          Everything you need to
+                          succeed
+                          and launch your landing page, right out of the box. No need to install anything else.
+                      </p>
+                  </div>
+      
+      
+              </div>
+      
+              <div class="absolute bottom-0 left-0 z-0 h-1/3 w-full border-b"
+                  style="background-image: linear-gradient(to right top, rgba(79, 70, 229, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
+              </div>
+              <div class="absolute bottom-0 right-0 z-0 h-1/3 w-full"
+                  style="background-image: linear-gradient(to left top, rgba(220, 38, 38, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
+              </div>
+      
+          </section>
+      </div>
+        
         <div id="FAQs" class="mt-20 ml-10">
           <strong class="text-3xl">Frequently Asked Questions</strong>
           <p>Our courses and services are backed by four decades of experience.</p>
@@ -257,39 +332,6 @@
               </div>
           </main>
       </div>
-
-        {{-- <div class="sm:px-30 md:px-44 lg:px-96 mt-8 mb-8">
-            <div class="chat chat-start">
-                <div class="chat-image avatar">
-                <div class="w-10 rounded-full">
-                    <img alt="Tailwind CSS chat bubble component" src="img/Iverson.jpg" />
-                </div>
-                </div>
-                <div class="chat-header">
-                Iverson Norberte
-                <time class="text-xs opacity-50">12:45 PM</time>
-                </div>
-                <div class="chat-bubble">How much does your Practical Driving Course (PDC) cost?</div>
-                <div class="chat-footer opacity-50">
-                Delivered
-                </div>
-            </div>
-            <div class="chat chat-end">
-                <div class="chat-image avatar">
-                <div class="w-10 rounded-full">
-                    <img alt="Tailwind CSS chat bubble component" src="img/Robert.jpg" />
-                </div>
-                </div>
-                <div class="chat-header">
-                John Robert Castillo
-                <time class="text-xs opacity-50">12:46 PM</time>
-                </div>
-                <div class="chat-bubble">Our course fees are designed depending on your level of need: Beginner (20-30 Hours), Intermediate (10-15 Hours) or Refresher (8 Hours). Fees starts at P4,000. Visit our Courses page for more info.</div>
-                <div class="chat-footer opacity-50">
-                Seen at 12:46 PM
-                </div>
-            </div>
-        </div> --}}
 
         <!-- lg -->
         <span class="md:w-full flex justify-center items-center mt-16">Send us your rating</span>
