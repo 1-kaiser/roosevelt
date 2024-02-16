@@ -34,11 +34,11 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         'f83ed111c2f97a0449abf067f157f418' => __DIR__ . '/..' . '/pestphp/pest/src/Functions.php',
         '7d2876738dc0328edeb8a103c76cd8e7' => __DIR__ . '/..' . '/pestphp/pest/src/Pest.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'd634523d799d97a8ab4807b650bf5cea' => __DIR__ . '/..' . '/pestphp/pest-plugin-laravel/src/Autoload.php',
@@ -126,6 +126,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
             'ParaTest\\' => 9,
             'PHPUnit\\Architecture\\' => 21,
             'PHPStan\\PhpDocParser\\' => 21,
+        ),
+        'O' => 
+        array (
+            'Omnia\\LivewireCalendar\\' => 23,
         ),
         'N' => 
         array (
@@ -453,6 +457,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
+        'Omnia\\LivewireCalendar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/omnia-digital/livewire-calendar/src',
+        ),
         'NunoMaduro\\Collision\\' => 
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
@@ -662,6 +670,17 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Livewire\\Admin\\Calendar\\CalendarIndex' => __DIR__ . '/../..' . '/app/Livewire/Admin/Calendar/CalendarIndex.php',
+        'App\\Livewire\\Admin\\Instructor\\InstructorCreate' => __DIR__ . '/../..' . '/app/Livewire/Admin/Instructor/InstructorCreate.php',
+        'App\\Livewire\\Admin\\Instructor\\InstructorIndex' => __DIR__ . '/../..' . '/app/Livewire/Admin/Instructor/InstructorIndex.php',
+        'App\\Livewire\\Admin\\ScheduleList\\ScheduleListIndex' => __DIR__ . '/../..' . '/app/Livewire/Admin/ScheduleList/ScheduleListIndex.php',
+        'App\\Livewire\\Customer\\CustomerCreate' => __DIR__ . '/../..' . '/app/Livewire/Customer/CustomerCreate.php',
+        'App\\Livewire\\Customer\\CustomerIndex' => __DIR__ . '/../..' . '/app/Livewire/Customer/CustomerIndex.php',
+        'App\\Livewire\\Forms\\CustomerForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/CustomerForm.php',
+        'App\\Livewire\\Forms\\InstructorForm' => __DIR__ . '/../..' . '/app/Livewire/Forms/InstructorForm.php',
+        'App\\Mail\\EnrollCustomer' => __DIR__ . '/../..' . '/app/Mail/EnrollCustomer.php',
+        'App\\Models\\Customer' => __DIR__ . '/../..' . '/app/Models/Customer.php',
+        'App\\Models\\Instructor' => __DIR__ . '/../..' . '/app/Models/Instructor.php',
         'App\\Models\\Membership' => __DIR__ . '/../..' . '/app/Models/Membership.php',
         'App\\Models\\Team' => __DIR__ . '/../..' . '/app/Models/Team.php',
         'App\\Models\\TeamInvitation' => __DIR__ . '/../..' . '/app/Models/TeamInvitation.php',
@@ -4149,6 +4168,9 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'NunoMaduro\\Collision\\Provider' => __DIR__ . '/..' . '/nunomaduro/collision/src/Provider.php',
         'NunoMaduro\\Collision\\SolutionsRepositories\\NullSolutionsRepository' => __DIR__ . '/..' . '/nunomaduro/collision/src/SolutionsRepositories/NullSolutionsRepository.php',
         'NunoMaduro\\Collision\\Writer' => __DIR__ . '/..' . '/nunomaduro/collision/src/Writer.php',
+        'Omnia\\LivewireCalendar\\LivewireCalendar' => __DIR__ . '/..' . '/omnia-digital/livewire-calendar/src/LivewireCalendar.php',
+        'Omnia\\LivewireCalendar\\LivewireCalendarFacade' => __DIR__ . '/..' . '/omnia-digital/livewire-calendar/src/LivewireCalendarFacade.php',
+        'Omnia\\LivewireCalendar\\LivewireCalendarServiceProvider' => __DIR__ . '/..' . '/omnia-digital/livewire-calendar/src/LivewireCalendarServiceProvider.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
         'PHPStan\\PhpDocParser\\Ast\\AbstractNodeVisitor' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/AbstractNodeVisitor.php',
         'PHPStan\\PhpDocParser\\Ast\\Attribute' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/Attribute.php',
