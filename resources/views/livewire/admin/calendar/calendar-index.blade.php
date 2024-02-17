@@ -10,9 +10,12 @@
             <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-4 flex justify-between">
                     <span class="text-3xl">2024 <strong>February</strong></span>
-                    <x-button>Create Event</x-button>
+                    <livewire:admin.calendar.event-create />
                 </div>
-                <livewire:admin.calendar.reservation-calendar />
+                <livewire:admin.calendar.reservation-calendar 
+                :day-click-enabled="false"
+                :event-click-enabled="false"
+                :drag-and-drop-enabled="false"/>
             </div>
         </div>
     </div>

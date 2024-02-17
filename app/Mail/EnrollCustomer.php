@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -12,13 +13,14 @@ use Illuminate\Queue\SerializesModels;
 class EnrollCustomer extends Mailable
 {
     use Queueable, SerializesModels;
+    public $mailData;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($mailData)
     {
-        //
+        $this->mailData = $mailData;
     }
 
     /**
@@ -28,6 +30,7 @@ class EnrollCustomer extends Mailable
     {
         return new Envelope(
             subject: 'Enroll Customer',
+            from: new Address('emmanuelpunay6906@gmail.com', 'Roosevelt'),
         );
     }
 
