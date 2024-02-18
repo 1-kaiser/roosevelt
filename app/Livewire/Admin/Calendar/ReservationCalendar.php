@@ -28,5 +28,28 @@ class ReservationCalendar extends LivewireCalendar
             });
     }
 
+    public function goToPreviousMonth()
+    {
+        $this->startsAt->subMonthNoOverflow();
+        $this->endsAt->subMonthNoOverflow();
+
+        $this->calculateGridStartsEnds();
+    }
+
+    public function goToNextMonth()
+    {
+        $this->startsAt->addMonthNoOverflow();
+        $this->endsAt->addMonthNoOverflow();
+
+        $this->calculateGridStartsEnds();
+    }
+
+    public function goToCurrentMonth()
+    {
+        $this->startsAt = Carbon::today()->startOfMonth()->startOfDay();
+        $this->endsAt = $this->startsAt->clone()->endOfMonth()->startOfDay();
+
+        $this->calculateGridStartsEnds();
+    }
     
 }

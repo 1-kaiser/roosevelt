@@ -8,14 +8,14 @@
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="p-4 flex justify-between">
-                    <span class="text-3xl">2024 <strong>February</strong></span>
+                <div class="pr-4 flex justify-end">
                     <livewire:admin.calendar.event-create />
                 </div>
                 <livewire:admin.calendar.reservation-calendar 
                 :day-click-enabled="false"
                 :event-click-enabled="false"
-                :drag-and-drop-enabled="false"/>
+                :drag-and-drop-enabled="false"
+                before-calendar-view="livewire/admin/calendar/before" />
             </div>
         </div>
     </div>

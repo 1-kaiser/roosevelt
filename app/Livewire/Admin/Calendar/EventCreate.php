@@ -24,12 +24,12 @@ class EventCreate extends Component
         );
 
         $mailData = [
-            'title' => 'Event Notification',
+            'title' => 'Event Creation',
             'body' => 'Event created successfully'
         ];
 
         $this->modalEventCreate = false;
-        Mail::to('emanpunay565@gmail.com.com')->send(new EnrollCustomer($mailData));
+        Mail::to('emmanuelpunay6906@gmail.com')->send(new EnrollCustomer($mailData));
         // $this->dispatch('dispatch-event-create')->to(ReservationCalendar::class);
     }
 }
