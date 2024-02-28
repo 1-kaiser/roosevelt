@@ -1,12 +1,12 @@
 <div>
     <x-guest-layout>
 
-        <div class="navbar bg-neutral text-neutral-content sticky top-0 z-10">
+        <div class="navbar bg-gray-600 p-1 text-neutral-content sticky top-0 z-10">
             <div class="flex-1">
-              <a class="btn btn-ghost text-xl">Roosevelt DriveSync</a>
+              <a class="btn btn-ghost text-xl"><x-authentication-card-logo /></a>
             </div>
             <div class="flex-none">
-              <ul class="menu menu-horizontal px-4">
+              <ul class="menu menu-horizontal px-4 text-white">
                 <li><a href="#" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Home</a></li>
                 <li><a href="#Courses" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Courses</a></li>
                 <li><a href="#About" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">About Roosevelt</a></li>
@@ -27,6 +27,7 @@
                 </div>
             </div>
         </div>
+        
 
         <div id="Courses" class="mt-20 ml-10">
           <strong class="text-3xl">Featured Courses & Services</strong>
@@ -34,7 +35,8 @@
         </div>
 
         <div class="flex mt-16 items-center justify-center">
-          <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+          <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2">
+            
             <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
               <div class="h-96 w-72">
                 <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/TDC.jpeg" alt="" />
@@ -48,6 +50,7 @@
                 <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
               </div>
             </div>
+
             <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
               <div class="h-96 w-72">
                 <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/PDC.jpg" alt="" />
@@ -61,7 +64,7 @@
                 <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
               </div>
             </div>
-            <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+            {{-- <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
               <div class="h-96 w-72">
                 <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/MRC.png" alt="" />
               </div>
@@ -73,7 +76,7 @@
                 <strong class="text-red-400 mb-3">Starts at Php 2,500</strong>
                 <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
 
