@@ -163,17 +163,26 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('instructor') }}" wire:navigate :active="request()->routeIs('instructor')">
-                {{ __('Instructor') }}
+            <x-responsive-nav-link href="{{ route('waitlist') }}" wire:navigate :active="request()->routeIs('waitlist')">
+                {{ __('Waitlist') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('accepted-list') }}" wire:navigate :active="request()->routeIs('accepted-list')">
+                {{ __('Accepted List') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('calendar') }}" wire:navigate :active="request()->routeIs('calendar')">
+                {{ __('Calendar') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link href="{{ route('schedule-list') }}" wire:navigate :active="request()->routeIs('schedule-list')">
                 {{ __('Schedule List') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('calendar') }}" wire:navigate :active="request()->routeIs('calendar')">
-                {{ __('Calendar') }}
+            <x-responsive-nav-link href="{{ route('instructor') }}" wire:navigate :active="request()->routeIs('instructor')">
+                {{ __('Instructor') }}
             </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->

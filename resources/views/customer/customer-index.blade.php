@@ -1,7 +1,10 @@
 <div>
     <x-guest-layout>
 
-        <div class="navbar bg-gray-600 p-1 text-neutral-content sticky top-0 z-10">
+
+      {{-- NAVBAR --}}
+
+        <div class="navbar bg-gray-700 p-1 text-neutral-content sticky top-0 z-10">
             <div class="flex-1">
               <a class="btn btn-ghost text-xl"><x-authentication-card-logo /></a>
             </div>
@@ -9,34 +12,42 @@
               <ul class="menu menu-horizontal px-4 text-white">
                 <li><a href="#" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Home</a></li>
                 <li><a href="#Courses" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Courses</a></li>
-                <li><a href="#About" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">About Roosevelt</a></li>
+                <li><a href="#learn-more" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">About Roosevelt</a></li>
                 <li><a href="#FAQs" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">FAQs</a></li>
                 <li><a href="#Contact" class="hover:bg-neutral-400 px-4 py-2 hover:text-black">Contact Us</a></li>
               </ul>
             </div>
-          </div>
+        </div>
+
+      {{-- NAVBAR --}}
           
+      {{-- HERO SECTION --}}
 
         <div class="hero min-h-screen" style="background-image: url('img/hero.jpg');">
-        <div class="hero-overlay bg-opacity-70 bg-black"></div>
-            <div class="hero-content text-center text-neutral-content">
-                <div class="max-w-full">
-                    <h1 class="mb-5 font-bold leading-tight [font-size:_clamp(2em,4vw,7em)]">LEARN IN A SAFE AND <br /> CONTROLLED ENVIRONMENT</h1>
-                    <p class="mb-5">Simplifying the enrollment process so that you can start driving now!</p>
-                    <livewire:customer.customer-create />
-                </div>
+          <div class="hero-overlay bg-opacity-70 bg-black"></div>
+              <div class="hero-content text-center text-neutral-content">
+                  <div class="max-w-full">
+                      <h1 class="mb-5 font-bold leading-tight [font-size:_clamp(2em,4vw,7em)]">LEARN IN A SAFE AND <br /> CONTROLLED ENVIRONMENT</h1>
+                      <p class="mb-5">Simplifying the enrollment process so that you can start driving now!</p>
+                      {{-- <livewire:customer.customer-create /> --}}
+                      <div class="btn btn-outline text-white">
+                        <a href="#learn-more">Learn More</a>
+                      </div>
+                  </div>
             </div>
         </div>
-        
+      
+      {{-- HERO SECTION --}}
+      
+      {{-- FEATURED COURSES --}}
 
         <div id="Courses" class="mt-20 ml-10">
-          <strong class="text-3xl">Featured Courses & Services</strong>
+          <strong class="text-3xl">Featured Courses</strong>
           <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
         </div>
 
         <div class="flex mt-16 items-center justify-center">
           <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2">
-            
             <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
               <div class="h-96 w-72">
                 <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/TDC.jpeg" alt="" />
@@ -47,7 +58,7 @@
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Theoretical Driving Course</p>
                 <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Aspiring drivers are now required to attend 15-hour Theoretical Driving Course before applying for student permits.</span>
                 <strong class="text-red-400 mb-3">Starts at Php 1,000</strong>
-                <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
+                <a href="" class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</a>
               </div>
             </div>
 
@@ -61,35 +72,21 @@
                 <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Practical Driving Course</p>
                 <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Drive any of our 170+ latest training vehicles at scheduled time slots.</span>
                 <strong class="text-red-400 mb-3">Starts at Php 4,000</strong>
-                <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
+                <a href="" class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</a>
               </div>
             </div>
-            {{-- <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-              <div class="h-96 w-72">
-                <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/MRC.png" alt="" />
-              </div>
-              <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
-              <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
-                <h1 class="font-dmserif text-3xl font-bold text-white">MRC</h1>
-                <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Motorcyle Riding Course</p>
-                <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Future riders can now learn how to navigate the roads safely.</span>
-                <strong class="text-red-400 mb-3">Starts at Php 2,500</strong>
-                <button class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
-              </div>
-            </div> --}}
           </div>
         </div>
 
+      {{-- FEATURED COURSES --}}  
 
+      {{-- ABOUT ROOSEVELT --}}
 
-        <div class="bg-black mt-28">
+        <div class="bg-black mt-28" id="learn-more">
           <section id="features"
               class="relative block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 bg-neutral-900/30">
     
               <div class="relative mx-auto max-w-5xl text-center">
-                  {{-- <span class="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
-                  About Roosevelt Driving School
-                  </span> --}}
                   <h2
                       class="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
                       About Roosevelt Driving School
@@ -174,9 +171,13 @@
               <div class="absolute bottom-0 right-0 z-0 h-1/3 w-full"
                   style="background-image: linear-gradient(to left top, rgba(220, 38, 38, 0.2) 0%, transparent 50%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
               </div>
-      
           </section>
-      </div>
+        </div>
+
+      {{-- ABOUT ROOSEVELT --}}  
+
+
+      {{-- FAQS --}}
         
         <div id="FAQs" class="mt-20 ml-10">
           <strong class="text-3xl">Frequently Asked Questions</strong>
@@ -334,9 +335,12 @@
                   <!-- End: Accordion component -->
               </div>
           </main>
-      </div>
+        </div>
 
-        <!-- lg -->
+      {{-- FAQS --}}  
+
+      {{-- RATING --}}
+      
         <span class="md:w-full flex justify-center items-center mt-16">Send us your rating</span>
         <div class="rating rating-lg cone md:w-full flex justify-center items-center mb-16">
             <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" />
@@ -345,10 +349,16 @@
             <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" checked/>
             <input type="radio" name="rating-8" class="mask mask-star-2 bg-orange-400" />
         </div>
-            
+
+      {{-- RATING --}}  
+
+      {{-- MAP --}}
 
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.1962015711383!2d120.95088337384271!3d14.644801275995501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b5ea2f491df9%3A0xd2612a136dff8d1d!2sRosevelt%20Driving%20School%20(Lecture%20Room)!5e0!3m2!1sen!2sph!4v1707033224556!5m2!1sen!2sph" class="w-full h-4/6" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+      {{-- MAP --}}
+
+      {{-- FOOTER --}}
 
         <footer id="Contact" class="footer p-10 bg-neutral text-neutral-content">
             <nav>
@@ -384,7 +394,9 @@
                 <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
               </div>
             </nav>
-          </footer>
+        </footer>
+
+      {{-- FOOTER --}}
     </x-guest-layout>
 </div>
 

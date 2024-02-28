@@ -30,6 +30,6 @@ class EventCreate extends Component
 
         $this->modalEventCreate = false;
         Mail::to('emmanuelpunay6906@gmail.com')->send(new EnrollCustomer($mailData));
-        // $this->dispatch('dispatch-event-create')->to(ReservationCalendar::class);
+        $this->dispatch('dispatch-event-create')->to(ReservationCalendar::class);
     }
 }
