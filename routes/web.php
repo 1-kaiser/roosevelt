@@ -28,6 +28,14 @@ Route::get('/customer', function () {
     return view('customer/customer-index');
 })->name('customer-index');
 
+Route::get('/tdc', function () {
+    return view('customer/tdc/tdc-index');
+})->name('tdc-index');
+
+Route::get('/pdc', function () {
+    return view('customer/pdc/pdc-index');
+})->name('pdc-index');
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     ])->group(function () {
 

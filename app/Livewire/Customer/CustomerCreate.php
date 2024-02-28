@@ -3,7 +3,6 @@
 namespace App\Livewire\Customer;
 
 use App\Livewire\Forms\CustomerForm;
-use Livewire\WithFileUploads;
 use Livewire\Component;
 
 class CustomerCreate extends Component
