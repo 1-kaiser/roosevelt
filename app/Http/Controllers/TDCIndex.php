@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Livewire\Forms\CustomerForm;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -15,14 +16,24 @@ class TDCIndex extends Controller
         return view('customer.tdc.tdc-index');
     }
 
-    public function save() {
-        // $this->validate();
-        $this->form->store();
+    public function save(Request $request) {
 
-        $this->dispatch('swal',
-            title: 'Success',
-            text: 'Your application for enrollment has been processing now, please wait for the email confirmation',
-            icon: 'success',
-        );
+        $validate = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'time' => 'required',
+            'date' => 'required',
+            'course' => ''
+        ]);
+
+        $data = Customer::create($validate);
+
+        ($data)
+        ? session()->flash('success')
+        : session()->flash('error', 'Error while processing your registration');
+            return redirect(route('tdc-index'));
+        
+
+        
     }
 }
