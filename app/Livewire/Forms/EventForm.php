@@ -2,13 +2,14 @@
 
 namespace App\Livewire\Forms;
 
+use App\Models\Event;
 use App\Models\Schedule;
 use Livewire\Form;
 use Livewire\Attributes\Rule;
 
 class EventForm extends Form
 {
-    public Schedule $schedule;
+    public Event $event;
     public $id;
 
     #[Rule('required', as: 'Title')]
@@ -23,17 +24,17 @@ class EventForm extends Form
     #[Rule('required', as: 'Time')]
     public $time;
 
-    public function setEvent(Schedule $schedule) {
-        $this->schedule = $schedule;
+    public function setEvent(Event $event) {
+        $this->event = $event;
 
-        $this->title = $schedule->title;
-        $this->description = $schedule->description;
-        $this->date = $schedule->date;
-        $this->time = $schedule->time;
+        $this->title = $event->title;
+        $this->description = $event->description;
+        $this->date = $event->date;
+        $this->time = $event->time;
     }
 
     public function store() {
-        Schedule::create($this->except(['schedule']));
+        event::create($this->except(['event']));
     }
 
     

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Calendar;
 
+use App\Models\Event;
 use App\Models\Schedule;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -14,16 +15,16 @@ class ReservationCalendar extends LivewireCalendar
     #[On('dispatch-event-create')]
     public function events(): Collection
     {
-        return Schedule::query()
+        return Event::query()
             ->whereDate('date', '>=', $this->gridStartsAt)
             ->whereDate('date', '<=', $this->gridEndsAt)
             ->get()
-            ->map(function (Schedule $schedule) {
+            ->map(function (Event $event) {
                 return [
-                    'id' => $schedule->id,
-                    'title' => $schedule->title,
-                    'description' => $schedule->description,
-                    'date' => $schedule->date,
+                    'id' => $event->id,
+                    'title' => $event->title,
+                    'description' => $event->description,
+                    'date' => $event->date,
                 ];
             });
     }
