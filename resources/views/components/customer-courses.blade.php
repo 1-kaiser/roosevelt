@@ -1,7 +1,7 @@
 <div id="Courses" class="mt-20 ml-10">
     <strong class="text-3xl">Featured Courses</strong>
     <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
-  </div>
+</div>
 
   <div class="flex mt-16 items-center justify-center">
     <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2">

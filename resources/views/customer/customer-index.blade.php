@@ -12,6 +12,12 @@
         <x-customer-hero-section />
       
       {{-- HERO SECTION --}}
+
+      {{-- CALENDAR --}}
+
+        <x-customer-calendar />
+
+      {{-- CALENDAR --}}
       
       {{-- FEATURED COURSES --}}
 
