@@ -14,23 +14,46 @@
                     </p>
                     <p class="text-2xl text-red-500 mt-10">PHP 1,000.00</p>
 
-                    <form action="" class="float-center absolute mt-10">
+                    <form action="" wire:submit="save" class="float-center absolute mt-10">
                         @csrf
-                        <div class="flex gap-x-14 items-center">
-                            <strong class="text-gray-700">Time</strong>
-            
-                            <x-input type="time" class="text-xs bg-gray-200" wire:model.lazy="form.time" id="form.time" name="form.time" />
-                            <x-input-error for="form.time" class="mt-1" />  
-                        </div>
-            
-                        <div class="flex gap-x-14 items-center mt-7">
-                            <strong class="text-gray-700">Date</strong>
-            
-                            <x-input type="date" class="text-xs bg-gray-200" wire:model.lazy="form.date" id="form.date" name="form.date" />
-                            <x-input-error for="form.date" class="mt-1" />
+
+                        <div class="flex">
+                            <div class="mr-16">
+                                <div class="flex gap-x-5 items-center">
+                                    <strong class="text-gray-700">Name</strong>
+                    
+                                    <x-input type="text" class="text-sm bg-gray-200" wire:model.lazy="form.name" id="form.name" name="form.name" />
+                                    <x-input-error for="form.name" class="mt-1" />  
+                                </div>
+        
+                                <div class="flex gap-x-6 items-center mt-7">
+                                    <strong class="text-gray-700">Email</strong>
+                    
+                                    <x-input type="email" class="text-sm bg-gray-200" wire:model.lazy="form.email" id="form.email" email="form.email" />
+                                    <x-input-error for="form.email" class="mt-1" />  
+                                </div>
+                            </div>
+    
+                            <div>
+                                <div class="flex gap-x-5 items-center">
+                                    <strong class="text-gray-700">Time</strong>
+                    
+                                    <x-input type="time" class="text-xs bg-gray-200" wire:model.lazy="form.time" id="form.time" name="form.time" />
+                                    <x-input-error for="form.time" class="mt-1" />  
+                                </div>
+                    
+                                <div class="flex gap-x-5 items-center mt-7">
+                                    <strong class="text-gray-700">Date</strong>
+                    
+                                    <x-input type="date" class="text-xs bg-gray-200" wire:model.lazy="form.date" id="form.date" name="form.date" />
+                                    <x-input-error for="form.date" class="mt-1" />
+
+                                    <x-input type="hidden" value="TDC" wire:model.lazy="form.course" id="form.course" name="form.course"/>
+                                </div>
+                            </div>
                         </div>
 
-                        <button class="btn btn-outline btn-error mt-10 mb-10">Reserve Now</button>
+                        <button type="submit" class="btn btn-outline btn-error mt-10 mb-10">Reserve Now</button>
                     </form>
                 </div>
             </div>
@@ -40,4 +63,16 @@
             <x-customer-footer />
         </div>
     </x-guest-layout>
+
+    <script>
+        window.addEventListener("swal", (event) => {
+            let data = event.detail;
+
+            Swal.fire({
+                title: data.title,
+                text: data.text,
+                icon: data.icon,
+            });
+        });
+    </script>
 </div>

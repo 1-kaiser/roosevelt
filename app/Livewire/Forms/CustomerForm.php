@@ -12,33 +12,28 @@ class CustomerForm extends Form
 
     public $id;
 
-    #[Rule('required|min:3', as: 'Full Name')]
-    public $full_name;
+    #[Rule('required|min:3', as: 'Name')]
+    public $name;
 
     #[Rule('required|min:3|email', as: 'Email')]
     public $email;
 
-    #[Rule('required', as: 'Age')]
-    public $age;
+    #[Rule('required', as: 'Time')]
+    public $time;
 
-    #[Rule('required|min:11|max:11', as: 'Contact')]
-    public $contact;
+    #[Rule('required', as: 'Contact')]
+    public $date;
 
-    #[Rule('required', as: 'Vehicle')]
-    public $vehicle;
-
-    #[Rule('required', as: 'Transmission')]
-    public $transmission;
+    public $course;
 
     public function setCustomer(Customer $customer) {
         $this->customer = $customer;
 
-        $this->full_name = $customer->full_name;
+        $this->name = $customer->name;
         $this->email = $customer->email;
-        $this->age = $customer->age;
-        $this->contact = $customer->contact;
-        $this->vehicle = $customer->vehicle;
-        $this->transmission = $customer->transmission;
+        $this->time = $customer->time;
+        $this->date = $customer->date;
+        $this->course = $customer->course;
     }
 
     public function store() {

@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Livewire\Admin\Waitlist;
+namespace App\Http\Controllers;
 
 use App\Livewire\Forms\CustomerForm;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Livewire\Attributes\Title;
-use Livewire\Component;
 
-class WaitlistIndex extends Component
+class TDCIndex extends Controller
 {
     public CustomerForm $form;
 
-    #[Title('Waitlist')]
     public function render(): View
     {
-        return view('livewire.admin.waitlist.waitlist-index');
+        return view('customer.tdc.tdc-index');
     }
 
     public function save() {
-        $this->validate();
+        // $this->validate();
         $this->form->store();
 
         $this->dispatch('swal',

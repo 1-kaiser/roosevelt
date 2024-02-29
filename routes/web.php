@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TDCIndex;
 use App\Livewire\Admin\AcceptedList\AcceptedListIndex;
 use App\Livewire\Admin\Calendar\CalendarIndex;
 use App\Livewire\Admin\Instructor\InstructorIndex;
@@ -28,17 +29,15 @@ Route::get('/customer', function () {
     return view('customer/customer-index');
 })->name('customer-index');
 
-Route::get('/tdc', function () {
-    return view('customer/tdc/tdc-index');
-})->name('tdc-index');
+Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
+
 
 Route::get('/pdc', function () {
     return view('customer/pdc/pdc-index');
 })->name('pdc-index');
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
-    ])->group(function () {
-
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
+    ->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -48,4 +47,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/schedule-list', ScheduleListIndex::class)->name('schedule-list');
     Route::get('/calendar', CalendarIndex::class)->name('calendar');
     Route::get('/instructor', InstructorIndex::class)->name('instructor');
+
 });
