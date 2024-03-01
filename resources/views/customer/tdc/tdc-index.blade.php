@@ -32,9 +32,7 @@
                                     <div class="flex flex-col">
                                         <x-input type="text" class="text-sm bg-gray-200" id="form.name" name="name" />
                                         <x-input-error for="form.name" class="mt-1" /> 
-                                        @error('name')
-                                        <span class="text-red-500 text-sm mt-1">{{$message}}</span>
-                                        @enderror 
+                                        <x-input-error for="name" class="mt-1"/>
                                     </div>
                                 </div>
         
@@ -43,36 +41,40 @@
                     
                                     <div class="flex flex-col">
                                         <x-input type="email" class="text-sm bg-gray-200" id="form.email"  name="email" />
-                                        @error('email')
-                                        <span class="text-red-500 text-sm mt-1">{{$message}}</span>
-                                        @enderror 
+                                        <x-input-error for="email" class="mt-1"/>
                                     </div>
                                 </div>
                             </div>
     
                             <div>
-                                <div class="flex gap-x-5 items-center">
-                                    <strong class="text-gray-700">Time</strong>
+                                <div class="flex gap-x-12 items-start">
+                                    <strong class="text-gray-700">Branch</strong>
                     
                                     <div class="flex flex-col">
-                                        <x-input type="time" class="text-xs bg-gray-200"  id="time" name="time" />
-                                        @error('time')
-                                        <span class="text-red-500 text-sm mt-1">{{$message}}</span>
-                                        @enderror 
+                                        <x-select name="branch" class="text-sm bg-gray-200">
+                                            <option value=""></option>
+                                            <option value="Maypajo Branch">Maypajo Branch</option>
+                                            <option value="Navotas Branch">Navotas Branch</option>
+                                            <option value="Tayuman Branch">Tayuman Branch</option>
+                                            <option value="Fishermall Branch">Fishermall Branch</option>
+                                            <option value="Legarda Branch">Legarda Branch</option>
+                                        </x-select>
+                                        <x-input-error for="branch" class="mt-1"/>
                                     </div>
                                 </div>
                     
-                                <div class="flex gap-x-5 items-center mt-7">
+                                <div class="flex gap-x-16 items-center mt-7">
                                     <strong class="text-gray-700">Date</strong>
                     
                                     <div class="flex flex-col">
                                         <x-input type="date" class="text-xs bg-gray-200"  id="date" name="date" />
-                                        @error('date')
-                                        <span class="text-red-500 text-sm mt-1">{{$message}}</span>
-                                        @enderror 
+                                        <x-input-error for="date" class="mt-1"/>
                                     </div>
 
                                     <x-input type="hidden" value="TDC" wire:model.lazy="course" id="course" name="course"/>
+
+                                    <x-input type="hidden" value="---" name="vehicle" />
+                                    <x-input type="hidden" value="---" name="driving-course" />
                                 </div>
                             </div>
                         </div>

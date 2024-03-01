@@ -6,11 +6,11 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class TDCIndex extends Controller
+class PDCIndex extends Controller
 {
     public function render(): View
     {
-        return view('customer.tdc.tdc-index');
+        return view('customer.pdc.pdc-index');
     }
 
     public function save(Request $request) {
@@ -18,11 +18,11 @@ class TDCIndex extends Controller
         $validate = $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'branch' => 'required',
-            'date' => 'required',
-            'course' => '',
             'vehicle' => 'required',
+            'branch' => 'required',
             'driving-course' => 'required',
+            'date' => 'required',
+            'course' => ''
         ]);
 
         $data = Customer::create($validate);

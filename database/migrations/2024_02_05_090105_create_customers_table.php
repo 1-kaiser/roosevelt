@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->time('time');
+            $table->string('branch');
             $table->date('date');
             $table->string('course');
+            $table->string('vehicle');
+            $table->string('driving-course');
             $table->timestamps();
         });
     }

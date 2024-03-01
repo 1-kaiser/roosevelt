@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PDCIndex;
 use App\Http\Controllers\TDCIndex;
 use App\Livewire\Admin\AcceptedList\AcceptedListIndex;
 use App\Livewire\Admin\Calendar\CalendarIndex;
@@ -32,9 +33,8 @@ Route::get('/customer', function () {
 Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
 Route::post('/tdc', [TDCIndex::class, 'save'])->name('tdc-save');
 
-Route::get('/pdc', function () {
-    return view('customer/pdc/pdc-index');
-})->name('pdc-index');
+Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
+Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     ->group(function () {
