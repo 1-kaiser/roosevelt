@@ -8,13 +8,13 @@ use Illuminate\View\View;
 
 class TDCIndex extends Controller
 {
+
     public function render(): View
     {
         return view('customer.tdc.tdc-index');
     }
 
     public function save(Request $request) {
-
         $validate = $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -22,7 +22,7 @@ class TDCIndex extends Controller
             'date' => 'required',
             'course' => '',
             'vehicle' => 'required',
-            'driving-course' => 'required',
+            'driving_course' => 'required',
         ]);
 
         $data = Customer::create($validate);

@@ -79,11 +79,11 @@
                                     <strong class="text-gray-700">Course</strong>
                     
                                     <div class="flex flex-col">
-                                        <x-select name="driving-course" class="text-sm bg-gray-200">
+                                        <x-select name="driving_course" class="text-sm bg-gray-200">
                                             <option value=""></option>
                                             <option value="Sedan MT">Sedan MT</option>
                                         </x-select>
-                                        <x-input-error for="driving-course" class="mt-1"/>
+                                        <x-input-error for="driving_course" class="mt-1"/>
                                     </div>
                                 </div>
                     

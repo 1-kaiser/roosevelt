@@ -20,7 +20,7 @@ class PDCIndex extends Controller
             'email' => 'required',
             'vehicle' => 'required',
             'branch' => 'required',
-            'driving-course' => 'required',
+            'driving_course' => 'required',
             'date' => 'required',
             'course' => ''
         ]);
