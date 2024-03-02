@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EnrollCustomer;
+use App\Mail\TDCConfirmation;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class TDCIndex extends Controller
 {
+    public $name;
+    public $email;
+    public $branch;
+    public $date;
+    public $course;
 
     public function render(): View
     {
@@ -27,9 +35,19 @@ class TDCIndex extends Controller
 
         $data = Customer::create($validate);
 
-        ($data)
-        ? session()->flash('success')
-        : session()->flash('error', 'Error while processing your registration');
-            return redirect(route('tdc-index'));  
+        $mailData = [
+            'title' => 'Reserve Confirmation',
+            'body' => 'hoi kaw ba nagpa reserve?'
+        ];
+
+        if ($data) {
+            Mail::to($validate['email'])->send(new TDCConfirmation($mailData));
+            session()->flash('success');
+        } else {
+            session()->flash('error', 'Error while processing your registration');
+            return redirect(route('tdc-index'));
+        }
+        
+        return redirect(route('tdc-index'));
     }
 }

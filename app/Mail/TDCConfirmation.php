@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class EnrollCustomer extends Mailable
+class TDCConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
     public $mailData;
@@ -29,8 +29,8 @@ class EnrollCustomer extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Enroll Customer',
-            from: new Address('rooseveltdrivingschool21@gmail.com', 'Roosevelt Driving School'),
+            subject: 'Reserve Confirmation',
+            from: new Address('rooseveltdrivingschool21@gmail.com', 'Roosevelt Driving School')
         );
     }
 
@@ -40,7 +40,7 @@ class EnrollCustomer extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.customer.tdc',
+            markdown: 'mail.customer.tdc-confirmation',
         );
     }
 

@@ -12,7 +12,6 @@ class WaitlistTable extends Component
 
     public $paginate = 5, $searchCustomer =  '';
         
-
     public function render()
     {
         return view('livewire.admin.waitlist.waitlist-table', [
