@@ -37,7 +37,14 @@ class TDCIndex extends Controller
 
         $mailData = [
             'title' => 'Reserve Confirmation',
-            'body' => 'hoi kaw ba nagpa reserve?'
+            'body' => 'hoi kaw ba nagpa reserve?',
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+            'branch' => $validate['branch'],
+            'date' => $validate['date'],
+            'course' => $validate['course'],
+            'vehicle' => $validate['vehicle'],
+            'driving_course' => $validate['driving_course'],
         ];
 
         if ($data) {

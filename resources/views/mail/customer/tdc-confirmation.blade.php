@@ -1,8 +1,19 @@
 <x-mail::message>
 <strong>{{ $mailData['title']}}</strong>
 
-<span>{{ $mailData['body'] }}</span>
+<p>
+    {{ $mailData['body'] }} <br /><br />
+    Name: {{ $mailData['name']}} <br />
+    Email: {{ $mailData['email'] }} <br />
+    Branch: {{ $mailData['branch'] }} <br />
+    Date: {{ $mailData['date'] }} <br />
+    Course: {{ $mailData['course'] }} <br />
+    Driving Vehicle: {{ $mailData['vehicle'] }} <br />
+    Driving Course: {{ $mailData['driving_course'] }} <br /><br />
+</p>
 
-Thanks,<br>
-{{ config('app.name') }}
+<p>
+    Thanks,<br>
+{{ __('Roosevelt Driving School') }}
+</p>
 </x-mail::message>

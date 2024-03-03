@@ -22,6 +22,7 @@
                 <th class="p-2 whitespace-wrap border border-1">Course</th>
                 <th class="p-2 whitespace-wrap border border-1">Driving Vehicle</th>
                 <th class="p-2 whitespace-wrap border border-1">Driving Course</th>
+                <th class="p-2 whitespace-wrap border border-1">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -36,16 +37,25 @@
                         <td class="p-2 whitespace-wrap border border-1">{{$customer->course}}</td>
                         <td class="p-2 whitespace-wrap border border-1">{{$customer->vehicle}}</td>
                         <td class="p-2 whitespace-wrap border border-1">{{$customer->driving_course}}</td>
-                        {{-- <td class="p-2 whitespace-wrap border border-1">
+                        <td class="p-2 flex gap-2 justify-center flex-wrap border border-1">
 
-                            <x-button @click="$dispatch('dispatch-items-table-edit', { id: '{{ $item->id }}' })" type="button" class="text-sm text-white bg-sky-700">Edit</x-button>
+                            <x-button @click="$wire.accepted({ name: '{{ $customer->name }}' })" class="text-sm text-white bg-sky-700">Accept</x-button>
                             
-                            <x-danger-button @click="$dispatch('dispatch-items-table-delete', { id: '{{ $item->id }}', name: '{{ $item->name }}' })" type="button" class="text-sm text-white">Delete</x-danger-button>
-                        </td> --}}
+                            <x-danger-button type="button" class="text-sm text-white">Deny</x-danger-button>
+                        </td>
                     </tr>
                 @endforeach
             @endisset
         </tbody>
     </table>
+    @if(session()->has('success'))
+        <script>
+            Swal.fire({
+            icon: "success",
+            title: "Registered Successfully",
+            text: "Please wait for the confirmation",
+            });
+        </script>
+    @endif
     <div class="mt-3">{{$data->links()}}</div>
 </div>
