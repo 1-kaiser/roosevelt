@@ -4,6 +4,7 @@ use App\Http\Controllers\PDCIndex;
 use App\Http\Controllers\TDCIndex;
 use App\Livewire\Admin\AcceptedList\AcceptedListIndex;
 use App\Livewire\Admin\Calendar\CalendarIndex;
+use App\Livewire\Admin\Dashboard\DashboardIndex;
 use App\Livewire\Admin\Instructor\InstructorIndex;
 use App\Livewire\Admin\ScheduleList\ScheduleListIndex;
 use App\Livewire\Admin\Waitlist\WaitlistIndex;
@@ -38,10 +39,8 @@ Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     ->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
+    Route::get('/dashboard', DashboardIndex::class)->name('dashboard');
     Route::get('/waitlist', WaitlistIndex::class)->name('waitlist');
     Route::get('/accepted-list', AcceptedListIndex::class)->name('accepted-list');
     Route::get('/schedule-list', ScheduleListIndex::class)->name('schedule-list');
