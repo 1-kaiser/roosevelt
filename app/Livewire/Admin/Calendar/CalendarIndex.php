@@ -10,6 +10,7 @@ use Livewire\Component;
 class CalendarIndex extends Component
 {
     #[Title('Calendar')]
+    #[On('dispatch-event-create')]
     public function render(): View
     {
         return view('livewire.admin.calendar.calendar-index');

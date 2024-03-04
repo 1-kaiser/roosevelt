@@ -46,16 +46,19 @@
                     </tr>
                 @endforeach
             @endisset
+            <script>
+                window.addEventListener("swal", (event) => {
+                    let data = event.detail;
+        
+                    Swal.fire({
+                        title: data.title,
+                        text: data.text,
+                        icon: data.icon,
+                    });
+                });
+            </script>
         </tbody>
     </table>
-    @if(session()->has('success'))
-        <script>
-            Swal.fire({
-            icon: "success",
-            title: "Registered Successfully",
-            text: "Please wait for the confirmation",
-            });
-        </script>
-    @endif
+    
     <div class="mt-3">{{$data->links()}}</div>
 </div>

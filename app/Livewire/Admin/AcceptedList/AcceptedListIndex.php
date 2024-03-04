@@ -9,6 +9,7 @@ use Livewire\Component;
 class AcceptedListIndex extends Component
 {
     #[Title('Accepted List')]
+    
     public function render(): View
     {
         return view('livewire.admin.accepted-list.accepted-list-index');

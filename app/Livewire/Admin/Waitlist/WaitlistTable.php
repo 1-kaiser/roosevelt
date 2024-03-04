@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Waitlist;
 
+use App\Livewire\Admin\AcceptedList\AcceptedListTable;
 use App\Models\AcceptedList;
 use App\Models\Customer;
 use Livewire\Component;
@@ -27,24 +28,26 @@ class WaitlistTable extends Component
         $getData = Customer::where('name', '=', $name)->get()->toArray();
         
         foreach ($getData as $data) {
-            $inserted = AcceptedList::insert([
-                        'name' => $data['name'],
-                        'email' => $data['email'],
-                        'branch' => $data['branch'],
-                        'date' => $data['date'],
-                        'course' => $data['course'],
-                        'vehicle' => $data['vehicle'],
-                        'driving_course' => $data['driving_course'],
+            AcceptedList::insert([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'branch' => $data['branch'],
+                'date' => $data['date'],
+                'course' => $data['course'],
+                'vehicle' => $data['vehicle'],
+                'driving_course' => $data['driving_course'],
             ]);
-
-            if ($inserted) {
-                session()->flash('success');
-            }
         }
 
-        $sourceData->each->delete();
-        
-    }
+        $this->dispatch('swal',
+            title: 'Success',
+            text: 'Customer successfully transferred',
+            icon: 'success',
+        );
 
+        $this->dispatch('dispatch-customer-accepted')->to(AcceptedListTable::class);
+
+        $sourceData->each->delete();  
+    }
 
 }

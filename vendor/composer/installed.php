@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c9a6dd31b1e949c0bab140c95e164d06353193aa',
+        'reference' => '2980efbc47bda1a0e4f60ce68c1d46f3496e281f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'asantibanez/livewire-charts' => array(
+            'pretty_version' => 'v3.0.1',
+            'version' => '3.0.1.0',
+            'reference' => 'd58465084e24dd3b3d587039a27e934ff1c02304',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../asantibanez/livewire-charts',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'bacon/bacon-qr-code' => array(
             'pretty_version' => '2.0.8',
             'version' => '2.0.8.0',
@@ -454,7 +463,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c9a6dd31b1e949c0bab140c95e164d06353193aa',
+            'reference' => '2980efbc47bda1a0e4f60ce68c1d46f3496e281f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
