@@ -15,7 +15,7 @@
 
       {{-- CALENDAR --}}
 
-        <x-customer-calendar />
+        {{-- <x-customer-calendar /> --}}
 
       {{-- CALENDAR --}}
       

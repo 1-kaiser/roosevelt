@@ -121,6 +121,10 @@
         </div>
 
         <div class="mt-40">
+            <x-customer-calendar />
+        </div>
+
+        <div class="mt-40">
             <x-customer-footer />
         </div>
     </x-guest-layout>

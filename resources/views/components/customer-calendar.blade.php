@@ -1,7 +1,7 @@
-<div id="Calendar" class="mt-20 ml-10">
+{{-- <div id="Calendar" class="mt-20 ml-10">
     <strong class="text-3xl">Calendar</strong>
     <p>See what is available on your schedule</p>
-</div>
+</div> --}}
 
 <div class="mx-20 my-16">
     <livewire:admin.calendar.reservation-calendar 
