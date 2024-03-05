@@ -29,7 +29,7 @@ class TDCConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Reserve Confirmation',
+            subject: 'Reservation Request',
             from: new Address('rooseveltdrivingschool21@gmail.com', 'Roosevelt Driving School')
         );
     }

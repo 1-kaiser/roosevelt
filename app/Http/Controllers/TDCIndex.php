@@ -36,7 +36,7 @@ class TDCIndex extends Controller
         $data = Customer::create($validate);
 
         $mailData = [
-            'title' => 'Reserve Confirmation',
+            'title' => 'Reservation Request',
             'body' => 'hoi kaw ba nagpa reserve?',
             'name' => $validate['name'],
             'email' => $validate['email'],
