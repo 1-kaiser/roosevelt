@@ -45,5 +45,6 @@
 
         @livewireScripts
         @livewireCalendarScripts
+        @livewireChartsScripts
     </body>
 </html>
