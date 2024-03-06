@@ -59,7 +59,7 @@
     
                             <div class="flex flex-col items-start">
 
-                                <div class="flex gap-x-6 items-start">
+                                <div class="flex gap-x-20 items-start">
                                     <strong class="text-gray-700">Branch</strong>
                     
                                     <div class="flex flex-col">
@@ -75,19 +75,20 @@
                                     </div>
                                 </div>
 
-                                <div class="flex gap-x-6 items-star mt-7">
-                                    <strong class="text-gray-700">Course</strong>
+                                <div class="flex gap-x-9 items-star mt-7">
+                                    <strong class="text-gray-700">Transmission</strong>
                     
                                     <div class="flex flex-col">
-                                        <x-select name="driving_course" class="text-sm bg-gray-200">
+                                        <x-select name="transmission" class="text-sm bg-gray-200">
                                             <option value=""></option>
-                                            <option value="Sedan MT">Sedan MT</option>
+                                            <option value="Manual">Manual</option>
+                                            <option value="Automatic">Automatic</option>
                                         </x-select>
-                                        <x-input-error for="driving_course" class="mt-1"/>
+                                        <x-input-error for="transmission" class="mt-1"/>
                                     </div>
                                 </div>
                     
-                                <div class="flex gap-x-10 items-start mt-7">
+                                <div class="flex gap-x-24 items-start mt-7">
                                     <strong class="text-gray-700">Date</strong>
                     
                                     <div class="flex flex-col">

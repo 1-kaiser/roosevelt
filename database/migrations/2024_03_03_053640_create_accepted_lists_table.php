@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('course');
             $table->string('vehicle');
-            $table->string('driving_course');
+            $table->string('transmission');
             $table->timestamps();
         });
     }

@@ -20,8 +20,12 @@
                         {{ __('Waitlist') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('accepted-list') }}" wire:navigate :active="request()->routeIs('accepted-list')">
-                        {{ __('Accepted List') }}
+                    <x-nav-link href="{{ route('tdc-accepted-list') }}" wire:navigate :active="request()->routeIs('tdc-accepted-list')">
+                        {{ __('TDC Accepted List') }}
+                    </x-nav-link>
+
+                    <x-nav-link href="{{ route('pdc-accepted-list') }}" wire:navigate :active="request()->routeIs('pdc-accepted-list')">
+                        {{ __('PDC Accepted List') }}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('calendar') }}" wire:navigate :active="request()->routeIs('calendar')">
@@ -167,8 +171,12 @@
                 {{ __('Waitlist') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('accepted-list') }}" wire:navigate :active="request()->routeIs('accepted-list')">
-                {{ __('Accepted List') }}
+            <x-responsive-nav-link href="{{ route('tdc-accepted-list') }}" wire:navigate :active="request()->routeIs('tdc-accepted-list')">
+                {{ __('TDC Accepted List') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('pdc-accepted-list') }}" wire:navigate :active="request()->routeIs('pdc-accepted-list')">
+                {{ __('PDC Accepted List') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link href="{{ route('calendar') }}" wire:navigate :active="request()->routeIs('calendar')">

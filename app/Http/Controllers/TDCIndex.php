@@ -30,7 +30,7 @@ class TDCIndex extends Controller
             'date' => 'required',
             'course' => '',
             'vehicle' => 'required',
-            'driving_course' => 'required',
+            'transmission' => 'required',
         ]);
 
         $data = Customer::create($validate);
@@ -44,7 +44,7 @@ class TDCIndex extends Controller
             'date' => $validate['date'],
             'course' => $validate['course'],
             'vehicle' => $validate['vehicle'],
-            'driving_course' => $validate['driving_course'],
+            'transmission' => $validate['transmission'],
         ];
 
         if ($data) {

@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Waitlist;
 
 use App\Livewire\Admin\AcceptedList\AcceptedListTable;
+use App\Livewire\Admin\AcceptedList\TdcAcceptedList;
 use App\Models\AcceptedList;
 use App\Models\Customer;
 use Livewire\Component;
@@ -35,7 +36,7 @@ class WaitlistTable extends Component
                 'date' => $data['date'],
                 'course' => $data['course'],
                 'vehicle' => $data['vehicle'],
-                'driving_course' => $data['driving_course'],
+                'transmission' => $data['transmission'],
             ]);
         }
 
@@ -45,7 +46,7 @@ class WaitlistTable extends Component
             icon: 'success',
         );
 
-        $this->dispatch('dispatch-customer-accepted')->to(AcceptedListTable::class);
+        $this->dispatch('dispatch-customer-accepted')->to(TdcAcceptedList::class);
 
         $sourceData->each->delete();  
     }

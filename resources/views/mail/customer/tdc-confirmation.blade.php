@@ -9,7 +9,7 @@
     Date: {{ $mailData['date'] }} <br />
     Course: {{ $mailData['course'] }} <br />
     Driving Vehicle: {{ $mailData['vehicle'] }} <br />
-    Driving Course: {{ $mailData['driving_course'] }} <br /><br />
+    Driving Course: {{ $mailData['transmission'] }} <br /><br />
 </p>
 
 <p>

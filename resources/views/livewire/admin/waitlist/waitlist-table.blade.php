@@ -21,7 +21,7 @@
                 <th class="p-2 whitespace-wrap border border-1">Date</th>
                 <th class="p-2 whitespace-wrap border border-1">Course</th>
                 <th class="p-2 whitespace-wrap border border-1">Driving Vehicle</th>
-                <th class="p-2 whitespace-wrap border border-1">Driving Course</th>
+                <th class="p-2 whitespace-wrap border border-1">Transmission</th>
                 <th class="p-2 whitespace-wrap border border-1">Action</th>
             </tr>
         </thead>
@@ -36,7 +36,7 @@
                         <td class="p-2 whitespace-wrap border border-1">{{$customer->date}}</td>
                         <td class="p-2 whitespace-wrap border border-1">{{$customer->course}}</td>
                         <td class="p-2 whitespace-wrap border border-1">{{$customer->vehicle}}</td>
-                        <td class="p-2 whitespace-wrap border border-1">{{$customer->driving_course}}</td>
+                        <td class="p-2 whitespace-wrap border border-1">{{$customer->transmission}}</td>
                         <td class="p-2 flex gap-2 justify-center flex-wrap border border-1">
 
                             <x-button @click="$wire.accepted({ name: '{{ $customer->name }}' })" class="text-sm text-white bg-sky-700">Accept</x-button>

@@ -16,6 +16,6 @@ class Customer extends Model
         'date',
         'course',
         'vehicle',
-        'driving_course',
+        'transmission',
     ];
 }

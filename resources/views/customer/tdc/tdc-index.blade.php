@@ -74,7 +74,7 @@
                                     <x-input type="hidden" value="TDC" wire:model.lazy="course" id="course" name="course"/>
 
                                     <x-input type="hidden" value="---" name="vehicle" />
-                                    <x-input type="hidden" value="---" name="driving_course" />
+                                    <x-input type="hidden" value="---" name="transmission" />
                                 </div>
                             </div>
                         </div>
