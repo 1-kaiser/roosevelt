@@ -98,6 +98,14 @@
                     @endforeach
                 @endisset
 
+                <div class="mt-1">
+                    <x-label for="instructor" value="Instructor" />
+                    <x-select class="mt-2">
+                        <option value=""></option>
+                        <option value="asdk">asdf</option>
+                    </x-select>
+                </div>
+
             </div>
         </x-slot>
     
