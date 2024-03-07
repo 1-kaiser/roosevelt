@@ -41,7 +41,7 @@
 
                             <x-button @click="$wire.accepted({ name: '{{ $customer->name }}' })" class="text-sm text-white bg-sky-700">Accept</x-button>
                             
-                            <x-danger-button type="button" class="text-sm text-white">Deny</x-danger-button>
+                            <x-danger-button @click="$wire.denied({ name: '{{ $customer->name }}' })" class="text-sm text-white">Deny</x-danger-button>
                         </td>
                     </tr>
                 @endforeach

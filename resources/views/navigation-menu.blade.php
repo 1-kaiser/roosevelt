@@ -28,6 +28,10 @@
                         {{ __('PDC Accepted List') }}
                     </x-nav-link>
 
+                    <x-nav-link href="{{ route('denied-history') }}" wire:navigate :active="request()->routeIs('denied-history')">
+                        {{ __('Denied History') }}
+                    </x-nav-link>
+
                     <x-nav-link href="{{ route('instructor') }}" wire:navigate :active="request()->routeIs('instructor')">
                         {{ __('Instructor') }}
                     </x-nav-link>
@@ -177,6 +181,10 @@
 
             <x-responsive-nav-link href="{{ route('pdc-accepted-list') }}" wire:navigate :active="request()->routeIs('pdc-accepted-list')">
                 {{ __('PDC Accepted List') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('denied-history') }}" wire:navigate :active="request()->routeIs('denied-history')">
+                {{ __('Denied History') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link href="{{ route('instructor') }}" wire:navigate :active="request()->routeIs('instructor')">

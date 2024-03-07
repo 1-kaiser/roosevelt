@@ -5,9 +5,11 @@ namespace App\Livewire\Admin\AcceptedList;
 use App\Models\AcceptedList;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class PdcAcceptedList extends Component
 {
+    use WithPagination;
     public $paginate = 5, $searchCustomer = '';
 
     #[Title('PDC')]
