@@ -46,11 +46,33 @@
                                         <td class="p-2 whitespace-wrap border border-1">{{$customer->course}}</td>
                                         <td class="p-2 flex gap-2 justify-center flex-wrap border border-1">
                                             
-                                            <x-danger-button @click="$wire.denied({ name: '{{ $customer->name }}' })" class="text-sm text-white">Delete Permanently</x-danger-button>
+                                            <x-danger-button @click="$wire.confirmDelete({ name: '{{ $customer->name }}' })" class="text-sm text-white">Delete Permanently</x-danger-button>
                                         </td>
                                     </tr>
                                 @endforeach
                             @endisset
+                            <script>
+                                window.addEventListener("confirm-delete", function() {
+                                    Swal.fire({
+                                        title: "Are you sure?",
+                                        text: "You won't be able to revert this!",
+                                        icon: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Yes, delete it!"
+                                        }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            @this.delete()
+                                            Swal.fire({
+                                            title: "Deleted!",
+                                            text: "Your file has been deleted.",
+                                            icon: "success"
+                                            });
+                                        }
+                                    }); 
+                                });
+                            </script>
                         </tbody>
                     </table>
                     <div class="mt-3">{{$data->links()}}</div>

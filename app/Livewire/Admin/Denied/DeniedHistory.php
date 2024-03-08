@@ -11,6 +11,7 @@ class DeniedHistory extends Component
 {
     use WithPagination;
     public $paginate = 5, $searchCustomer = '';
+    public $modelName;
 
     #[Title('Denied')]
     public function render()
@@ -19,5 +20,15 @@ class DeniedHistory extends Component
             'data' => DeniedList::where('name', 'like', '%' . $this->searchCustomer . '%')
             ->paginate($this->paginate)
         ]);
+    }
+
+    public function confirmDelete($name) 
+    {
+        $this->modelName = DeniedList::where('name', '=', $name)->get();
+        $this->dispatch('confirm-delete');
+    }
+
+    public function delete() {
+        $this->modelName->each->delete();
     }
 }

@@ -49,7 +49,6 @@
             <script>
                 window.addEventListener("swal", (event) => {
                     let data = event.detail;
-        
                     Swal.fire({
                         title: data.title,
                         text: data.text,
