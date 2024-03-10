@@ -4,9 +4,11 @@ namespace App\Livewire\Admin\Instructor;
 
 use App\Livewire\Forms\InstructorForm;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class InstructorCreate extends Component
 {
+    use WithFileUploads;
     public InstructorForm $form;
 
     public $modalInstructorCreate = false;
@@ -15,8 +17,8 @@ class InstructorCreate extends Component
         $this->validate();
         $created = $this->form->store();
 
-        is_null($created)
-        ? $this->dispatch('notify', title: 'success', message: '')
+        ($created)
+        ? $this->dispatch('swal')
         : $this->dispatch('notify', title: 'fail', message: '');
     }
     

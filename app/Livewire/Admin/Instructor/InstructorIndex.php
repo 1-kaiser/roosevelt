@@ -17,6 +17,9 @@ class InstructorIndex extends Component
     #[Title('Instructor')]
     public function render(): View
     {
-        return view('livewire.admin.instructor.instructor-index');
+        return view('livewire.admin.instructor.instructor-index', [
+            'data' => Instructor::where('f_name', 'like', '%' . $this->searchCustomer . '%')
+            ->paginate($this->paginate)
+        ]);
     }
 }
