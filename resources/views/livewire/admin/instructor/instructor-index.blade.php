@@ -37,23 +37,24 @@
                                 <th class="p-2 whitespace-wrap border border-1">Contact</th>
                                 <th class="p-2 whitespace-wrap border border-1">Gender</th>
                                 <th class="p-2 whitespace-wrap border border-1">Age</th>
+                                <th class="p-2 whitespace-wrap border border-1">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @isset($data)
-                                @foreach ($data as $customer)
+                                @foreach ($data as $instructor)
                                     <tr align="center">
-                                        <td class="p-2 whitespace-wrap border border-1">{{$customer->id}}</td>
-                                        <td class="p-2 whitespace-wrap border border-1"><img src="{{ asset('img/instructor/' . $customer->pic) }}" width="80" height="80" /></td>
-                                        <td class="p-2 whitespace-wrap border border-1">{{$customer->f_name}}</td>
-                                        <td class="p-2 whitespace-wrap border border-1">{{$customer->l_name}}</td>
-                                        <td class="p-2 whitespace-wrap border border-1">{{$customer->email}}</td>
-                                        <td class="p-2 whitespace-wrap border border-1">{{$customer->contact}}</td>
-                                        <td class="p-2 whitespace-wrap border border-1">{{$customer->gender}}</td>
-                                        <td class="p-2 whitespace-wrap border border-1">{{$customer->age}}</td>
+                                        <td class="p-2 whitespace-wrap border border-1">{{$instructor->id}}</td>
+                                        <td class="p-2 whitespace-wrap border border-1"><img src="{{ asset('storage/'.$instructor->pic) }}" class="w-22 h-16" /></td>
+                                        <td class="p-2 whitespace-wrap border border-1">{{$instructor->f_name}}</td>
+                                        <td class="p-2 whitespace-wrap border border-1">{{$instructor->l_name}}</td>
+                                        <td class="p-2 whitespace-wrap border border-1">{{$instructor->email}}</td>
+                                        <td class="p-2 whitespace-wrap border border-1">{{$instructor->contact}}</td>
+                                        <td class="p-2 whitespace-wrap border border-1">{{$instructor->gender}}</td>
+                                        <td class="p-2 whitespace-wrap border border-1">{{$instructor->age}}</td>
                                         <td class="p-2 flex gap-2 justify-center flex-wrap border border-1">
                                             
-                                            <x-danger-button @click="$wire.denied({ name: '{{ $customer->name }}' })" class="text-sm text-white">Delete Permanently</x-danger-button>
+                                            <x-button @click="$wire.denied({ name: '{{ $instructor->name }}' })" class="text-sm text-white">View</x-button>
                                         </td>
                                     </tr>
                                 @endforeach

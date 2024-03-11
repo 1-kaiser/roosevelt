@@ -18,9 +18,6 @@ class TdcAcceptedList extends Component
     {
         $this->modalTDCEdit = true;
         $this->accepted = AcceptedList::where('name', '=', $name)->get();
-
-        
-        
     }
 
     #[Title('TDC')]

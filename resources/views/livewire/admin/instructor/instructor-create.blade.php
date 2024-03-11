@@ -10,53 +10,54 @@
 
             <div class="mt-1 flex flex-col items-center">
 
-                @if ($this->form->pic)
-                <img src="{{ $this->form->pic->temporaryUrl() }}" alt="Preview" style="max-width: 100%; max-height: 200px;">
+                @if ($this->pic)
+                <img src="{{ $this->pic->temporaryUrl() }}" alt="Preview" style="max-width: 100%; max-height: 200px;">
                 @endif
-                <x-label for="form.pic" value="Image" class="mt-2" />
-                <x-input wire:model.lazy="form.pic" wire:model="$this->form->pic" id="form.pic" name="form.pic" type="file" class="mt-2 pl-24" require autocomplete="form.pic" />
-                <x-input-error for="form.pic" class="mt-1"/>
+                <x-label for="pic" value="Image" class="mt-2" />
+                <x-input wire:model.lazy="pic" wire:model="pic" id="pic" name="pic" type="file" class="mt-2 pl-24" require autocomplete="pic" enctype="multipart/-data" />
+                <x-input-error for="$this->pic" class="mt-1"/>
             </div>
             
             <div class="grid grid-cols-2 gap-4 mt-5">
 
                 <div class="mt-1">
-                    <x-label for="form.f_name" value="First Name" />
-                    <x-input wire:model.lazy="form.f_name" id="form.f_name" name="form.f_name" type="text" class="mt-2 w-full text-black" require autocomplete="form.f_name" />
-                    <x-input-error for="form.f_name" class="mt-1"/>
+                    <x-label for="f_name" value="First Name" />
+                    <x-input wire:model.lazy="f_name" id="f_name" name="f_name" type="text" class="mt-2 w-full text-black" require autocomplete="f_name" />
+                    <x-input-error for="f_name" class="mt-1"/>
                 </div>
 
                 <div class="mt-1">
-                    <x-label for="form.l_name" value="Last Name" />
-                    <x-input wire:model.lazy="form.l_name" id="form.l_name" name="form.l_name" type="text" class="mt-2 w-full text-black" require autocomplete="form.l_name" />
-                    <x-input-error for="form.l_name" class="mt-1"/>
+                    <x-label for="l_name" value="Last Name" />
+                    <x-input wire:model.lazy="l_name" id="l_name" name="l_name" type="text" class="mt-2 w-full text-black" require autocomplete="l_name" />
+                    <x-input-error for="l_name" class="mt-1"/>
                 </div> 
 
                 <div class="mt-1">
-                    <x-label for="form.email" value="Email" />
-                    <x-input wire:model.lazy="form.email" id="form.email" name="form.email" type="email" class="mt-2 w-full text-black" require autocomplete="form.email" />
-                    <x-input-error for="form.email" class="mt-1"/>
+                    <x-label for="email" value="Email" />
+                    <x-input wire:model.lazy="email" id="email" name="email" type="email" class="mt-2 w-full text-black" require autocomplete="email" />
+                    <x-input-error for="email" class="mt-1"/>
                 </div> 
 
                 <div class="mt-1">
-                    <x-label for="form.contact" value="Contact" />
-                    <x-input wire:model.lazy="form.contact" id="form.contact" name="form.contact" type="number" class="mt-2 w-full text-black" require autocomplete="form.contact" />
-                    <x-input-error for="form.contact" class="mt-1"/>
+                    <x-label for="contact" value="Contact" />
+                    <x-input wire:model.lazy="contact" id="contact" name="contact" type="number" class="mt-2 w-full text-black" require autocomplete="contact" />
+                    <x-input-error for="contact" class="mt-1"/>
                 </div> 
 
                 <div class="mt-1">
-                    <x-label for="form.gender" value="Gender" />
-                    <x-select wire:model.lazy="form.gender" id="form.gender" name="form.gender" >
+                    <x-label for="gender" value="Gender" />
+                    <x-select wire:model.lazy="gender" id="gender" name="gender" >
                         <option value=""></option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </x-select>
+                    <x-input-error for="gender" class="mt-1"/>
                 </div> 
 
                 <div class="mt-1">
-                    <x-label for="form.age" value="Age" />
-                    <x-input wire:model.lazy="form.age" id="form.age" name="form.age" type="number" class="mt-2 w-full text-black" require autocomplete="form.age" />
-                    <x-input-error for="form.age" class="mt-1"/>
+                    <x-label for="age" value="Age" />
+                    <x-input wire:model.lazy="age" id="age" name="age" type="number" class="mt-2 w-full text-black" require autocomplete="age" />
+                    <x-input-error for="age" class="mt-1"/>
                 </div> 
             </div>
         </x-slot>
@@ -76,6 +77,7 @@
         window.addEventListener("swal", () => {
             Swal.fire({
                 title: "Instructor Created",
+
                 icon: "success"
             });
         });

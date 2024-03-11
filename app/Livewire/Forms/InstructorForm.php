@@ -3,16 +3,22 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Instructor;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Form;
 use Livewire\Attributes\Rule;
+use Livewire\WithFileUploads;
 
 class InstructorForm extends Form 
 {
+    use WithFileUploads;
     public Instructor $instructor;
 
     public $id;
 
-    #[Rule('required', as: 'Image')]
+    public $path = 'img';
+
+    #[Rule('required|image|mimes:jpeg,png,jpg,gif|max:2048', as: 'Image')]
     public $pic;
 
     #[Rule('required|min:3', as: 'First Name')]
@@ -46,16 +52,20 @@ class InstructorForm extends Form
     }
 
     public function store() {
-        Instructor::create($this->except(['instructor']));
+        Storage::disk('public')->put($this->path, $this->pic);
+        Instructor::create(
+            ['pic' => $this->pic->store()],
+            $this->except(['instructor'])
+        );
     }
 
-    public function update() {
-        $this->instructor->update($this->except(['instructor']));
-    }
+    // public function update() {
+    //     $this->instructor->update($this->except(['instructor']));
+    // }
 
-    public function delete() {
-        $this->instructor->delete($this->except(['instructor']));
-    }
+    // public function delete() {
+    //     $this->instructor->delete($this->except(['instructor']));
+    // }
 
 }
 

@@ -16,7 +16,6 @@ class InstructorFactory extends Factory
      */
     public function definition(): array
     {
-        $pic = 'https://randomuser.me/api/portraits/men/75.jpg';
         $phCode = '+639';
 
         return [

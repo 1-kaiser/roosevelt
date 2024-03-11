@@ -26,13 +26,13 @@ class CustomerFactory extends Factory
         //     $customTransmission = ['Manual', 'Automatic'];
         // }
 
-        $customCourse = ['TDC'];
-        $customVehicle = ['---'];
-        $customTransmission = ['---'];
+        // $customCourse = ['TDC'];
+        // $customVehicle = ['---'];
+        // $customTransmission = ['---'];
         
-        // $customCourse = ['PDC'];
-        // $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
-        // $customTransmission = ['Manual', 'Automatic'];
+        $customCourse = ['PDC'];
+        $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
+        $customTransmission = ['Manual', 'Automatic'];
         
         return [
             'name' => $this->faker->name(),

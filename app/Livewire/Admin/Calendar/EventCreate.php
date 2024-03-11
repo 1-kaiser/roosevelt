@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Calendar;
 use App\Livewire\Forms\EventForm;
 use App\Mail\EnrollCustomer;
 use Illuminate\Support\Facades\Mail;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class EventCreate extends Component
@@ -13,6 +14,7 @@ class EventCreate extends Component
 
     public $modalEventCreate = false;
 
+    #[On('dispatch-event-create')]
     public function save() {
         $this->validate();
         $this->form->store();
