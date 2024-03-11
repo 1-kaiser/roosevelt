@@ -8,6 +8,8 @@
     <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-wrap gap-5">
 
+            <livewire:admin.dashboard.summary />
+
             <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{-- <x-welcome /> --}}
                 <livewire:admin.dashboard.column-chart />
@@ -19,10 +21,8 @@
 
             <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('Recently Logged In') }}
+                    {{ __('Users') }}
                 </h2>
-
-                
             </div>
         </div>
     </div>

@@ -20,7 +20,7 @@ class LineChart extends Component
 
         $pdcQuery = Customer::query();
         $pdcQuery->where('course', 'like', '%' . 'PDC' . '%');
-        $pdcCount = $pdcQuery->count();
+        $pdcCount = $pdcQuery->count();     
         $pdcTimesHundred = $pdcCount * 100;
 
         // ACCEPTED LIST
