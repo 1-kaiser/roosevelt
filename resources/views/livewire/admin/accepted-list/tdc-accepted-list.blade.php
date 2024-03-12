@@ -102,10 +102,13 @@
                     <x-label for="instructor" value="Instructor" />
                     <x-select class="mt-2">
                         <option value=""></option>
-                        <option value="asdk">asdf</option>
+                        @isset($instructor)
+                            @foreach ($instructor as $ins)
+                                <option value="{{$ins->f_name}}">{{$ins->f_name}}</option>
+                            @endforeach
+                        @endisset
                     </x-select>
                 </div>
-
             </div>
         </x-slot>
     
