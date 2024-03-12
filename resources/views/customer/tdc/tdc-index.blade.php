@@ -12,7 +12,7 @@
                     <p class="mt-6">
                         The Theoretical Driving Course (TDC) is a 15-hr classroom module for 2 <br> days. This is a mandatory course for Student Permit applicants. Students <br> are required to pass the Final Written Exam after course completion. If passed, <br> Roosevelt Driving School electronically transmits to LTO-IT System and issues <br> TDC Certification of Completion.
                     </p>
-                    <p class="text-2xl text-red-500 mt-10">PHP 1,000.00</p>
+                    <p class="text-2xl text-red-500 mt-10">PHP 500.00</p>
 
                     <form action="" method="POST" class="float-center absolute mt-10">
                         @csrf
@@ -100,7 +100,14 @@
             </div>
         </div>
 
-        <div class="mt-40">
+        <div class="mt-44 ml-44 shadow-xl w-[70%]">
+            <div class="p-6">
+                <strong class="text-black">Reservation details:</strong>
+                <p class="mt-2">To reserve a slot, <strong>downpayment worth 500 pesos fee is required</strong>. Full payment of registration will be valid only for 90 days. <br /> <strong>Cancellation</strong> of you confirmed Training sessions/schedules will incur a 20% fee. The driving course is <strong>NON-TRANSFERABLE</strong>. Request for enrolment cancelation and/or course downgrade is subject to company's approval. The company reserves the right to reject refund of the total course fee or any payment made upon enrolment.</p>
+            </div>
+        </div>
+
+        <div class="mt-36">
             <x-customer-calendar />
         </div>
 

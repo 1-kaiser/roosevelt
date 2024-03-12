@@ -2,18 +2,11 @@
 <strong>{{ $mailData['title']}}</strong>
 
 <p>
-    {{ $mailData['body'] }} <br /><br />
-    Name: {{ $mailData['name']}} <br />
-    Email: {{ $mailData['email'] }} <br />
-    Branch: {{ $mailData['branch'] }} <br />
-    Date: {{ $mailData['date'] }} <br />
-    Course: {{ $mailData['course'] }} <br />
-    Driving Vehicle: {{ $mailData['vehicle'] }} <br />
-    Driving Course: {{ $mailData['transmission'] }} <br /><br />
+    Hello <strong>{{ $mailData['name']}}</strong>. This is auto generated email for reservation request. Please reply <strong>YES</strong> to confirm your reservation and to notify the admin for your driving lessons on <strong>{{ $mailData['date'] }}</strong>. Reply NO if you wish to cancel your reservation.
 </p>
 
 <p>
-    Thanks,<br>
-{{ __('Roosevelt Driving School') }}
+    Regards,<br>
+{{ __('Solid Driving School') }}
 </p>
 </x-mail::message>

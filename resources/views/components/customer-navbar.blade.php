@@ -1,6 +1,6 @@
-<div class="navbar bg-amber-500 p-1 sticky top-0 z-10">
+<div class="navbar bg-amber-400 p-1 sticky top-0 z-10">
     <div class="flex-1">
-      <a class="btn btn-ghost text-xl"><x-authentication-card-logo /></a>
+      <a class="btn btn-ghost"><x-authentication-card-logo /></a>
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-4 text-black font-bold">

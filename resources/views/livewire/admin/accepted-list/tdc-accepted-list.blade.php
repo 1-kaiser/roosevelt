@@ -100,7 +100,7 @@
 
                 <div class="mt-1">
                     <x-label for="instructor" value="Instructor" />
-                    <x-select class="mt-2">
+                    <x-select class="mt-2 text-black">
                         <option value=""></option>
                         @isset($instructor)
                             @foreach ($instructor as $ins)

@@ -18,6 +18,16 @@
                     <x-label for="form.description" value="Description" />
                     <x-input wire:model.lazy="form.description" id="form.description" name="form.description" type="text" class="mt-2 w-full text-black" require autocomplete="form.description" />
                     <x-input-error for="form.description" class="mt-1"/>
+                </div>
+
+                <div class="mt-1">
+                    <x-label for="form.status" value="Status" />
+                    <x-select class="mt-2 text-black w-full" wire:model.lazy="form.status">
+                        <option value=""></option>
+                        <option value="Reserved">Reserved</option>
+                        <option value="Not Reserved">Not Reserved</option>
+                    </x-select>
+                    <x-input-error for="form.status" class="mt-1"/>
                 </div> 
 
                 <div class="mt-1">
@@ -27,9 +37,16 @@
                 </div> 
 
                 <div class="mt-1">
-                    <x-label for="form.time" value="Time" />
-                    <x-input wire:model.lazy="form.time" id="form.time" name="form.time" type="time" class="mt-2 w-full text-black" require autocomplete="form.time" />
-                    <x-input-error for="form.time" class="mt-1"/>
+                    <x-label for="form.branch" value="Branch" />
+                    <x-select name="form.branch" class="mt-2 text-black w-full" wire:model.lazy="form.branch">
+                        <option value=""></option>
+                        <option value="Maypajo Branch">Maypajo Branch</option>
+                        <option value="Navotas Branch">Navotas Branch</option>
+                        <option value="Tayuman Branch">Tayuman Branch</option>
+                        <option value="Fishermall Branch">Fishermall Branch</option>
+                        <option value="Legarda Branch">Legarda Branch</option>
+                    </x-select>
+                    <x-input-error for="form.branch" class="mt-1"/>
                 </div> 
             </div>
         </x-slot>

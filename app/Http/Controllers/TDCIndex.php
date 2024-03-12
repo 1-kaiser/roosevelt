@@ -37,7 +37,6 @@ class TDCIndex extends Controller
 
         $mailData = [
             'title' => 'Reservation Request',
-            'body' => 'hoi kaw ba nagpa reserve?',
             'name' => $validate['name'],
             'email' => $validate['email'],
             'branch' => $validate['branch'],

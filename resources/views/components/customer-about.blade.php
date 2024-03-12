@@ -5,7 +5,7 @@
         <div class="relative mx-auto max-w-5xl text-center">
             <h2
                 class="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
-                About Roosevelt Driving School
+                About Solid Driving School
             </h2>
             <p
                 class="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">

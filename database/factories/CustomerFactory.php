@@ -18,14 +18,6 @@ class CustomerFactory extends Factory
     {
         $customBranch = ['Maypajo Branch', 'Navotas Branch', 'Tayuman Branch', 'Fishermall Branch', 'Legarda Branch'];
 
-        // if ($customCourse[] = 'TDC') {
-        //     $customVehicle = ['---'];
-        //     $customTransmission = ['---'];
-        // } else if ($customCourse[] = 'PDC') {
-        //     $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
-        //     $customTransmission = ['Manual', 'Automatic'];
-        // }
-
         // $customCourse = ['TDC'];
         // $customVehicle = ['---'];
         // $customTransmission = ['---'];

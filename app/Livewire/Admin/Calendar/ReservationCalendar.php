@@ -24,6 +24,8 @@ class ReservationCalendar extends LivewireCalendar
                     'id' => $event->id,
                     'title' => $event->title,
                     'description' => $event->description,
+                    'status' => $event->status,
+                    'branch' => $event->branch,
                     'date' => $event->date,
                 ];
             });
