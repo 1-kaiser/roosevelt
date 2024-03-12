@@ -30,7 +30,6 @@
           </div>
           <div>
             <span class="inline-block text-2xl font-bold">{{$tdcAcceptedCount}}</span>
-            <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span>
             <span class="block text-gray-500">TDC Accepted</span>
           </div>
         </div>

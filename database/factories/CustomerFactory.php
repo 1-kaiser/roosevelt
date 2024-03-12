@@ -18,13 +18,13 @@ class CustomerFactory extends Factory
     {
         $customBranch = ['Maypajo Branch', 'Navotas Branch', 'Tayuman Branch', 'Fishermall Branch', 'Legarda Branch'];
 
-        // $customCourse = ['TDC'];
-        // $customVehicle = ['---'];
-        // $customTransmission = ['---'];
+        $customCourse = ['TDC'];
+        $customVehicle = ['---'];
+        $customTransmission = ['---'];
         
-        $customCourse = ['PDC'];
-        $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
-        $customTransmission = ['Manual', 'Automatic'];
+        // $customCourse = ['PDC'];
+        // $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
+        // $customTransmission = ['Manual', 'Automatic'];
         
         return [
             'name' => $this->faker->name(),
