@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Waitlist;
 
 use App\Livewire\Admin\AcceptedList\AcceptedListTable;
+use App\Livewire\Admin\AcceptedList\PdcAcceptedList;
 use App\Livewire\Admin\AcceptedList\TdcAcceptedList;
 use App\Models\AcceptedList;
 use App\Models\Customer;
@@ -48,6 +49,7 @@ class WaitlistTable extends Component
         );
 
         $this->dispatch('dispatch-customer-accepted')->to(TdcAcceptedList::class);
+        $this->dispatch('dispatch-customer-accepted')->to(PdcAcceptedList::class);
 
         $sourceData->each->delete();  
     }

@@ -77,7 +77,6 @@
         window.addEventListener("swal", () => {
             Swal.fire({
                 title: "Instructor Created",
-
                 icon: "success"
             });
         });
