@@ -33,7 +33,6 @@
                                 <th class="p-2 whitespace-wrap border border-1">Course</th>
                                 <th class="p-2 whitespace-wrap border border-1">Driving Vehicle</th>
                                 <th class="p-2 whitespace-wrap border border-1">Transmission</th>
-                                <th class="p-2 whitespace-wrap border border-1">Action</th>
                             </tr>
                         </thead>
                         <tbody>
