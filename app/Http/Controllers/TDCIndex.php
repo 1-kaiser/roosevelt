@@ -8,41 +8,45 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
+use Livewire\Attributes\Rule;
+use Livewire\WithFileUploads;
 
 class TDCIndex extends Controller
 {
-    public $name;
-    public $email;
-    public $branch;
-    public $date;
-    public $course;
-
-    public function render(): View
-    {
-        return view('customer.tdc.tdc-index');
-    }
+    use WithFileUploads;
 
     public function save(Request $request) {
         $validate = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'branch' => 'required',
+            'pic' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'contact' => 'required|min:11|max:11',
             'date' => 'required',
             'course' => '',
-            'vehicle' => 'required',
+            'paid_attachment' => 'required|image|mimes:jpeg,png,jpg,gif',
             'transmission' => 'required',
         ]);
 
-        $data = Customer::create($validate);
+        $data = Customer::create([
+            'pic' => $validate['pic']->store('img', 'public'),
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+            'contact' => $validate['contact'],
+            'date' => $validate['date'],
+            'course' => $validate['course'],
+            'paid_attachment' => $validate['paid_attachment']->store('img', 'public'),
+            'transmission' => $validate['transmission'],
+        ]);
 
         $mailData = [
             'title' => 'Reservation Request',
+            'pic' => $validate['pic'],
             'name' => $validate['name'],
             'email' => $validate['email'],
-            'branch' => $validate['branch'],
+            'contact' => $validate['contact'],
             'date' => $validate['date'],
             'course' => $validate['course'],
-            'vehicle' => $validate['vehicle'],
+            'paid_attachment' => $validate['paid_attachment'],
             'transmission' => $validate['transmission'],
         ];
 
@@ -55,5 +59,10 @@ class TDCIndex extends Controller
         }
         
         return redirect(route('tdc-index'));
+    }
+
+    public function render(): View
+    {
+        return view('customer.tdc.tdc-index');
     }
 }

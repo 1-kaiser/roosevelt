@@ -45,7 +45,7 @@
                 Transmission
             </th>
             <th
-                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider" align="center"
+                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider" 
             >
                 Action
             </th>
@@ -72,19 +72,10 @@
 
             {{-- Name --}}
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <div class="flex">
-                <div class="flex-shrink-0 w-10 h-10">
-                    <img
-                    class="w-full h-full rounded-full"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                    alt=""
-                    />
-                </div>
                 <div class="ml-3">
                     <p class="text-gray-900 whitespace-no-wrap">
                     {{$customer->name}}
                     </p>
-                </div>
                 </div>
             </td>
             {{-- Name --}}
@@ -108,13 +99,15 @@
             {{-- Course --}}
 
             {{-- Transmission --}}
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
                 <p class="text-gray-900 whitespace-no-wrap">{{$customer->transmission}}</p>
             </td>
             {{-- Transmission --}}
 
             {{-- Action --}}
             <td class="px-5 py-5 border-b border-gray-200 text-sm">
+
+                <x-button @click="$wire.viewCustomer({ name: '{{ $customer->name }}' })" class="text-sm text-white">View</x-button>
                 
                 <x-button @click="$wire.accepted({ name: '{{ $customer->name }}' })" class="text-sm text-white bg-sky-700">Accept</x-button>
                             
@@ -138,4 +131,69 @@
         </tbody>
     </table>
     <div class="mt-3">{{$data->links()}}</div>
+
+    <x-dialog-modal wire:model.live="modalView" submit="save">
+        <x-slot name="title">
+            Customer Information
+        </x-slot>
+    
+        <x-slot name="content">
+            @isset($viewData)
+            @foreach($viewData as $row)
+            
+            <div class="flex">
+
+                <div class="mt-4 mr-16 flex flex-col items-center">
+                    <div>
+                        <x-label for="name" value="Customer Picture" />
+                        <img src="{{ asset('storage/'.$row->pic) }}" class="w-40 h-33 mt-1" />
+                    </div>
+
+                    <div class="mt-1">
+                        <x-label for="paid_attachment" value="Proof of Payment" class="mt-2"/>
+                        <img src="{{ asset('storage/'.$row->paid_attachment) }}" class="w-40 h-33 mt-1" />
+                    </div> 
+                </div>
+
+                
+    
+                <div class="grid grid-cols-2 gap-4 mt-5 absolute left-60">
+                        <div class="mt-1">
+                            <x-label for="name" value="Name" />
+                            <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+    
+                        <div class="mt-1">
+                            <x-label for="contact" value="Contact" />
+                            <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+    
+                        <div class="mt-1">
+                            <x-label for="email" value="Email" />
+                            <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+    
+                        <div class="mt-1">
+                            <x-label for="date" value="Date" />
+                            <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+    
+                        <div class="mt-1">
+                            <x-label for="transmission" value="Transmission" />
+                            <x-input wire:model.lazy="transmission" value="{{$row->transmission}}" id="transmission" name="transmission" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+                        
+                          
+                             
+                </div>
+
+                
+            </div>
+            @endforeach
+                @endisset
+        </x-slot>
+    
+        <x-slot name="footer">
+        </x-slot>
+    </x-dialog-modal>
 </div>

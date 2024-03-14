@@ -10,6 +10,7 @@ class AcceptedList extends Model
     use HasFactory;
 
     protected $fillable = [
+        'pic',
         'name', 
         'email', 
         'contact', 
