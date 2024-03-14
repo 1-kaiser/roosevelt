@@ -12,10 +12,10 @@ class DeniedList extends Model
     protected $fillable = [
         'name', 
         'email', 
-        'branch', 
+        'contact', 
         'date',
         'course',
-        'vehicle',
+        'paid_attachment',
         'transmission',
     ];
 }

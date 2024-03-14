@@ -14,74 +14,6 @@
                     </p>
                     <p class="text-2xl text-red-500 mt-10">PHP 500.00</p>
 
-                    <form action="" method="POST" class="float-center absolute mt-10">
-                        @csrf
-                        @method('post')
-
-                        @if(session()->has('error'))
-                            <span class="bg-red-500 text-black px-4 py-2">
-                                {{session('error')}}
-                            </span>
-                        @endif
-
-                        <div class="flex">
-                            <div class="mr-16">
-                                <div class="flex gap-x-5 items-center">
-                                    <strong class="text-gray-700">Name</strong>
-                    
-                                    <div class="flex flex-col">
-                                        <x-input type="text" class="text-sm bg-gray-200" id="form.name" name="name" />
-                                        <x-input-error for="form.name" class="mt-1" /> 
-                                        <x-input-error for="name" class="mt-1"/>
-                                    </div>
-                                </div>
-        
-                                <div class="flex gap-x-6 items-center mt-7">
-                                    <strong class="text-gray-700">Email</strong>
-                    
-                                    <div class="flex flex-col">
-                                        <x-input type="email" class="text-sm bg-gray-200" id="form.email"  name="email" />
-                                        <x-input-error for="email" class="mt-1"/>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <div>
-                                <div class="flex gap-x-12 items-start">
-                                    <strong class="text-gray-700">Branch</strong>
-                    
-                                    <div class="flex flex-col">
-                                        <x-select name="branch" class="text-sm bg-gray-200">
-                                            <option value=""></option>
-                                            <option value="Maypajo Branch">Maypajo Branch</option>
-                                            <option value="Navotas Branch">Navotas Branch</option>
-                                            <option value="Tayuman Branch">Tayuman Branch</option>
-                                            <option value="Fishermall Branch">Fishermall Branch</option>
-                                            <option value="Legarda Branch">Legarda Branch</option>
-                                        </x-select>
-                                        <x-input-error for="branch" class="mt-1"/>
-                                    </div>
-                                </div>
-                    
-                                <div class="flex gap-x-16 items-center mt-7">
-                                    <strong class="text-gray-700">Date</strong>
-                    
-                                    <div class="flex flex-col">
-                                        <x-input type="date" class="text-xs bg-gray-200"  id="date" name="date" />
-                                        <x-input-error for="date" class="mt-1"/>
-                                    </div>
-
-                                    <x-input type="hidden" value="TDC" wire:model.lazy="course" id="course" name="course"/>
-
-                                    <x-input type="hidden" value="---" name="vehicle" />
-                                    <x-input type="hidden" value="---" name="transmission" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-outline btn-error mt-10 mb-15">Reserve Now</button>
-                    </form>
-
                     @if(session()->has('success'))
                         <script>
                             Swal.fire({
@@ -100,7 +32,94 @@
             </div>
         </div>
 
-        <div class="mt-44 ml-44 shadow-xl w-[70%]">
+        <form action="" method="POST" class="mt-10">
+            @csrf
+            @method('post')
+
+            @if(session()->has('error'))
+                <span class="bg-red-500 text-black px-4 py-2">
+                    {{session('error')}}
+                </span>
+            @endif
+
+            <div class="flex justify-center">
+
+                <div class="flex flex-col items-center mr-14">
+                    <strong class="text-gray-700 mb-2">Your Picture</strong>
+                    <img src="" class="border border-gray-400 w-36 h-36">
+                    <x-input type="file" class="text-sm w-44 mt-2" id="form.contact"  name="contact" />
+                </div>
+
+                <div class="mr-16">
+                    <div class="flex gap-x-10 items-center">
+                        <strong class="text-gray-700">Name</strong>
+        
+                        <div class="flex flex-col">
+                            <x-input type="text" class="text-sm bg-gray-200 w-56" id="form.name" name="name" />
+                        
+                            <x-input-error for="name" class="mt-1"/>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-x-11 items-center mt-7">
+                        <strong class="text-gray-700">Email</strong>
+        
+                        <div class="flex flex-col">
+                            <x-input type="email" class="text-sm bg-gray-200 w-56" id="form.email"  name="email" />
+                            <x-input-error for="email" class="mt-1"/>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-x-6 items-center mt-7">
+                        <strong class="text-gray-700">Contact</strong>
+                        <div class="flex flex-col">
+                            <x-input type="text" class="text-sm bg-gray-200 w-56" id="form.contact"  name="contact" />
+                            <x-input-error for="contact" class="mt-1"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex gap-x-16 items-center">
+                        <strong class="text-gray-700">Date</strong>
+        
+                        <div class="flex flex-col">
+                            <x-input type="date" class="text-xs bg-gray-200"  id="date" name="date" />
+                            <x-input-error for="date" class="mt-1"/>
+                        </div>
+
+                        <x-input type="hidden" value="TDC" wire:model.lazy="course" id="course" name="course"/>
+
+                        <x-input type="hidden" value="---" name="vehicle" />
+                        <x-input type="hidden" value="---" name="transmission" />
+                    </div>
+
+                    <div class="flex gap-x-6 items-center mt-7">
+                        <strong class="text-gray-700">Gcash Link</strong>
+                        <div class="flex flex-col">
+                            <x-input type="text" class="text-sm bg-gray-200" id="form.contact"  name="contact" readonly />
+                        </div>
+                    </div>
+
+                    <div class="mt-7">
+                        <strong class="text-gray-700">Proof of Payment</strong>
+                        <div class="flex flex-col">
+                            <x-input type="file" class="text-sm mt-2" id="form.contact"  name="contact" />
+                            <x-input-error for="contact" class="mt-1"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center ms-10">
+                    <strong class="text-gray-700">Gcash QR Code</strong>
+                    <img src="img/gcash_qr.jpg" class="w-36 h-36">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-outline btn-error ms-[25%] my-12">Reserve Now</button>
+        </form>
+
+        <div class="mt-34 ml-44 shadow-xl w-[70%]">
             <div class="p-6">
                 <strong class="text-black">Reservation details:</strong>
                 <p class="mt-2">To reserve a slot, <strong>downpayment worth 500 pesos fee is required</strong>. Full payment of registration will be valid only for 90 days. <br /> <strong>Cancellation</strong> of you confirmed Training sessions/schedules will incur a 20% fee. The driving course is <strong>NON-TRANSFERABLE</strong>. Request for enrolment cancelation and/or course downgrade is subject to company's approval. The company reserves the right to reject refund of the total course fee or any payment made upon enrolment.</p>
