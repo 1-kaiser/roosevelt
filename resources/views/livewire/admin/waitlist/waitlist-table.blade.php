@@ -139,58 +139,49 @@
     
         <x-slot name="content">
             @isset($viewData)
-            @foreach($viewData as $row)
+                @foreach($viewData as $row)
+                    <div class="flex">
+                        <div class="mt-4 mr-16 flex flex-col items-center">
+                            <div>
+                                <x-label for="name" value="Customer Picture" />
+                                <img src="{{ asset('storage/'.$row->pic) }}" class="w-40 h-33 mt-1" />
+                            </div>
+
+                            <div class="mt-1">
+                                <x-label for="paid_attachment" value="Proof of Payment" class="mt-2"/>
+                                <img src="{{ asset('storage/'.$row->paid_attachment) }}" class="w-40 h-33 mt-1" />
+                            </div> 
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mt-5 absolute left-60">
+                                <div class="mt-1">
+                                    <x-label for="name" value="Name" />
+                                    <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                                </div>
             
-            <div class="flex">
-
-                <div class="mt-4 mr-16 flex flex-col items-center">
-                    <div>
-                        <x-label for="name" value="Customer Picture" />
-                        <img src="{{ asset('storage/'.$row->pic) }}" class="w-40 h-33 mt-1" />
+                                <div class="mt-1">
+                                    <x-label for="contact" value="Contact" />
+                                    <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                                </div>
+            
+                                <div class="mt-1">
+                                    <x-label for="email" value="Email" />
+                                    <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                                </div>
+            
+                                <div class="mt-1">
+                                    <x-label for="date" value="Date" />
+                                    <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
+                                </div>
+            
+                                <div class="mt-1">
+                                    <x-label for="transmission" value="Transmission" />
+                                    <x-input wire:model.lazy="transmission" value="{{$row->transmission}}" id="transmission" name="transmission" type="text" class="mt-2 w-full text-black" readonly />
+                                </div>
+                        </div>
                     </div>
-
-                    <div class="mt-1">
-                        <x-label for="paid_attachment" value="Proof of Payment" class="mt-2"/>
-                        <img src="{{ asset('storage/'.$row->paid_attachment) }}" class="w-40 h-33 mt-1" />
-                    </div> 
-                </div>
-
-                
-    
-                <div class="grid grid-cols-2 gap-4 mt-5 absolute left-60">
-                        <div class="mt-1">
-                            <x-label for="name" value="Name" />
-                            <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-    
-                        <div class="mt-1">
-                            <x-label for="contact" value="Contact" />
-                            <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-    
-                        <div class="mt-1">
-                            <x-label for="email" value="Email" />
-                            <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-    
-                        <div class="mt-1">
-                            <x-label for="date" value="Date" />
-                            <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-    
-                        <div class="mt-1">
-                            <x-label for="transmission" value="Transmission" />
-                            <x-input wire:model.lazy="transmission" value="{{$row->transmission}}" id="transmission" name="transmission" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-                        
-                          
-                             
-                </div>
-
-                
-            </div>
-            @endforeach
-                @endisset
+                @endforeach
+            @endisset
         </x-slot>
     
         <x-slot name="footer">

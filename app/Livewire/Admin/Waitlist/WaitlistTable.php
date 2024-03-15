@@ -50,6 +50,10 @@ class WaitlistTable extends Component
                 'paid_attachment' => $data['paid_attachment'],
                 'transmission' => $data['transmission'],
             ]);
+
+            if ($data['course'] === 'TDC') {
+                Mail::to($data['email'])->send(new TDCAcceptedMail($data));
+            }
         }
 
         $this->dispatch('swal',
@@ -57,8 +61,6 @@ class WaitlistTable extends Component
             text: 'Customer successfully transferred',
             icon: 'success',
         );
-
-        Mail::to($data['email'])->send(new TDCAcceptedMail($data));
 
         $this->dispatch('dispatch-customer-accepted')->to(TdcAcceptedList::class);
         $this->dispatch('dispatch-customer-accepted')->to(PdcAcceptedList::class);

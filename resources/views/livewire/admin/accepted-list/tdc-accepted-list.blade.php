@@ -57,7 +57,7 @@
                         </thead>
                         <tbody>
                             @isset($data)
-                                @foreach ($data as $customer)
+                            @foreach ($data as $customer)
                           <tr>
                             {{-- # --}}
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -110,13 +110,12 @@
                             </td>
                             {{-- Action --}}
                           </tr>
-                          @endforeach
+                            @endforeach
                             @endisset
                         </tbody>
                     </table>
-                <div class="mt-3">{{$data->links()}}</div>
+                  <div class="mt-3">{{$data->links()}}</div>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -127,37 +126,41 @@
         </x-slot>
     
         <x-slot name="content">
-            <div class="grid grid-cols-2 gap-4 mt-5">
+          @isset($accepted)
+              @foreach($accepted as $row)
 
-                @isset($accepted)
-                    @foreach($accepted as $row)
+              <div class="mt-1">
+                <div class="mt-4 mr-16 flex flex-col items-center">
+                      <img src="{{ asset('storage/'.$row->pic) }}" class="w-40 h-33 mb-1" />
+                      <x-label for="name" value="Customer Picture" />
+                </div>
 
-                    <div class="mt-1">
-                        <x-label for="name" value="Name" />
-                        <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
-                    </div>
+                <div class="grid grid-cols-2 gap-4 mt-5">
 
-                    <div class="mt-1">
-                        <x-label for="branch" value="Branch" />
-                        <x-input wire:model.lazy="branch" value="{{$row->branch}}" id="branch" name="branch" type="text" class="mt-2 w-full text-black" readonly />
-                    </div>
+                  <div class="mt-1">
+                    <x-label for="name" value="Name" />
+                    <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                  </div>
 
-                    <div class="mt-1">
-                        <x-label for="email" value="Email" />
-                        <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
-                    </div>
+                  <div class="mt-1">
+                      <x-label for="contact" value="Contact" />
+                      <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                  </div>
 
-                    <div class="mt-1">
-                        <x-label for="date" value="Date" />
-                        <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
-                    </div>
+                  <div class="mt-1">
+                      <x-label for="email" value="Email" />
+                      <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                  </div>
 
-                    @endforeach
-                @endisset
+                  <div class="mt-1">
+                      <x-label for="date" value="Date" />
+                      <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" />
+                      <x-input-error for="date" class="mt-1"/>
+                  </div>
 
-                <div class="mt-1">
+                  <div class="mt-1">
                     <x-label for="instructor" value="Instructor" />
-                    <x-select class="mt-2 text-black">
+                    <x-select class="mt-2 text-black w-full">
                         <option value=""></option>
                         @isset($instructor)
                             @foreach ($instructor as $ins)
@@ -165,18 +168,21 @@
                             @endforeach
                         @endisset
                     </x-select>
+                  </div>
                 </div>
-            </div>
+              </div>
+              @endforeach
+          @endisset
         </x-slot>
     
         <x-slot name="footer">
-            <x-secondary-button @click="$wire.set('modalTDCEdit', false)">
-                {{ __('Cancel') }}
-            </x-secondary-button>
-    
-            <x-button class="ms-3">
-                Reserve
-            </x-button>
+          <x-secondary-button @click="$wire.set('modalTDCEdit', false)">
+            {{ __('Cancel') }}
+          </x-secondary-button>
+  
+          <x-button class="ms-3">
+              Reserve
+          </x-button>
         </x-slot>
     </x-dialog-modal>
 </div>

@@ -41,7 +41,7 @@
                 </span>
             @endif
 
-            <div class="flex justify-center">
+            <div class="flex justify-center h-60">
 
                 <div class="flex flex-col items-center mr-14">
                     <strong class="text-gray-700 mb-2">Your Picture</strong>
@@ -82,7 +82,7 @@
                 </div>
 
                 <div>
-                    <div class="flex gap-x-16 items-center">
+                    <div class="flex gap-x-11 items-center">
                         <strong class="text-gray-700">Date</strong>
         
                         <div class="flex flex-col">
@@ -122,13 +122,6 @@
 
                 </div>
             </div>
-
-            
-
-
-
-
-
             <button type="submit" class="btn btn-outline btn-error ms-[25%] my-7">Reserve Now</button>
         </form>
 
