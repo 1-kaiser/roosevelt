@@ -105,7 +105,7 @@
                             {{-- Action --}}
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                               
-                                <x-button class="text-sm text-white bg-sky-700" @click="$wire.save({ name: '{{ $customer->name }}' })" >Edit</x-button>
+                                <x-button class="text-sm text-white bg-sky-700" @click="$wire.edit({ name: '{{ $customer->name }}' })" >Edit</x-button>
 
                             </td>
                             {{-- Action --}}
@@ -120,71 +120,95 @@
         </div>
     </div>
 
-    <x-dialog-modal wire:model.live="modalTDCEdit" submit="save">
-        <x-slot name="title">
-            Customer Information
-        </x-slot>
-    
-        <x-slot name="content">
-          @isset($accepted)
-              @foreach($accepted as $row)
+    @isset($accepted)
+      @foreach($accepted as $row)
 
-              <div class="mt-1">
-                <div class="mt-4 mr-16 flex flex-col items-center">
-                      <img src="{{ asset('storage/'.$row->pic) }}" class="w-40 h-33 mb-1" />
-                      <x-label for="name" value="Customer Picture" />
-                </div>
+        <x-dialog-modal wire:model.live="modalTDCEdit" submit="save">
+            <x-slot name="title">
+                Customer Information
+            </x-slot>
+        
+            <x-slot name="content">
 
-                <div class="grid grid-cols-2 gap-4 mt-5">
+                    <div class="mt-1">
 
-                  <div class="mt-1">
-                    <x-label for="name" value="Name" />
-                    <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
-                  </div>
+                      {{-- Picture --}}
+                      <div class="mt-4 flex flex-col items-center">
+                            <img src="{{ asset('storage/'. $row->pic) }}" class="w-40 h-33 mb-1" />
+                            <x-label for="name" value="Customer Picture" />
+                      </div>
+                      {{-- Picture --}}
 
-                  <div class="mt-1">
-                      <x-label for="contact" value="Contact" />
-                      <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
-                  </div>
+                      <div class="grid grid-cols-2 gap-4 mt-5">
 
-                  <div class="mt-1">
-                      <x-label for="email" value="Email" />
-                      <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
-                  </div>
+                        {{-- Name --}}
+                        <div class="mt-1">
+                          <x-label for="name" value="Name" />
+                          <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+                        {{-- Name --}}
 
-                  <div class="mt-1">
-                      <x-label for="date" value="Date" />
-                      <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" />
-                      <x-input-error for="date" class="mt-1"/>
-                  </div>
+                        {{-- Contact --}}
+                        <div class="mt-1">
+                            <x-label for="contact" value="Contact" />
+                            <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+                        {{-- Contact --}}
 
-                  <div class="mt-1">
-                    <x-label for="instructor" value="Instructor" />
-                    <x-select class="mt-2 text-black w-full">
-                        <option value=""></option>
-                        @isset($instructor)
-                            @foreach ($instructor as $ins)
-                                <option value="{{$ins->f_name}}">{{$ins->f_name}}</option>
-                            @endforeach
-                        @endisset
-                    </x-select>
-                  </div>
-                </div>
-              </div>
-              @endforeach
-          @endisset
-        </x-slot>
-    
-        <x-slot name="footer">
-          <x-secondary-button @click="$wire.set('modalTDCEdit', false)">
-            {{ __('Cancel') }}
-          </x-secondary-button>
-  
-          <x-button class="ms-3">
-              Reserve
-          </x-button>
-        </x-slot>
-    </x-dialog-modal>
+                        {{-- Email --}}
+                        <div class="mt-1">
+                            <x-label for="email" value="Email" />
+                            <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                        </div>
+                        {{-- Email --}}
+
+                        {{-- Date --}}
+                        <div class="mt-1">
+                            <x-label for="date" value="Date" />
+                            <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="date" class="mt-2 w-full text-black" />
+                            <x-input-error for="date" class="mt-1"/>
+                        </div>
+                        {{-- Date --}}
+
+                        {{-- Instructor --}}
+                        <div class="mt-1">
+                          <x-label for="instructor" value="Instructor" />
+                          <x-select class="mt-2 text-black w-full">
+                              <option value=""></option>
+                              @isset($instructor)
+                                  @foreach ($instructor as $ins)
+                                      <option value="{{$ins->f_name}}">{{$ins->f_name}}</option>
+                                  @endforeach
+                              @endisset
+                          </x-select>
+                        </div>
+                        {{-- Instructor --}}
+                      </div>
+                    </div>
+            </x-slot>
+        
+            <x-slot name="footer">
+              <x-secondary-button @click="$wire.set('modalTDCEdit', false)">
+                {{ __('Cancel') }}
+              </x-secondary-button>
+      
+              <x-button class="ms-3" @click="$wire.save({ name: '{{ $row->name }}' })">
+                  Reserve
+              </x-button>
+            </x-slot>
+        </x-dialog-modal>
+
+      @endforeach
+    @endisset
+
+    <script>
+      window.addEventListener("swal", () => {
+          Swal.fire({
+              title: "Instructor Created",
+              icon: "success"
+          });
+      });
+  </script>
 </div>
 
 

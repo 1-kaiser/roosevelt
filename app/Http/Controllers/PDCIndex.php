@@ -2,34 +2,65 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PDCConfirmation;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
+use Livewire\WithFileUploads;
 
 class PDCIndex extends Controller
 {
+    use WithFileUploads;
+
+    public function save(Request $request) {
+        $validate = $request->validate([
+            'pic' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'contact' => 'required|min:11|max:11',
+            'date' => 'required',
+            'course' => '',
+            'paid_attachment' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'transmission' => 'required',
+        ]);
+
+        $data = Customer::create([
+            'pic' => $validate['pic']->store('img', 'public'),
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+            'contact' => $validate['contact'],
+            'date' => $validate['date'],
+            'course' => $validate['course'],
+            'paid_attachment' => $validate['paid_attachment']->store('img', 'public'),
+            'transmission' => $validate['transmission'],
+        ]);
+
+        $mailData = [
+            'title' => 'Reservation Request',
+            'pic' => $validate['pic'],
+            'name' => $validate['name'],
+            'email' => $validate['email'],
+            'contact' => $validate['contact'],
+            'date' => $validate['date'],
+            'course' => $validate['course'],
+            'paid_attachment' => $validate['paid_attachment'],
+            'transmission' => $validate['transmission'],
+        ];
+
+        if ($data) {
+            Mail::to($validate['email'])->send(new PDCConfirmation($mailData));
+            session()->flash('success');
+        } else {
+            session()->flash('error', 'Error while processing your registration');
+            return redirect(route('tdc-index'));
+        }
+        
+        return redirect(route('tdc-index'));
+    }
+
     public function render(): View
     {
         return view('customer.pdc.pdc-index');
-    }
-
-    public function save(Request $request) {
-
-        $validate = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'vehicle' => 'required',
-            'branch' => 'required',
-            'transmission' => 'required',
-            'date' => 'required',
-            'course' => ''
-        ]);
-
-        $data = Customer::create($validate);
-
-        ($data)
-        ? session()->flash('success')
-        : session()->flash('error', 'Error while processing your registration');
-            return redirect(route('tdc-index'));  
     }
 }

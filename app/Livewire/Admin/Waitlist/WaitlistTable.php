@@ -51,9 +51,9 @@ class WaitlistTable extends Component
                 'transmission' => $data['transmission'],
             ]);
 
-            if ($data['course'] === 'TDC') {
-                Mail::to($data['email'])->send(new TDCAcceptedMail($data));
-            }
+            // if ($data['course'] === 'TDC') {
+            //     Mail::to($data['email'])->send(new TDCAcceptedMail($data));
+            // }
         }
 
         $this->dispatch('swal',

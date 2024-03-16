@@ -7,7 +7,7 @@
     If you need a quicker response, you can get in touch with us at the following numbers:
     <br /> 📞 Smart: 09998467586 / 09464583242
     <br /> 📞 Globe landline: (02) 700-56930
-    <br /> Your Driving Course: TDC
+    <br /> Your Driving Course: PDC
 </p>
 
 <p>

@@ -13,20 +13,6 @@
                         The Theoretical Driving Course (TDC) is a 15-hr classroom module for 2 <br> days. This is a mandatory course for Student Permit applicants. Students <br> are required to pass the Final Written Exam after course completion. If passed, <br> Roosevelt Driving School electronically transmits to LTO-IT System and issues <br> TDC Certification of Completion.
                     </p>
                     <p class="text-2xl text-red-500 mt-10">PHP 500.00</p>
-
-                    @if(session()->has('success'))
-                        <script>
-                            Swal.fire({
-                            icon: "success",
-                            title: "Registered Successfully",
-                            text: "Please wait for the confirmation",
-                            });
-
-                            setTimeout(() => {
-                                window.location.href = '/customer'
-                            }, 3000);
-                        </script>
-                    @endif
                 </div>
             </div>
         </div>
@@ -140,6 +126,20 @@
             <x-customer-footer />
         </div>
     </x-guest-layout>
+
+    @if(session()->has('success'))
+        <script>
+            Swal.fire({
+            icon: "success",
+            title: "Registered Successfully",
+            text: "Please wait for the confirmation",
+            });
+
+            setTimeout(() => {
+                window.location.href = '/customer'
+            }, 3000);
+        </script>
+    @endif
 
     <script>
         function previewImage(event) {

@@ -5,22 +5,20 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class TDCAcceptedMail extends Mailable
+class PDCAcceptedMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $mailData;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($mailData)
+    public function __construct()
     {
-        $this->mailData = $mailData;
+        //
     }
 
     /**
@@ -29,8 +27,7 @@ class TDCAcceptedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'noreply',
-            from: new Address('rooseveltdrivingschool21@gmail.com', 'Solid Driving School')
+            subject: 'P D C Accepted Mail',
         );
     }
 
@@ -40,7 +37,7 @@ class TDCAcceptedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.customer.tdc-accepted-mail',
+            markdown: 'mail.customer.pdc-accepted-mail',
         );
     }
 
