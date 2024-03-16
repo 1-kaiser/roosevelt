@@ -17,7 +17,7 @@ class DeniedHistory extends Component
     public function render()
     {
         return view('livewire.admin.denied.denied-history', [
-            'data' => DeniedList::where('name', 'like', '%' . $this->searchCustomer . '%')
+            'data' => DeniedList::whereAny(['name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
             ->paginate($this->paginate)
         ]);
     }

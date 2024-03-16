@@ -105,7 +105,7 @@
             {{-- Transmission --}}
 
             {{-- Action --}}
-            <td class="px-5 py-5 border-b border-gray-200 text-sm">
+            <td class="px-5 py-5 border-b border-gray-200 text-sm text-center">
 
                 <x-button @click="$wire.viewCustomer({ name: '{{ $customer->name }}' })" class="text-sm text-white">View</x-button>
                 

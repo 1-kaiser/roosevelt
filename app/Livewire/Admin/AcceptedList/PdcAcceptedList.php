@@ -16,7 +16,7 @@ class PdcAcceptedList extends Component
     public function render()
     {
         return view('livewire.admin.accepted-list.pdc-accepted-list', [
-            'data' => AcceptedList::where('name', 'like', '%' . $this->searchCustomer . '%')
+            'data' => AcceptedList::whereAny(['name', 'email', 'date', 'transmission'], 'like', '%' . $this->searchCustomer . '%')
             ->where('course', 'like', '%'. 'PDC'. '%')
             ->paginate($this->paginate)
         ]);

@@ -24,7 +24,7 @@ class WaitlistTable extends Component
     public function render()
     {
         return view('livewire.admin.waitlist.waitlist-table', [
-            'data' => Customer::where('name', 'like', '%' . $this->searchCustomer . '%')
+            'data' => Customer::whereAny(['name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
             ->paginate($this->paginate)
         ]);
     }
