@@ -10,7 +10,7 @@
             <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 
                 <div>
-                    <div class="mt-5">
+                    <div class="mt-3">
                         <x-select wire:model.live="paginate" class="text-black text-xs">
                             <option value="5">5</option>
                             <option value="10">10</option>
@@ -19,7 +19,12 @@
                             <option value="100">100</option>
                         </x-select>
                 
-                        <x-input wire:model.live="searchCustomer" placeholder="Search customer" type="search" class="text-sm text-black text-end mb-2 float-end border-gray-400"  />
+                        <div class="border rounded overflow-hidden flex float-end text-sm mb-2 text-black">
+                          <input wire:model.live="searchCustomer" type="search" class="px-4 py-2 border-gray-300 text-sm" placeholder="Search...">
+                          <button class="flex items-center justify-center px-4 border-l">
+                          <svg class="h-4 w-4 text-grey-dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
+                          </button>
+                        </div>
                     </div>
 
                     <table class="min-w-full leading-normal">
