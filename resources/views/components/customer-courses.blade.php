@@ -3,7 +3,7 @@
     <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
 </div>
 
-  <div class="flex mt-16 items-center justify-center">
+  <div class="flex my-20 items-center justify-center">
     <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2">
       <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
         <div class="h-96 w-72">

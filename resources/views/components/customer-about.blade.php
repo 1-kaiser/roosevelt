@@ -1,4 +1,4 @@
-<div class="bg-black mt-28" id="learn-more">
+<div class="bg-black" id="learn-more">
     <section id="features"
         class="relative block px-6 py-10 md:py-20 md:px-10  border-t border-b border-neutral-900 bg-neutral-900/30">
 
