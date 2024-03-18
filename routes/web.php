@@ -34,13 +34,11 @@ Route::get('/customer', function () {
 
 Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
 Route::post('/tdc', [TDCIndex::class, 'save'])->name('tdc-save');
-
 Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
 Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     ->group(function () {
-
     Route::get('/dashboard', DashboardIndex::class)->name('dashboard');
     Route::get('/waitlist', WaitlistIndex::class)->name('waitlist');
     Route::get('/tdc-accepted-list', TdcAcceptedList::class)->name('tdc-accepted-list');

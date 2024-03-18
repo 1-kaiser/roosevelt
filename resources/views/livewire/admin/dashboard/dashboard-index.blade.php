@@ -19,11 +19,11 @@
                 <livewire:admin.dashboard.line-chart />
             </div>
 
-            <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            {{-- <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     {{ __('Users') }}
                 </h2>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
