@@ -104,6 +104,7 @@
                 <!-- Settings Dropdown -->
                 <div class="ms-3 relative flex gap-x-4">
 
+                    {{-- Navbar right design --}}
                     <div class="relative flex items-center space-x-3">
   
                         <div class="items-center hidden space-x-3 md:flex">

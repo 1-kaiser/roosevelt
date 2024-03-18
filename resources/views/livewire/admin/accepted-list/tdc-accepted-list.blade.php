@@ -38,6 +38,11 @@
                             <th
                               class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
                             >
+                              Image
+                            </th>
+                            <th
+                              class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                            >
                               Customer Name
                             </th>
                             <th
@@ -76,22 +81,17 @@
                                 </td>
                             {{-- # --}}
 
+                            {{-- Image --}}
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <img src="{{ asset('storage/'.$customer->pic) }}" class="w-22 h-16 " />
+                            </td>
+                          {{-- Image --}}
+
                             {{-- Name --}}
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                  <img
-                                    class="w-full h-full rounded-full"
-                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                    alt=""
-                                  />
-                                </div>
-                                <div class="ml-3">
-                                  <p class="text-gray-900 whitespace-no-wrap">
-                                    {{$customer->name}}
-                                  </p>
-                                </div>
-                              </div>
+                              <p class="text-gray-900 whitespace-no-wrap">
+                                {{$customer->name}}
+                              </p>
                             </td>
                             {{-- Name --}}
 
