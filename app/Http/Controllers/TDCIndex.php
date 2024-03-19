@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\EnrollCustomer;
+
 use App\Mail\TDCConfirmation;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
-use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 
 class TDCIndex extends Controller

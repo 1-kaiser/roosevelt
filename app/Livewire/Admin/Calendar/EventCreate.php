@@ -3,8 +3,6 @@
 namespace App\Livewire\Admin\Calendar;
 
 use App\Livewire\Forms\EventForm;
-use App\Mail\EnrollCustomer;
-use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -31,7 +29,6 @@ class EventCreate extends Component
         ];
 
         $this->modalEventCreate = false;
-        // Mail::to('emmanuelpunay6906@gmail.com')->send(new EnrollCustomer($mailData));
         $this->dispatch('dispatch-event-create')->to(ReservationCalendar::class);
     }
 }

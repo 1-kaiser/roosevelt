@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Admin\Waitlist;
 
-use App\Livewire\Forms\CustomerForm;
 use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;

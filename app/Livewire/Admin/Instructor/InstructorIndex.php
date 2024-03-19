@@ -12,7 +12,6 @@ use Livewire\WithPagination;
 class InstructorIndex extends Component
 {
     use WithPagination;
-
     public $paginate = 5, $searchCustomer =  '';
 
     #[Title('Instructor')]

@@ -7,7 +7,6 @@ use App\Models\Schedule;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\On;
-use Livewire\Component;
 use Omnia\LivewireCalendar\LivewireCalendar;
 
 class ReservationCalendar extends LivewireCalendar

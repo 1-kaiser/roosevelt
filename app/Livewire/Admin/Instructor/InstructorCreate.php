@@ -2,21 +2,15 @@
 
 namespace App\Livewire\Admin\Instructor;
 
-use App\Livewire\Forms\InstructorForm;
 use App\Models\Instructor;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-use function Pest\Laravel\put;
-
 class InstructorCreate extends Component
 {
     use WithFileUploads;
-    // public InstructorForm $form;
 
     #[Rule('required|image|mimes:jpeg,png,jpg,gif|max:2048', as: 'Image')]
     public $pic;
