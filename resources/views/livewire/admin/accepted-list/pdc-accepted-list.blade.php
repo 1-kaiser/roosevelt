@@ -11,6 +11,7 @@
                 
                 <div>
                     <div class="mt-3">
+                        {{-- Paginate --}}
                         <x-select wire:model.live="paginate" class="text-black text-xs">
                             <option value="5">5</option>
                             <option value="10">10</option>
@@ -18,13 +19,16 @@
                             <option value="50">50</option>
                             <option value="100">100</option>
                         </x-select>
+                        {{-- Paginate --}}
                 
+                        {{-- Search Bar --}}
                         <div class="border rounded overflow-hidden flex float-end text-sm mb-2 text-black">
                             <input wire:model.live="searchCustomer" type="search" class="px-4 py-2 border-gray-300 text-sm" placeholder="Search...">
                             <button class="flex items-center justify-center px-4 border-l">
                             <svg class="h-4 w-4 text-grey-dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
                             </button>
                         </div>
+                        {{-- Search Bar --}}
                     </div>
 
                     <table class="min-w-full leading-normal">
@@ -62,7 +66,7 @@
                         </thead>
                         <tbody>
                             @isset($data)
-                                @foreach ($data as $customer)
+                            @foreach ($data as $customer)
                             <tr>
                             {{-- # --}}
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -115,32 +119,33 @@
                             </tr>
                             @endforeach
                             @endisset
-                            <script>
-                                window.addEventListener("swal", (event) => {
-                                    let data = event.detail;
-                                    Swal.fire({
-                                        title: data.title,
-                                        text: data.text,
-                                        icon: data.icon,
-                                    });
-                                });
-                            </script>
                         </tbody>
                     </table>
-                    @if(session()->has('success'))
-                        <script>
-                            Swal.fire({
-                            icon: "success",
-                            title: "Registered Successfully",
-                            text: "Please wait for the confirmation",
-                            });
-                        </script>
-                    @endif
                     <div class="mt-3">{{$data->links()}}</div>
                 </div>
             </div>
         </div>
     </div>
+    
+    @if(session()->has('success'))
+        <script>
+            Swal.fire({
+            icon: "success",
+            title: "Registered Successfully",
+            text: "Please wait for the confirmation",
+            });
+        </script>
+    @endif
+    <script>
+        window.addEventListener("swal", (event) => {
+            let data = event.detail;
+            Swal.fire({
+                title: data.title,
+                text: data.text,
+                icon: data.icon,
+            });
+        });
+    </script>
 </div>
 
 

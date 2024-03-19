@@ -11,6 +11,7 @@
                 <div class="pr-4 flex justify-end">
                     <livewire:admin.calendar.event-create />
                 </div>
+                
                 <livewire:admin.calendar.reservation-calendar 
                 :day-click-enabled="false"
                 :event-click-enabled="false"

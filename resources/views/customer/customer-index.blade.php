@@ -45,8 +45,6 @@
 
       {{-- MAP --}}
 
-        {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.1962015711383!2d120.95088337384271!3d14.644801275995501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b5ea2f491df9%3A0xd2612a136dff8d1d!2sRosevelt%20Driving%20School%20(Lecture%20Room)!5e0!3m2!1sen!2sph!4v1707033224556!5m2!1sen!2sph" class="w-full h-4/6" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
-
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.058360643576!2d120.99313067402575!3d14.652628585839942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b59f86e8f281%3A0x57071814d700a71f!2sSolid%20Driving%20School!5e0!3m2!1sen!2sph!4v1710242639496!5m2!1sen!2sph" class="w-full h-4/6" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
       {{-- MAP --}}

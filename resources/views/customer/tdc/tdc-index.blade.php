@@ -1,10 +1,9 @@
 <div>
     <x-guest-layout>
-
+        {{-- Navbar --}}
         <x-customer-navbar />
 
         <div class="h-4/5 flex items-center">
-
             <div class="flex gap-10 justify-center flex-wrap">
                 <img src="img/tdc-classroom.jpg" class="w-1/3">
                 <div>
@@ -21,14 +20,8 @@
             @csrf
             @method('post')
 
-            @if(session()->has('error'))
-                <span class="bg-red-500 text-black px-4 py-2">
-                    {{session('error')}}
-                </span>
-            @endif
-
             <div class="flex justify-center h-60">
-
+                {{-- Picture --}}
                 <div class="flex flex-col items-center mr-14">
                     <strong class="text-gray-700 mb-2">Your Picture</strong>
                     
@@ -37,8 +30,10 @@
                     <x-input type="file" class="text-sm w-44 mt-2" id="pic" name="pic" onchange="previewImage(event)"/>
                     <x-input-error for="pic" class="mt-1"/>
                 </div>
+                {{-- Picture --}}
 
                 <div class="mr-16">
+                    {{-- Name --}}
                     <div class="flex gap-x-10 items-center">
                         <strong class="text-gray-700">Name</strong>
         
@@ -48,7 +43,9 @@
                             <x-input-error for="name" class="mt-1"/>
                         </div>
                     </div>
+                    {{-- Name --}}
 
+                    {{-- Email --}}
                     <div class="flex gap-x-11 items-center mt-7">
                         <strong class="text-gray-700">Email</strong>
         
@@ -57,7 +54,9 @@
                             <x-input-error for="email" class="mt-1"/>
                         </div>
                     </div>
+                    {{-- Email --}}
 
+                    {{-- Contact --}}
                     <div class="flex gap-x-6 items-center mt-7">
                         <strong class="text-gray-700">Contact</strong>
                         <div class="flex flex-col">
@@ -65,9 +64,11 @@
                             <x-input-error for="contact" class="mt-1"/>
                         </div>
                     </div>
+                    {{-- Contact --}}
                 </div>
 
                 <div>
+                    {{-- Date --}}
                     <div class="flex gap-x-11 items-center">
                         <strong class="text-gray-700">Date</strong>
         
@@ -79,7 +80,9 @@
                         <x-input type="hidden" value="TDC" wire:model.lazy="course" id="course" name="course"/>
                         <x-input type="hidden" value="---" name="transmission" />
                     </div>
+                    {{-- Date --}}
 
+                    {{-- Proof of Payment --}}
                     <div class="mt-7">
                         <strong class="text-gray-700">Proof of Payment</strong>
                         <div class="flex flex-col">
@@ -87,8 +90,10 @@
                             <x-input-error for="paid_attachment" class="mt-1"/>
                         </div>
                     </div>
+                    {{-- Proof of Payment --}}
                 </div>
 
+                {{-- Gcash --}}
                 <div class="flex flex-col ms-10">
                     <div class="flex flex-col items-center">
                         <strong class="text-gray-700">Gcash QR Code</strong>
@@ -107,6 +112,7 @@
                     </div>
 
                 </div>
+                {{-- Gcash --}}
             </div>
             <button type="submit" class="btn btn-outline btn-error ms-[25%] my-7">Reserve Now</button>
         </form>
@@ -139,6 +145,12 @@
                 window.location.href = '/customer'
             }, 3000);
         </script>
+    @endif
+
+    @if(session()->has('error'))
+        <span class="bg-red-500 text-black px-4 py-2">
+            {{session('error')}}
+        </span>
     @endif
 
     <script>

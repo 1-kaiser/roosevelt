@@ -1,5 +1,6 @@
 <div>
     <div class="mt-3">
+        {{-- Paginate --}}
         <x-select wire:model.live="paginate" class="text-black text-xs">
             <option value="5">5</option>
             <option value="10">10</option>
@@ -7,13 +8,16 @@
             <option value="50">50</option>
             <option value="100">100</option>
         </x-select>
+        {{-- Paginate --}}
 
+        {{-- Search Bar --}}
         <div class="border rounded overflow-hidden flex float-end text-sm mb-2 text-black">
             <input wire:model.live="searchCustomer" type="search" class="px-4 py-2 border-gray-300 text-sm" placeholder="Search...">
             <button class="flex items-center justify-center px-4 border-l">
             <svg class="h-4 w-4 text-grey-dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
             </button>
         </div>
+        {{-- Search Bar --}}
 
     </div>
 
@@ -62,7 +66,7 @@
         </thead>
         <tbody>
             @isset($data)
-                @foreach ($data as $customer)
+            @foreach ($data as $customer)
             <tr>
             {{-- # --}}
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -124,19 +128,20 @@
             </tr>
             @endforeach
             @endisset
-            <script>
-                window.addEventListener("swal", (event) => {
-                    let data = event.detail;
-                    Swal.fire({
-                        title: data.title,
-                        text: data.text,
-                        icon: data.icon,
-                    });
-                });
-            </script>
         </tbody>
     </table>
     <div class="mt-3">{{$data->links()}}</div>
+
+    <script>
+        window.addEventListener("swal", (event) => {
+            let data = event.detail;
+            Swal.fire({
+                title: data.title,
+                text: data.text,
+                icon: data.icon,
+            });
+        });
+    </script>
 
     <x-dialog-modal wire:model.live="modalView" submit="save">
         <x-slot name="title">
@@ -148,42 +153,56 @@
                 @foreach($viewData as $row)
                     <div class="flex">
                         <div class="mt-4 mr-16 flex flex-col items-center">
+                            {{-- Picture --}}
                             <div>
                                 <x-label for="name" value="Customer Picture" />
                                 <img src="{{ asset('storage/'.$row->pic) }}" class="w-40 h-33 mt-1" />
                             </div>
+                            {{-- Picture --}}
 
+                            {{-- Proof of Payment --}}
                             <div class="mt-1">
                                 <x-label for="paid_attachment" value="Proof of Payment" class="mt-2"/>
                                 <img src="{{ asset('storage/'.$row->paid_attachment) }}" class="w-40 h-33 mt-1" />
                             </div> 
+                            {{-- Proof of Payment --}}
                         </div>
 
                         <div class="grid grid-cols-2 gap-4 mt-5 absolute left-60">
-                                <div class="mt-1">
-                                    <x-label for="name" value="Name" />
-                                    <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
-                                </div>
-            
-                                <div class="mt-1">
-                                    <x-label for="contact" value="Contact" />
-                                    <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
-                                </div>
-            
-                                <div class="mt-1">
-                                    <x-label for="email" value="Email" />
-                                    <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
-                                </div>
-            
-                                <div class="mt-1">
-                                    <x-label for="date" value="Date" />
-                                    <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
-                                </div>
-            
-                                <div class="mt-1">
-                                    <x-label for="transmission" value="Transmission" />
-                                    <x-input wire:model.lazy="transmission" value="{{$row->transmission}}" id="transmission" name="transmission" type="text" class="mt-2 w-full text-black" readonly />
-                                </div>
+                            {{-- Name --}}
+                            <div class="mt-1">
+                                <x-label for="name" value="Name" />
+                                <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Name --}}
+        
+                            {{-- Contact --}}
+                            <div class="mt-1">
+                                <x-label for="contact" value="Contact" />
+                                <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Contact --}}
+        
+                            {{-- Email --}}
+                            <div class="mt-1">
+                                <x-label for="email" value="Email" />
+                                <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Email --}}
+        
+                            {{-- Date --}}
+                            <div class="mt-1">
+                                <x-label for="date" value="Date" />
+                                <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Date --}}
+        
+                            {{-- Transmission --}}
+                            <div class="mt-1">
+                                <x-label for="transmission" value="Transmission" />
+                                <x-input wire:model.lazy="transmission" value="{{$row->transmission}}" id="transmission" name="transmission" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Transmission --}}
                         </div>
                     </div>
                 @endforeach

@@ -11,6 +11,7 @@
                 
                 <div>
                     <div class="mt-3">
+                        {{-- Paginate --}}
                         <x-select wire:model.live="paginate" class="text-black text-xs">
                             <option value="5">5</option>
                             <option value="10">10</option>
@@ -18,13 +19,16 @@
                             <option value="50">50</option>
                             <option value="100">100</option>
                         </x-select>
+                        {{-- Paginate --}}
                 
+                        {{-- Search Bar --}}
                         <div class="border rounded overflow-hidden flex float-end text-sm mb-2 text-black">
                           <input wire:model.live="searchCustomer" type="search" class="px-4 py-2 border-gray-300 text-sm" placeholder="Search...">
                           <button class="flex items-center justify-center px-4 border-l">
                           <svg class="h-4 w-4 text-grey-dark" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
                           </button>
                         </div>
+                        {{-- Search Bar --}}
                     </div>
 
                     <table class="min-w-full leading-normal">
@@ -126,84 +130,84 @@
     </div>
 
     @isset($accepted)
-      @foreach($accepted as $row)
+    @foreach($accepted as $row)
 
-        <x-dialog-modal wire:model.live="modalTDCEdit" submit="save">
-            <x-slot name="title">
-                Customer Information
-            </x-slot>
-        
-            <x-slot name="content">
+    <x-dialog-modal wire:model.live="modalTDCEdit" submit="save">
+        <x-slot name="title">
+            Customer Information
+        </x-slot>
+    
+        <x-slot name="content">
 
+                <div class="mt-1">
+
+                  {{-- Picture --}}
+                  <div class="mt-4 flex flex-col items-center">
+                        <img src="{{ asset('storage/'. $row->pic) }}" class="w-40 h-33 mb-1" />
+                        <x-label for="name" value="Customer Picture" />
+                  </div>
+                  {{-- Picture --}}
+
+                  <div class="grid grid-cols-2 gap-4 mt-5">
+
+                    {{-- Name --}}
                     <div class="mt-1">
-
-                      {{-- Picture --}}
-                      <div class="mt-4 flex flex-col items-center">
-                            <img src="{{ asset('storage/'. $row->pic) }}" class="w-40 h-33 mb-1" />
-                            <x-label for="name" value="Customer Picture" />
-                      </div>
-                      {{-- Picture --}}
-
-                      <div class="grid grid-cols-2 gap-4 mt-5">
-
-                        {{-- Name --}}
-                        <div class="mt-1">
-                          <x-label for="name" value="Name" />
-                          <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-                        {{-- Name --}}
-
-                        {{-- Contact --}}
-                        <div class="mt-1">
-                            <x-label for="contact" value="Contact" />
-                            <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-                        {{-- Contact --}}
-
-                        {{-- Email --}}
-                        <div class="mt-1">
-                            <x-label for="email" value="Email" />
-                            <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
-                        </div>
-                        {{-- Email --}}
-
-                        {{-- Date --}}
-                        <div class="mt-1">
-                            <x-label for="date" value="Date" />
-                            <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="date" class="mt-2 w-full text-black" />
-                            <x-input-error for="date" class="mt-1"/>
-                        </div>
-                        {{-- Date --}}
-
-                        {{-- Instructor --}}
-                        <div class="mt-1">
-                          <x-label for="instructor" value="Instructor" />
-                          <x-select class="mt-2 text-black w-full">
-                              <option value=""></option>
-                              @isset($instructor)
-                                  @foreach ($instructor as $ins)
-                                      <option value="{{$ins->f_name}}">{{$ins->f_name}}</option>
-                                  @endforeach
-                              @endisset
-                          </x-select>
-                        </div>
-                        {{-- Instructor --}}
-                      </div>
+                      <x-label for="name" value="Name" />
+                      <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
                     </div>
-            </x-slot>
-        
-            <x-slot name="footer">
-              <x-secondary-button @click="$wire.set('modalTDCEdit', false)">
-                {{ __('Cancel') }}
-              </x-secondary-button>
-      
-              <x-button class="ms-3" @click="$wire.save({ name: '{{ $row->name }}' })">
-                  Reserve
-              </x-button>
-            </x-slot>
-        </x-dialog-modal>
+                    {{-- Name --}}
 
-      @endforeach
+                    {{-- Contact --}}
+                    <div class="mt-1">
+                        <x-label for="contact" value="Contact" />
+                        <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                    </div>
+                    {{-- Contact --}}
+
+                    {{-- Email --}}
+                    <div class="mt-1">
+                        <x-label for="email" value="Email" />
+                        <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                    </div>
+                    {{-- Email --}}
+
+                    {{-- Date --}}
+                    <div class="mt-1">
+                        <x-label for="date" value="Date" />
+                        <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="date" class="mt-2 w-full text-black" />
+                        <x-input-error for="date" class="mt-1"/>
+                    </div>
+                    {{-- Date --}}
+
+                    {{-- Instructor --}}
+                    <div class="mt-1">
+                      <x-label for="instructor" value="Instructor" />
+                      <x-select class="mt-2 text-black w-full">
+                          <option value=""></option>
+                          @isset($instructor)
+                              @foreach ($instructor as $ins)
+                                  <option value="{{$ins->f_name}}">{{$ins->f_name}}</option>
+                              @endforeach
+                          @endisset
+                      </x-select>
+                    </div>
+                    {{-- Instructor --}}
+                  </div>
+                </div>
+        </x-slot>
+    
+        <x-slot name="footer">
+          <x-secondary-button @click="$wire.set('modalTDCEdit', false)">
+            {{ __('Cancel') }}
+          </x-secondary-button>
+  
+          <x-button class="ms-3" @click="$wire.save({ name: '{{ $row->name }}' })">
+              Reserve
+          </x-button>
+        </x-slot>
+    </x-dialog-modal>
+
+    @endforeach
     @endisset
 
     <script>
