@@ -16,23 +16,25 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
-        $customBranch = ['Maypajo Branch', 'Navotas Branch', 'Tayuman Branch', 'Fishermall Branch', 'Legarda Branch'];
+        // $customBranch = ['Maypajo Branch', 'Navotas Branch', 'Tayuman Branch', 'Fishermall Branch', 'Legarda Branch'];
 
-        // $customCourse = ['TDC'];
-        // $customVehicle = ['---'];
-        // $customTransmission = ['---'];
+        $phCode = +639;
+        $customCourse = ['TDC'];
+        $paidAttachment = ['---'];
+        $customTransmission = ['---'];
         
-        $customCourse = ['PDC'];
-        $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
-        $customTransmission = ['Manual', 'Automatic'];
+        // $customCourse = ['PDC'];
+        // $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
+        // $customTransmission = ['Manual', 'Automatic'];
         
         return [
+            'pic' => $this->faker->imageUrl(640, 480, 'people'),
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'branch' => $this->faker->randomElement($customBranch),
+            'contact' => $this->faker->unique()->e164PhoneNumber($phCode),
             'date' => $this->faker->dateTimeBetween('2024-03-00', 'now'),
             'course' =>$this->faker->randomElement($customCourse),
-            'vehicle' => $this->faker->randomElement($customVehicle),
+            'paid_attachment' => $this->faker->randomElement($paidAttachment),
             'transmission' => $this->faker->randomElement($customTransmission)
         ];
     }

@@ -56,11 +56,7 @@ class WaitlistTable extends Component
             // }
         }
 
-        $this->dispatch('swal',
-            title: 'Success',
-            text: 'Customer successfully transferred',
-            icon: 'success',
-        );
+        $this->dispatch('swal');
 
         $this->dispatch('dispatch-customer-accepted')->to(TdcAcceptedList::class);
         $this->dispatch('dispatch-customer-accepted')->to(PdcAcceptedList::class);

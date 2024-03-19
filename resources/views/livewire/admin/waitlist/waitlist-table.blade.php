@@ -133,12 +133,29 @@
     <div class="mt-3">{{$data->links()}}</div>
 
     <script>
-        window.addEventListener("swal", (event) => {
-            let data = event.detail;
+        window.addEventListener("swal", () => {
+            let timerInterval;
             Swal.fire({
-                title: data.title,
-                text: data.text,
-                icon: data.icon,
+                title: "Updating Customer Status",
+                html: "I will close in <b></b> milliseconds.",
+                timer: 1500,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 5);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                }
+            }).then((result) => {
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Customer status successfully updated',
+                    icon: 'success',
+                });
             });
         });
     </script>

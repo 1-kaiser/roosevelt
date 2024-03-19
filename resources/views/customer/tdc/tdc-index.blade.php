@@ -142,7 +142,7 @@
             });
 
             setTimeout(() => {
-                window.location.href = '/customer'
+            window.location.href = '/customer'
             }, 3000);
         </script>
     @endif
