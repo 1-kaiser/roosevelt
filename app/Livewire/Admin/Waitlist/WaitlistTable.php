@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\Waitlist;
 use App\Livewire\Admin\AcceptedList\PdcAcceptedList;
 use App\Livewire\Admin\AcceptedList\TdcAcceptedList;
 use App\Livewire\Admin\Denied\DeniedHistory;
+use App\Mail\PDCAcceptedMail;
 use App\Mail\TDCAcceptedMail;
 use App\Models\AcceptedList;
 use App\Models\Customer;
@@ -51,9 +52,13 @@ class WaitlistTable extends Component
                 'transmission' => $data['transmission'],
             ]);
 
-            // if ($data['course'] === 'TDC') {
-            //     Mail::to($data['email'])->send(new TDCAcceptedMail($data));
-            // }
+            if ($data['course'] === 'TDC') {
+                Mail::to($data['email'])->send(new TDCAcceptedMail($data));
+            }
+
+            if ($data['course'] === 'PDC') {
+                Mail::to($data['email'])->send(new PDCAcceptedMail($data));
+            }
         }
 
         $this->dispatch('swal');

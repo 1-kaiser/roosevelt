@@ -19,13 +19,13 @@ class CustomerFactory extends Factory
         // $customBranch = ['Maypajo Branch', 'Navotas Branch', 'Tayuman Branch', 'Fishermall Branch', 'Legarda Branch'];
 
         $phCode = +639;
-        $customCourse = ['TDC'];
-        $paidAttachment = ['---'];
-        $customTransmission = ['---'];
+        // $customCourse = ['TDC'];
+        // $paidAttachment = ['---'];
+        // $customTransmission = ['---'];
         
-        // $customCourse = ['PDC'];
-        // $customVehicle = ['Toyota Altis MT', 'Toyota Vios MT'];
-        // $customTransmission = ['Manual', 'Automatic'];
+        $customCourse = ['PDC'];
+        $paidAttachment = ['---'];
+        $customTransmission = ['Manual', 'Automatic'];
         
         return [
             'pic' => $this->faker->imageUrl(640, 480, 'people'),

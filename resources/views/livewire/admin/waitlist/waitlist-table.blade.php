@@ -134,30 +134,16 @@
 
     <script>
         window.addEventListener("swal", () => {
-            let timerInterval;
             Swal.fire({
-                title: "Updating Customer Status",
-                html: "I will close in <b></b> milliseconds.",
-                timer: 1500,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading();
-                    const timer = Swal.getPopup().querySelector("b");
-                    timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                    }, 5);
-                },
-                willClose: () => {
-                    clearInterval(timerInterval);
-                }
-            }).then((result) => {
-                Swal.fire({
-                    title: 'Success',
-                    text: 'Customer status successfully updated',
-                    icon: 'success',
-                });
+                title: 'Success',
+                text: 'Customer status successfully updated',
+                icon: 'success',
             });
         });
+    </script>
+
+    <script>
+        
     </script>
 
     <x-dialog-modal wire:model.live="modalView" submit="save">
