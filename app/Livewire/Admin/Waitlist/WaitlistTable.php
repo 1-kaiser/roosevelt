@@ -35,8 +35,7 @@ class WaitlistTable extends Component
         $this->viewData = Customer::where('name', '=', $name)->get();
     }
 
-    public function accepted($name)
-    {
+    public function accepted($name) {
         $sourceData = Customer::where('name', '=', $name)->get();
         $getData = Customer::where('name', '=', $name)->get()->toArray();
         
@@ -52,25 +51,21 @@ class WaitlistTable extends Component
                 'transmission' => $data['transmission'],
             ]);
 
-            if ($data['course'] === 'TDC') {
-                Mail::to($data['email'])->send(new TDCAcceptedMail($data));
-            }
+            ($data['course'] === 'TDC') ? Mail::to($data['email'])->send(new TDCAcceptedMail($data))
+            : ''; 
 
-            if ($data['course'] === 'PDC') {
-                Mail::to($data['email'])->send(new PDCAcceptedMail($data));
-            }
+            ($data['course'] === 'PDC') ? Mail::to($data['email'])->send(new PDCAcceptedMail($data))
+            : ''; 
         }
 
         $this->dispatch('swal');
-
         $this->dispatch('dispatch-customer-accepted')->to(TdcAcceptedList::class);
         $this->dispatch('dispatch-customer-accepted')->to(PdcAcceptedList::class);
 
         $sourceData->each->delete();  
     }
 
-    public function denied($name)
-    {
+    public function denied($name) {
         $sourceData = Customer::where('name', '=', $name)->get();
         $getData = Customer::where('name', '=', $name)->get()->toArray();
         

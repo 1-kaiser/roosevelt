@@ -28,14 +28,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/customer', function () {
-    return view('customer/customer-index');
-})->name('customer-index');
+    Route::get('/customer', function () {
+        return view('customer/customer-index');
+    })->name('customer-index');
 
-Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
-Route::post('/tdc', [TDCIndex::class, 'save'])->name('tdc-save');
-Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
-Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
+    Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
+    Route::post('/tdc', [TDCIndex::class, 'save'])->name('tdc-save');
+    Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
+    Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
+
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     ->group(function () {
