@@ -1,9 +1,11 @@
-<div id="Courses" class="mt-20 ml-10">
+<div class="courses_bg min-h-screen">
+
+  <div id="Courses" class="pt-14 ml-10">
     <strong class="text-3xl">Featured Courses</strong>
     <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
 </div>
 
-  <div class="flex my-24 items-center justify-center">
+  <div class="flex pt-16 items-center justify-center">
     <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2">
       <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
         <div class="h-96 w-72">
@@ -34,3 +36,11 @@
       </div>
     </div>
   </div>
+</div>
+<style>
+  .courses_bg {
+    background: url('img/courses_bg.svg') no-repeat;
+    background-size: cover;
+  }
+</style>
+

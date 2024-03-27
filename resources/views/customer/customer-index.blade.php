@@ -35,7 +35,13 @@
         
         <x-customer-faqs />
 
-      {{-- FAQS --}}  
+      {{-- FAQS --}} 
+      
+      {{-- Contact Form --}}
+
+        <x-customer-contact-form />
+
+      {{-- Contact Form --}}
 
       {{-- RATING --}}
       
