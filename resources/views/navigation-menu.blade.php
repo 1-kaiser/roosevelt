@@ -39,10 +39,6 @@
                     <x-nav-link href="{{ route('calendar') }}" wire:navigate :active="request()->routeIs('calendar')">
                         {{ __('Calendar') }}
                     </x-nav-link>
-
-                    {{-- <x-nav-link href="{{ route('schedule-list') }}" wire:navigate :active="request()->routeIs('schedule-list')">
-                        {{ __('Schedule List') }}
-                    </x-nav-link> --}}
                 </div>
             </div>
 
@@ -394,11 +390,6 @@
             <x-responsive-nav-link href="{{ route('calendar') }}" wire:navigate :active="request()->routeIs('calendar')">
                 {{ __('Calendar') }}
             </x-responsive-nav-link>
-
-            {{-- <x-responsive-nav-link href="{{ route('schedule-list') }}" wire:navigate :active="request()->routeIs('schedule-list')">
-                {{ __('Schedule List') }}
-            </x-responsive-nav-link> --}}
-
         </div>
 
         <!-- Responsive Settings Options -->

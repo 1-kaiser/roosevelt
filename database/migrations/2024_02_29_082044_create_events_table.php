@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('description');
             $table->string('status');
             $table->date('date');
-            $table->string('branch');
             $table->timestamps();
         });
     }

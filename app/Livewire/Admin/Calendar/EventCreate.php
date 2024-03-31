@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Calendar;
 
 use App\Livewire\Forms\EventForm;
+use App\Models\Event;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -15,7 +16,8 @@ class EventCreate extends Component
     #[On('dispatch-event-create')]
     public function save() {
         $this->validate();
-        $this->form->store();
+        Event::create($this->form->all());
+        $this->modalEventCreate = false;
 
         $this->dispatch('swal',
             title: 'Success',
@@ -23,12 +25,6 @@ class EventCreate extends Component
             icon: 'success',
         );
 
-        $mailData = [
-            'title' => 'Event Creation',
-            'body' => 'Event created successfully'
-        ];
-
-        $this->modalEventCreate = false;
         $this->dispatch('dispatch-event-create')->to(ReservationCalendar::class);
     }
 }

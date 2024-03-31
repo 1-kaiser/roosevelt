@@ -24,22 +24,18 @@ class EventForm extends Form
     #[Rule('required', as: 'Date')]
     public $date;
 
-    #[Rule('required', as: 'Branch')]
-    public $branch;
+    // public function setEvent(Event $event) {
+    //     $this->event = $event;
 
-    public function setEvent(Event $event) {
-        $this->event = $event;
+    //     $this->title = $event->title;
+    //     $this->description = $event->description;
+    //     $this->status = $event->status;
+    //     $this->date = $event->date;
+    // }
 
-        $this->title = $event->title;
-        $this->description = $event->description;
-        $this->status = $event->status;
-        $this->date = $event->date;
-        $this->branch = $event->branch;
-    }
-
-    public function store() {
-        Event::create($this->except(['event']));
-    }
+    // public function store() {
+        
+    // }
 
     
 
