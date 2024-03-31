@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Denied;
 
 use App\Models\DeniedList;
+use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -14,7 +15,7 @@ class DeniedHistory extends Component
     public $modelName;
 
     #[Title('Denied')]
-    public function render()
+    public function render(): View
     {
         return view('livewire.admin.denied.denied-history', [
             'data' => DeniedList::whereAny(['name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
