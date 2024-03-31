@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accepted_lists', function (Blueprint $table) {
+        Schema::create('f_a_q_s', function (Blueprint $table) {
             $table->id();
-            $table->string('pic');
             $table->string('name');
+            $table->string('age');
             $table->string('email');
             $table->string('contact');
-            $table->date('date');
-            $table->string('course');
-            $table->string('paid_attachment');
-            $table->string('transmission');
-            $table->string('instructor')->nullable();
+            $table->string('message');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accepted_lists');
+        Schema::dropIfExists('f_a_q_s');
     }
 };
