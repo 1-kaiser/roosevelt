@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 06:50 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 31, 2024 at 09:45 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,6 +37,7 @@ CREATE TABLE `accepted_lists` (
   `course` varchar(255) NOT NULL,
   `paid_attachment` varchar(255) NOT NULL,
   `transmission` varchar(255) NOT NULL,
+  `instructor` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -45,32 +46,8 @@ CREATE TABLE `accepted_lists` (
 -- Dumping data for table `accepted_lists`
 --
 
-INSERT INTO `accepted_lists` (`id`, `pic`, `name`, `email`, `contact`, `date`, `course`, `paid_attachment`, `transmission`, `created_at`, `updated_at`) VALUES
-(1, 'img/irabGOEbhZOpotM7i5jspMGMuA64gtWBNh66Im4V.png', 'asdfasd', 'skdj@sdkfj', '98498271628', '2024-03-23', 'TDC', 'img/AXCKw1OsUUxFYhAA1CXiyvpiTZYTPdFsMTzFK3Za.jpg', '---', NULL, NULL),
-(2, 'img/TRckNm95eR6LmAM3qw2rQVGAUUfBNbt8u9cruVKn.jpg', 'Emman', 'emmanuelpunay6906@gmail.com', '09482985712', '2024-03-30', 'TDC', 'img/Gu05TZF1RLibVASwkIDfxblYxKzZjHn6PbBzDU5L.jpg', '---', NULL, NULL),
-(3, 'img/tj1N5PEy4HCtgcPsg8A1TiEsDFW6SQFbHB0adjR9.jpg', 'Emmanuel Punay', 'emmanuelpunay6906@gmail.com', '09580938271', '2024-03-18', 'TDC', 'img/MnkuJzWzXgUPJ5fHKudNd4bPnWuzrA9rhBb60gJr.jpg', '---', NULL, NULL),
-(4, 'img/VCsWyNFNPOBea2D0HoVmEHiHTMGkpGBWgyo4AW8r.jpg', 'Emmanuel Punay', 'emmanuelpunay6906@gmail.com', '09535682090', '2024-03-21', 'TDC', 'img/lQna3XkohyieQ8dlFHjWdnlOSW0BEvcfXJQNqSFG.jpg', '---', NULL, NULL),
-(5, 'img/31ZXuH9SY6L5U75QXWDCjHpOvRLcBJKYWHXnSi57.jpg', 'asdkfj', 'ksdj@skdfj', '09489839582', '2024-03-17', 'TDC', 'img/gpWL4B96FrzzEOnr9DIuUGoT80nQ0qnkOWENoLIx.jpg', '---', NULL, NULL),
-(6, 'https://via.placeholder.com/640x480.png/0000aa?text=people+sed', 'Rowan Abshire', 'zolson@example.net', '+13178358906', '2024-03-13', 'TDC', '---', '---', NULL, NULL),
-(7, 'https://via.placeholder.com/640x480.png/00aa77?text=people+architecto', 'Daisha Schneider', 'douglas.carleton@example.com', '+16606020232', '2024-03-06', 'TDC', '---', '---', NULL, NULL),
-(8, 'https://via.placeholder.com/640x480.png/008844?text=people+dolore', 'Rico Leannon', 'tremblay.savanna@example.com', '+16786185115', '2024-03-16', 'TDC', '---', '---', NULL, NULL),
-(9, 'https://via.placeholder.com/640x480.png/001199?text=people+aut', 'Antonetta Becker', 'pasquale34@example.net', '+18603648093', '2024-03-06', 'TDC', '---', '---', NULL, NULL),
-(10, 'https://via.placeholder.com/640x480.png/00aa22?text=people+et', 'Dr. Adan Walker MD', 'murazik.rene@example.org', '+17314234091', '2024-03-01', 'TDC', '---', '---', NULL, NULL),
-(11, 'https://via.placeholder.com/640x480.png/009944?text=people+quasi', 'Ms. Antonette Hamill', 'rnienow@example.com', '+19894794338', '2024-03-05', 'TDC', '---', '---', NULL, NULL),
-(12, 'https://via.placeholder.com/640x480.png/001188?text=people+ad', 'Ford Gusikowski MD', 'turner.arielle@example.com', '+14587126889', '2024-03-03', 'TDC', '---', '---', NULL, NULL),
-(13, 'https://via.placeholder.com/640x480.png/002233?text=people+qui', 'Miss Leanne Flatley Sr.', 'igutmann@example.com', '+12402164430', '2024-03-18', 'TDC', '---', '---', NULL, NULL),
-(14, 'https://via.placeholder.com/640x480.png/006655?text=people+expedita', 'Dr. Demarco Williamson', 'freeda86@example.org', '+16125439608', '2024-03-15', 'TDC', '---', '---', NULL, NULL),
-(15, 'https://via.placeholder.com/640x480.png/0033aa?text=people+eligendi', 'Prof. Josie Wilderman PhD', 'mellie.west@example.net', '+16086713493', '2024-03-15', 'TDC', '---', '---', NULL, NULL),
-(16, 'https://via.placeholder.com/640x480.png/0088ee?text=people+assumenda', 'Dr. Evans Macejkovic', 'obalistreri@example.com', '+15415415025', '2024-03-04', 'TDC', '---', '---', NULL, NULL),
-(17, 'https://via.placeholder.com/640x480.png/005533?text=people+eum', 'Miss Kristin Koss V', 'qbahringer@example.net', '+12489180841', '2024-03-17', 'TDC', '---', '---', NULL, NULL),
-(18, 'https://via.placeholder.com/640x480.png/003333?text=people+ut', 'Felipe Jenkins', 'wheathcote@example.com', '+14257552034', '2024-03-05', 'TDC', '---', '---', NULL, NULL),
-(19, 'https://via.placeholder.com/640x480.png/0033ff?text=people+omnis', 'Florencio Deckow', 'mccullough.jeanette@example.org', '+12409606123', '2024-03-10', 'TDC', '---', '---', NULL, NULL),
-(20, 'https://via.placeholder.com/640x480.png/00dd66?text=people+eaque', 'Assunta Bins', 'armstrong.filomena@example.com', '+13167397732', '2024-03-13', 'TDC', '---', '---', NULL, NULL),
-(21, 'img/th6tfZos45UJKGddrM3No0S2LhyrxUuN4sSIT1va.jpg', 'Emmanuel Punay', 'emmanuelpunay6906@gmail.com', '09535682090', '2024-03-22', 'TDC', 'img/blSf47bDB19mnFrt3347mLXDpjoau4gEBXOSNzZ6.jpg', '---', NULL, NULL),
-(22, 'img/joAWYcWdJi11Ui35GWZhSefsDqXeU500PjaOLEkf.jpg', 'Emmanuel Punay', 'emmanuelpunay6906@gmail.com', '09535682090', '2024-03-28', 'PDC', 'img/BoG5KdMqFfhFY2uVOGwAerfqJBxXQNlfSVi2rBfw.jpg', 'Automatic', NULL, NULL),
-(23, 'https://via.placeholder.com/640x480.png/008866?text=people+iusto', 'Beaulah Lubowitz V', 'hosea.vandervort@example.org', '+14243505651', '2024-03-03', 'PDC', '---', 'Manual', NULL, NULL),
-(24, 'img/joAWYcWdJi11Ui35GWZhSefsDqXeU500PjaOLEkf.jpg', 'Emmanuel Punay', 'emmanuelpunay6906@gmail.com', '09535682090', '2024-03-28', 'PDC', 'img/BoG5KdMqFfhFY2uVOGwAerfqJBxXQNlfSVi2rBfw.jpg', 'Automatic', NULL, NULL),
-(25, 'img/8LdMnmtNNJbUBFjgK80Bm3kSJHj9VYh4tISma5jW.jpg', 'Emmanuel Punay', 'emmanuelpunay6906@gmail.com', '09535682090', '2024-03-15', 'TDC', 'img/ZZ09zdAEZXw5aeG83DrHypFK1RsU9ett7Tqft0ei.jpg', '---', NULL, NULL);
+INSERT INTO `accepted_lists` (`id`, `pic`, `name`, `email`, `contact`, `date`, `course`, `paid_attachment`, `transmission`, `instructor`, `created_at`, `updated_at`) VALUES
+(1, 'https://via.placeholder.com/640x480.png/001177?text=people+similique', 'Mr. Blaise Greenfelder', 'evangeline20@example.org', '+15717226178', '2024-03-02', 'PDC', '---', 'Automatic', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -100,14 +77,14 @@ INSERT INTO `customers` (`id`, `pic`, `name`, `email`, `contact`, `date`, `cours
 (39, 'https://via.placeholder.com/640x480.png/00ddee?text=people+recusandae', 'Albert Pfeffer III', 'irwin.zulauf@example.com', '+16822474386', '2024-03-18', 'TDC', '---', '---', '2024-03-19 03:36:21', '2024-03-19 03:36:21'),
 (40, 'https://via.placeholder.com/640x480.png/00dd44?text=people+cupiditate', 'Coralie Spinka', 'qmueller@example.net', '+14792443490', '2024-03-07', 'TDC', '---', '---', '2024-03-19 03:36:21', '2024-03-19 03:36:21'),
 (41, 'https://via.placeholder.com/640x480.png/00bbdd?text=people+sequi', 'Mr. Timmy Runolfsson', 'watson.jenkins@example.net', '+18597768888', '2024-03-09', 'TDC', '---', '---', '2024-03-19 03:36:21', '2024-03-19 03:36:21'),
-(44, 'https://via.placeholder.com/640x480.png/001177?text=people+similique', 'Mr. Blaise Greenfelder', 'evangeline20@example.org', '+15717226178', '2024-03-02', 'PDC', '---', 'Automatic', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
 (45, 'https://via.placeholder.com/640x480.png/007766?text=people+sunt', 'Lavada Daugherty', 'barney70@example.org', '+16809439749', '2024-03-09', 'PDC', '---', 'Automatic', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
 (46, 'https://via.placeholder.com/640x480.png/00eeff?text=people+id', 'Mr. Claude Heller', 'spinka.oleta@example.org', '+16627299832', '2024-03-17', 'PDC', '---', 'Manual', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
 (47, 'https://via.placeholder.com/640x480.png/0077dd?text=people+praesentium', 'Eriberto Greenfelder', 'elias.hyatt@example.net', '+12105729020', '2024-03-09', 'PDC', '---', 'Manual', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
 (48, 'https://via.placeholder.com/640x480.png/005555?text=people+enim', 'Kitty Jenkins', 'dariana.crona@example.com', '+17084458236', '2024-03-06', 'PDC', '---', 'Automatic', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
 (49, 'https://via.placeholder.com/640x480.png/006699?text=people+ut', 'Polly Hill', 'barton.june@example.org', '+17439150438', '2024-02-29', 'PDC', '---', 'Automatic', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
 (50, 'https://via.placeholder.com/640x480.png/007755?text=people+sapiente', 'Isaac Schmeler', 'carlos44@example.com', '+16363673762', '2024-03-10', 'PDC', '---', 'Automatic', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
-(51, 'https://via.placeholder.com/640x480.png/008800?text=people+sit', 'Retha Bruen', 'julius.dibbert@example.org', '+14453770556', '2024-03-03', 'PDC', '---', 'Manual', '2024-03-19 23:23:59', '2024-03-19 23:23:59');
+(51, 'https://via.placeholder.com/640x480.png/008800?text=people+sit', 'Retha Bruen', 'julius.dibbert@example.org', '+14453770556', '2024-03-03', 'PDC', '---', 'Manual', '2024-03-19 23:23:59', '2024-03-19 23:23:59'),
+(55, 'img/sNs8Y28XhLTmxEJ5f2YmsDTUjQMxNfH6iES1fFQs.jpg', 'Yellow', 'emmanuelpunay6906@gmail.com', '09482750184', '2024-03-26', 'TDC', 'img/P9xSa3CwFZDN6ArdfesusekH7wfRx7VN7HgsgNJb.jpg', '---', '2024-03-30 21:32:40', '2024-03-30 21:32:40');
 
 -- --------------------------------------------------------
 
@@ -157,10 +134,25 @@ CREATE TABLE `events` (
   `description` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `date` date NOT NULL,
-  `branch` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `description`, `status`, `date`, `created_at`, `updated_at`) VALUES
+(1, 'TDC       Not Reserved', 'Reservation', 'Not Reserved', '2024-03-29', '2024-03-30 21:48:16', '2024-03-30 21:48:16'),
+(2, 'PDC', 'Not Reserved', 'Not Reserved', '2024-04-01', '2024-03-30 21:49:06', '2024-03-30 21:49:06'),
+(3, 'PDC', 'Not Reserved', 'Not Reserved', '2024-04-02', '2024-03-30 21:50:03', '2024-03-30 21:50:03'),
+(4, 'PDC ', 'Not Reserved', 'Not Reserved', '2024-04-01', '2024-03-30 21:54:33', '2024-03-30 21:54:33'),
+(5, 'PDC ', 'Not Reserved', 'Not Reserved', '2024-04-01', '2024-03-30 21:54:56', '2024-03-30 21:54:56'),
+(6, 'PDC ', 'Not Reserved', 'Not Reserved', '2024-03-25', '2024-03-30 21:55:47', '2024-03-30 21:55:47'),
+(7, 'PDC', 'Not Reserved', 'Not Reserved', '2024-03-18', '2024-03-30 21:57:18', '2024-03-30 21:57:18'),
+(8, 'PDC', 'Not Reserved', 'Not Reserved', '2024-03-11', '2024-03-30 21:58:46', '2024-03-30 21:58:46'),
+(9, 'TDC', 'Not Reserved', 'Not Reserved', '2024-03-21', '2024-03-30 21:59:52', '2024-03-30 21:59:52'),
+(10, 'TDC', 'Reserved', 'Reserved', '2024-03-05', '2024-03-30 22:57:07', '2024-03-30 22:57:07');
 
 -- --------------------------------------------------------
 
@@ -177,6 +169,33 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `f_a_q_s`
+--
+
+CREATE TABLE `f_a_q_s` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `age` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `f_a_q_s`
+--
+
+INSERT INTO `f_a_q_s` (`id`, `name`, `age`, `email`, `contact`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'asdf', '34', 'emmanuelpunay6906@gmail.com', '24234234', 'sdfgdfgsdfgsdfgsdfg', '2024-03-30 23:39:28', '2024-03-30 23:39:28'),
+(2, 'asdf', '34', 'emmanuelpunay6906@gmail.com', '24234234', 'sdfgdfgsdfgsdfgsdfg', '2024-03-30 23:40:19', '2024-03-30 23:40:19'),
+(3, 'Emasd', '234', 'asdfasdf@fgd', '3434234', 'jtyjfgh', '2024-03-30 23:42:39', '2024-03-30 23:42:39'),
+(4, 'Emasd', '234', 'asdfasdf@fgd', '3434234', 'jtyjfgh', '2024-03-30 23:44:11', '2024-03-30 23:44:11');
 
 -- --------------------------------------------------------
 
@@ -233,10 +252,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (37, '2020_05_21_300000_create_team_invitations_table', 1),
 (38, '2024_02_01_025724_create_sessions_table', 1),
 (39, '2024_02_05_090105_create_customers_table', 1),
-(40, '2024_02_29_082044_create_events_table', 1),
 (42, '2024_03_07_082723_create_denied_lists_table', 1),
 (43, '2024_03_07_103354_create_instructors_table', 1),
-(44, '2024_03_03_053640_create_accepted_lists_table', 2);
+(45, '2024_02_29_082044_create_events_table', 3),
+(46, '2024_03_03_053640_create_accepted_lists_table', 4),
+(47, '2024_03_31_071523_create_f_a_q_s_table', 5);
 
 -- --------------------------------------------------------
 
@@ -289,7 +309,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('3JLma60WeohIIMlrVt5QYEM4BjDurqfdnqpEnLHS', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiYmJQaXZJa1VIbUFTZkNkOXFvY3VCU1p0dEVMVEpvZzdnR2VzeGFWZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC90ZGMtYWNjZXB0ZWQtbGlzdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTIkUGlvRjNYb0trUVN0Z0REQU5hcS41LmZSOERFL0gxeUlOM1p3cnY1UUtDWEJqYkdKOHdjczIiO30=', 1711541733);
+('93W6pRS9KwBN3ZmVvY1xS3UyVI5ZnRH7iEXUhuqS', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiM2s4SGV3Qm9nRjR5NGpubU80ZlRNWUkxc1NUcVllWFI5Z3V5TnB3YyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEyJFBpb0YzWG9La1FTdGdEREFOYXEuNS5mUjhERS9IMXlJTjNad3J2NVFLQ1hCamJHSjh3Y3MyIjtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3MTE4NjcyOTg7fX0=', 1711871120);
 
 -- --------------------------------------------------------
 
@@ -370,7 +390,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Emman', 'emmanuelpunay6906@gmail.com', NULL, '$2y$12$PioF3XoKkQStgDDANaq.5.fR8DE/H1yIN3Zwrv5QKCXBjbGJ8wcs2', NULL, NULL, NULL, NULL, 1, 'profile-photos/JgMdtS18SKleUIlEJlOkBRIqLkKO8oN8Tqd564HE.jpg', '2024-03-13 20:01:05', '2024-03-20 21:04:09');
+(1, 'Emman', 'emmanuelpunay6906@gmail.com', NULL, '$2y$12$PioF3XoKkQStgDDANaq.5.fR8DE/H1yIN3Zwrv5QKCXBjbGJ8wcs2', NULL, NULL, NULL, NULL, 1, 'profile-photos/R8xCMV2RaNctugEB7mj7qJSFk7As3N8EW4aXpZCz.jpg', '2024-03-13 20:01:05', '2024-03-30 22:41:54');
 
 --
 -- Indexes for dumped tables
@@ -406,6 +426,12 @@ ALTER TABLE `events`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `f_a_q_s`
+--
+ALTER TABLE `f_a_q_s`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `instructors`
@@ -477,13 +503,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `accepted_lists`
 --
 ALTER TABLE `accepted_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `denied_lists`
@@ -495,13 +521,19 @@ ALTER TABLE `denied_lists`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `f_a_q_s`
+--
+ALTER TABLE `f_a_q_s`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `instructors`
@@ -513,7 +545,7 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
