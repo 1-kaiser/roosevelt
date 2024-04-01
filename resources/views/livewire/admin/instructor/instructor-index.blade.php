@@ -60,16 +60,6 @@
                                 Contact
                             </th>
                             <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                            >
-                                Gender
-                            </th>
-                            <th
-                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
-                            >
-                                Age
-                            </th>
-                            <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
                             >
                                 Action
@@ -122,18 +112,6 @@
                                 <p class="text-gray-900 whitespace-no-wrap">{{$instructor->contact}}</p>
                             </td>
                             {{-- Date --}}
-                
-                            {{-- Course --}}
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">{{$instructor->gender}}</p>
-                            </td>
-                            {{-- Course --}}
-                
-                            {{-- Transmission --}}
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">{{$instructor->age}}</p>
-                            </td>
-                            {{-- Transmission --}}
                 
                             {{-- Action --}}
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
