@@ -43,21 +43,6 @@
                     <x-input-error for="form.date" class="mt-1"/>
                 </div> 
                 {{-- Date --}}
-
-                {{-- Branch --}}
-                <div class="mt-1">
-                    <x-label for="form.branch" value="Branch" />
-                    <x-select name="form.branch" class="mt-2 text-black w-full" wire:model.lazy="form.branch">
-                        <option value=""></option>
-                        <option value="Maypajo Branch">Maypajo Branch</option>
-                        <option value="Navotas Branch">Navotas Branch</option>
-                        <option value="Tayuman Branch">Tayuman Branch</option>
-                        <option value="Fishermall Branch">Fishermall Branch</option>
-                        <option value="Legarda Branch">Legarda Branch</option>
-                    </x-select>
-                    <x-input-error for="form.branch" class="mt-1"/>
-                </div> 
-                {{-- Branch --}}
             </div>
         </x-slot>
     
@@ -81,6 +66,10 @@
                 text: data.text,
                 icon: data.icon,
             });
+
+            setTimeout(() => {
+                window.location.href = '/calendar'
+            }, 2500);
         });
     </script>
 </div>

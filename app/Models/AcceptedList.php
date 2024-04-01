@@ -18,5 +18,6 @@ class AcceptedList extends Model
         'course',
         'paid_attachment',
         'transmission',
+        'instructor'
     ];
 }

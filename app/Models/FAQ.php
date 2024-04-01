@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class FAQ extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title', 'description', 'status', 'date'
-    ];
+    protected $fillable = ['name', 'age', 'email', 'contact', 'message'];
 }

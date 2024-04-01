@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FAQ;
 use App\Http\Controllers\PDCIndex;
 use App\Http\Controllers\TDCIndex;
 use App\Livewire\Admin\AcceptedList\PdcAcceptedList;
@@ -36,6 +37,7 @@ Route::get('/', function () {
     Route::post('/tdc', [TDCIndex::class, 'save'])->name('tdc-save');
     Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
     Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
+    Route::post('/customer', [FAQ::class, 'save'])->name('faqs');
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])

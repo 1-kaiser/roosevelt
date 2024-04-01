@@ -13,31 +13,34 @@
               <div class="md:flex md:-mx-4 mt-4 md:mt-10">
       
                 <div class="md:w-2/3 md:px-4">
-                  <div class="contact-form">
+                  <form class="contact-form" action="{{route('faqs')}}" method="POST">
+                    @csrf
+                    @method('POST')
+                    
                     <div class="sm:flex sm:flex-wrap -mx-3">
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="text" placeholder="Full Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input">
+                        <input type="text" placeholder="Full Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="name">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="text" placeholder="Company Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input">
+                        <input type="number" placeholder="Age" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="age">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="text" placeholder="E-mail address" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input">
+                        <input type="email" placeholder="E-mail address" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="email">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="text" placeholder="Phone Number" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input">
+                        <input type="number" placeholder="Phone Number" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="contact">
                       </div>
                       <div class="sm:w-full px-3">
-                        <textarea name="message" id="message" cols="30" rows="4" placeholder="Your message here" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="4" placeholder="Your message here" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="message"></textarea>
                       </div>
                     </div>
                     <div class="text-right mt-4 md:mt-12">
-                      <button class="border-2 border-indigo-600 rounded px-6 py-2 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors duration-300">
+                      <button class="border-2 border-indigo-600 rounded px-6 py-2 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors duration-300" type="submit">
                         Send a Message
                         <i class="fas fa-chevron-right ml-2 text-sm"></i>
                       </button>
                     </div>
-                  </div>
+                  </form>
                 </div>
       
                 <div class="md:w-1/3 md:px-4 mt-10 md:mt-0">
@@ -63,3 +66,17 @@
         background-size: cover; 
     }
 </style>
+
+@if(session()->has('success'))
+    <script>
+        Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "You just submit an inquiry!",
+        });
+
+        setTimeout(() => {
+        window.location.href = '/customer'
+        }, 3000);
+    </script>
+@endif

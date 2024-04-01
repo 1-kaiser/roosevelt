@@ -21,6 +21,7 @@
             @method('post')
 
             <div class="flex justify-center h-60">
+
                 {{-- Picture --}}
                 <div class="flex flex-col items-center mr-14">
                     <strong class="text-gray-700 mb-2">Your Picture</strong>

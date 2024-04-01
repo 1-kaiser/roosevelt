@@ -33,7 +33,7 @@ class CustomerFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'contact' => $this->faker->unique()->e164PhoneNumber($phCode),
             'date' => $this->faker->dateTimeBetween('2024-03-00', 'now'),
-            'course' =>$this->faker->randomElement($customCourse),
+            'course' => $this->faker->randomElement($customCourse),
             'paid_attachment' => $this->faker->randomElement($paidAttachment),
             'transmission' => $this->faker->randomElement($customTransmission)
         ];

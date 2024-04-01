@@ -6,6 +6,7 @@ use App\Mail\TDCAcceptedMail;
 use App\Models\AcceptedList;
 use App\Models\Instructor;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -65,7 +66,7 @@ class TdcAcceptedList extends Component
     }
 
     #[Title('TDC')]
-    public function render()
+    public function render(): View
     {
         return view('livewire.admin.accepted-list.tdc-accepted-list', [
             'data' => AcceptedList::whereAny(['name', 'email', 'date'], 'like', '%' . $this->searchCustomer . '%')

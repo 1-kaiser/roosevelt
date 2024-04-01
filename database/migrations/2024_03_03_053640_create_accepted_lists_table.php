@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('course');
             $table->string('paid_attachment');
             $table->string('transmission');
+            $table->string('instructor')->nullable();
             $table->timestamps();
         });
     }
