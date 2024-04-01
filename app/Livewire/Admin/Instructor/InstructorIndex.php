@@ -13,6 +13,8 @@ class InstructorIndex extends Component
 {
     use WithPagination;
     public $paginate = 5, $searchCustomer =  '';
+    public $modalView = false;
+    public $viewData;
 
     #[Title('Instructor')]
     #[On('dispatch-instructor-create')]
@@ -22,5 +24,10 @@ class InstructorIndex extends Component
             'data' => Instructor::whereAny(['f_name', 'l_name', 'email', 'contact', 'gender', 'age'], 'like', '%' . $this->searchCustomer . '%')
             ->paginate($this->paginate)
         ]);
+    }
+
+    public function viewInstructor($f_name) {
+        $this->modalView = true;
+        $this->viewData = Instructor::where('f_name', '=', $f_name)->get();
     }
 }

@@ -142,10 +142,6 @@
         });
     </script>
 
-    <script>
-        
-    </script>
-
     <x-dialog-modal wire:model.live="modalView" submit="save">
         <x-slot name="title">
             Customer Information

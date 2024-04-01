@@ -3,7 +3,7 @@
 
     <x-dialog-modal wire:model.live="modalInstructorCreate" submit="save">
         <x-slot name="title">
-            Instructor Information
+            Add Instructor
         </x-slot>
     
         <x-slot name="content">
