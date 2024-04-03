@@ -70,23 +70,13 @@
             <tr>
             {{-- # --}}
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <div class="flex">
-                    <div class="ml-3">
-                    <p class="text-gray-900 whitespace-no-wrap">
-                        {{$loop->iteration}}
-                    </p>
-                    </div>
-                </div>
+                <p class="text-gray-900 whitespace-no-wrap">{{$loop->iteration}}</p>
                 </td>
             {{-- # --}}
 
             {{-- Name --}}
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <div class="ml-3">
-                    <p class="text-gray-900 whitespace-no-wrap">
-                    {{$customer->name}}
-                    </p>
-                </div>
+                <p class="text-gray-900 whitespace-no-wrap">{{$customer->name}}</p>
             </td>
             {{-- Name --}}
 
