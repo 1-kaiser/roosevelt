@@ -143,7 +143,8 @@
 
                   {{-- Picture --}}
                   <div class="mt-4 flex flex-col items-center">
-                        <img src="{{ asset('storage/'. $row->pic) }}" class="w-40 h-33 mb-1" />
+                        <img src="{{ asset('storage/'. $row->pic) }}" 
+                        wire:model.lazy="pic" name="pic" class="w-40 h-33 mb-1" />
                         <x-label for="name" value="Customer Picture" />
                   </div>
                   {{-- Picture --}}
@@ -182,16 +183,17 @@
                     {{-- Instructor --}}
                     <div class="mt-1">
                       <x-label for="instructor" value="Instructor" />
-                      <x-select class="mt-2 text-black w-full">
+                      <x-select class="mt-2 text-black w-full" wire:model.lazy="instructor" name="instructor">
                           <option value=""></option>
-                          @isset($instructor)
-                              @foreach ($instructor as $ins)
-                                  <option value="{{$ins->f_name}}">{{$ins->f_name}}</option>
-                              @endforeach
+                          @isset($instructorList)
+                          @foreach ($instructorList as $ins)
+                            <option value="{{$ins->f_name}}">{{$ins->f_name}}</option>
+                          @endforeach
                           @endisset
                       </x-select>
                     </div>
                     {{-- Instructor --}}
+
                   </div>
                 </div>
         </x-slot>
@@ -213,7 +215,7 @@
     <script>
       window.addEventListener("swal", () => {
           Swal.fire({
-              title: "Instructor Created",
+              title: "Updated Successfully",
               icon: "success"
           });
       });

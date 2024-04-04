@@ -9,45 +9,31 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class TdcAcceptedList extends Component
 {
-    use WithPagination;
+    use WithPagination, WithFileUploads;
     public $paginate = 5, $searchCustomer = '';
     public $modalTDCEdit = false;
     public $reserve = false;
-    public $accepted, $instructor;
+    public $accepted, $instructorList, $instructor;
 
     public function edit($name)
     {
         $this->modalTDCEdit = true;
         $this->accepted = AcceptedList::where('name', '=', $name)->get();
-        $this->instructor = Instructor::all();
-
-        foreach ($this->accepted as $row) {
-        
-            $mailData = [
-                'pic' => $row['pic'],
-                'name' => $row['name'],
-                'email' => $row['email'],
-                'contact' => $row['contact'],
-                'date' => $row['date'],
-                'course' => $row['course'],
-                'instructor' => $row['instructor'],
-                'transmission' => $row['transmission'],
-            ];
-        }
-
+        $this->instructorList = Instructor::all();
     }
 
-    public function save($name) {
+    public function save($name = null) {
+
+        AcceptedList::where('name', '=', $name)->update(['instructor' => $this->instructor]);
 
         $this->accepted = AcceptedList::where('name', '=', $name)->get();
-        $this->instructor = Instructor::all();
 
         foreach ($this->accepted as $accepted) {
-        
             $mailData = [
                 'pic' => $accepted['pic'],
                 'name' => $accepted['name'],
@@ -57,12 +43,12 @@ class TdcAcceptedList extends Component
                 'course' => $accepted['course'],
                 'instructor' => $accepted['instructor'],
                 'transmission' => $accepted['transmission'],
+                'instructor' => $this->instructor
             ];  
-        }
 
-        Mail::to($mailData['email'])->send(new TDCAcceptedMail($mailData));
-        $this->dispatch('swal');
-        $this->modalTDCEdit = true;
+            Mail::to($mailData['email'])->send(new TDCAcceptedMail($mailData));
+            $this->dispatch('swal');
+        }
     }
 
     #[Title('TDC')]

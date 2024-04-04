@@ -14,7 +14,7 @@
                 <img src="{{ $this->pic->temporaryUrl() }}" alt="Preview" style="max-width: 100%; max-height: 200px;">
                 @endif
                 <x-label for="pic" value="Image" class="mt-2" />
-                <x-input wire:model.lazy="pic" wire:model="pic" id="pic" name="pic" type="file" class="mt-2 pl-24" require autocomplete="pic" enctype="multipart/-data" />
+                <x-input wire:model.lazy="pic" id="pic" name="pic" type="file" class="mt-2 pl-24" require autocomplete="pic" enctype="multipart/-data" />
                 <x-input-error for="$this->pic" class="mt-1"/>
             </div>
             
