@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.1",
         "asantibanez/livewire-charts": "^3.0",
+        "dompdf/dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.2",
@@ -74,5 +75,6 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "platform-check": false
+    "platform-check": false,
+    "dompdf/dompdf": "~0.6.1"
 }

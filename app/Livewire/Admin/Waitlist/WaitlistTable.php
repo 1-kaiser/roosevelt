@@ -2,19 +2,16 @@
 
 namespace App\Livewire\Admin\Waitlist;
 
-use App\Exports\WaitlistExport;
 use App\Livewire\Admin\AcceptedList\PdcAcceptedList;
 use App\Livewire\Admin\AcceptedList\TdcAcceptedList;
 use App\Livewire\Admin\Denied\DeniedHistory;
 use App\Mail\PDCAcceptedMail;
-use App\Mail\TDCAcceptedMail;
 use App\Models\AcceptedList;
 use App\Models\Customer;
 use App\Models\DeniedList;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Maatwebsite\Excel\Facades\Excel;
 
 class WaitlistTable extends Component
 {
@@ -91,10 +88,4 @@ class WaitlistTable extends Component
 
         $sourceData->each->delete();  
     }
-
-    public function export() 
-    {
-        return Excel::download(new WaitlistExport, 'waitlist.xlsx');
-    }
-
 }
