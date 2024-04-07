@@ -14,12 +14,12 @@
     </div>
 </div>  --}}
 
-<nav class="navbar flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-amber-400 sticky top-0 z-10">
+<nav class="navbar flex flex-wrap items-center justify-between w-full py-4 md:py-2 px-4 text-lg text-gray-700 bg-amber-400 sticky top-0 z-10">
     
   <div>
       <a href="#">
       <x-authentication-card-logo /> 
-      <span class="text-black">Solid Driving School</span>
+      {{-- <span class="text-black">Solid Driving School</span> --}}
       </a>
   </div>
   
@@ -43,28 +43,28 @@
   <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
       <ul class="pt-4 text-base text-black md:flex md:justify-between md:pt-0">
         <li>
-          <a href="{{ route('customer-index') }}" class="md:p-4 py-2 block hover:text-purple-400"
+          <a href="{{ route('customer-index') }}" class="md:p-4 py-2 block hover:text-purple-400 font-bold"
             >Home</a
           >
         </li>
         <li>
-          <a href="#Courses" class="md:p-4 py-2 block hover:text-purple-400"
+          <a href="#Courses" class="md:p-4 py-2 block hover:text-purple-400 font-bold"
             >Courses</a
           >
         </li>
         <li>
-          <a href="#learn-more" class="md:p-4 py-2 block hover:text-purple-400"
+          <a href="#learn-more" class="md:p-4 py-2 block hover:text-purple-400 font-bold"
             >About</a
           >
         </li>
         <li>
-          <a href="#FAQs" class="md:p-4 py-2 block hover:text-purple-400"
+          <a href="#FAQs" class="md:p-4 py-2 block hover:text-purple-400 font-bold"
             >FAQs</a
           >
         </li>
         <li>
           <a
-            class="md:p-4 py-2 block hover:text-purple-400"
+            class="md:p-4 py-2 block hover:text-purple-400 font-bold"
             href="#Contact"
             >Contact</a
           >

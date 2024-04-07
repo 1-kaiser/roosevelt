@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Admin\Waitlist;
 
-use App\Exports\WaitlistExportCSV;
 use App\Exports\WaitlistExportPDF;
 use App\Exports\WaitlistExportXLSX;
 use Illuminate\View\View;
