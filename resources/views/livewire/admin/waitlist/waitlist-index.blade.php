@@ -45,84 +45,17 @@
         </div>
     </div>
 
-    {{-- <style>
-        .hover\:glow:hover {
-          filter: drop-shadow(0px 0px 7px rgba(59, 130, 246, 0.5));
-        }
-        
-        .group:hover .group-hover\:\-translate-y-1 {
-          transform: translateY(-0.25rem);
-        }
-        
-        .group:focus .group-focus\:pt-20 {
-          padding-top: 5rem;
-        }
-        
-        .animate-down {
-          transform: translateY(250%) !important
-        }
-        
-        .animate-up {
-          transform: translateY(-250%) !important
-        }
-        
-        .hidden {
-          display: none;
-        }
-    </style> --}}
-        
-    {{-- <script>
-        const button = document.getElementById("button");
-        const arrow = document.getElementById("arrow");
-        const progress = document.getElementById("progress");
-        const check = document.getElementById("check");
-        
-        // Time for the download animation itself
-        let loadingTime = 1000;
-        let blocked = false;
-        
-        button.addEventListener("click", () => {
-          if(blocked) return;
-          blocked = true;
-          
-          arrow.classList.add("animate-down");
-        
-          let percent = 0;
-          let load = setInterval(() => {
-            percent++;
-            progress.style.height = percent + "%";
-          }, loadingTime / 100);
-        
-          setTimeout(() => {
-            clearInterval(load);
-        
-            setTimeout(() => {
-              progress.classList.remove("bg-opacity-20");
-              progress.classList.add("bg-opacity-0");
-              check.classList.remove("w-0");
-              check.classList.add("w-5");
-        
-              setTimeout(() => {
-                check.classList.add("w-0");
-                check.classList.remove("w-5");
-                setTimeout(() => {
-                  reset();
-                }, 1000);
-              }, 1000);
-            }, 500);
-          }, loadingTime);
-        });
-        
-        function reset() {  
-          progress.style.height = "0%";
-          arrow.classList.remove("animate-down");
-          
-          setTimeout(() => {
-            progress.classList.remove("bg-opacity-0");
-            progress.classList.add("bg-opacity-20");
-            blocked = false;
-          }, 200)
-        }
-        
-    </script> --}}
+    <footer class="fixed left-0 bottom-0 w-full">
+      <div class="max-w-full sm:px-6 lg:px-1">
+          <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="flex flex-col items-start justify-between border-t border-gray-100 md:flex-row md:items-center">
+              <p class="mb-6 text-sm text-left text-gray-600 md:mb-0">© Copyright IS 3A Group 5. All Rights Reserved.</p>
+              <div class="flex items-start justify-start space-x-6 md:items-center md:justify-center">
+                  <a href="#_" class="text-sm text-gray-600 transition hover:text-primary">Terms</a>
+                  <a href="#_" class="text-sm text-gray-600 transition hover:text-primary">Privacy</a>
+              </div>
+          </div>
+          </div>
+      </div>
+    </footer>
 </div>

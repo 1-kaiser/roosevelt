@@ -153,6 +153,19 @@
         </div>
     </div>
 
+    <footer class="fixed left-0 bottom-0 w-full">
+        <div class="max-w-full sm:px-6 lg:px-1">
+            <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+              <div class="flex flex-col items-start justify-between border-t border-gray-100 md:flex-row md:items-center">
+                <p class="mb-6 text-sm text-left text-gray-600 md:mb-0">© Copyright IS 3A Group 5. All Rights Reserved.</p>
+                <div class="flex items-start justify-start space-x-6 md:items-center md:justify-center">
+                    <a href="#_" class="text-sm text-gray-600 transition hover:text-primary">Terms</a>
+                    <a href="#_" class="text-sm text-gray-600 transition hover:text-primary">Privacy</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
 
     <x-dialog-modal wire:model.live="modalView" submit="save">
         <x-slot name="title">

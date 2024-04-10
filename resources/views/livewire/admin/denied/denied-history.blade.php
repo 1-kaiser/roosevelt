@@ -119,20 +119,9 @@
                 
                             {{-- Name --}}
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                    <img
-                                    class="w-full h-full rounded-full"
-                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                    alt=""
-                                    />
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-gray-900 whitespace-no-wrap">
+                                <p class="text-gray-900 whitespace-no-wrap">
                                     {{$customer->name}}
-                                    </p>
-                                </div>
-                                </div>
+                                </p>
                             </td>
                             {{-- Name --}}
                 
@@ -171,6 +160,22 @@
             </div>
         </div>
     </div>
+
+    <footer class="fixed left-0 bottom-0 w-full">
+        <div class="max-w-full sm:px-6 lg:px-1">
+            <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+              <div class="flex flex-col items-start justify-between border-t border-gray-100 md:flex-row md:items-center">
+                <p class="mb-6 text-sm text-left text-gray-600 md:mb-0">© Copyright IS 3A Group 5. All Rights Reserved.</p>
+                <div class="flex items-start justify-start space-x-6 md:items-center md:justify-center">
+                    <a href="#_" class="text-sm text-gray-600 transition hover:text-primary">Terms</a>
+                    <a href="#_" class="text-sm text-gray-600 transition hover:text-primary">Privacy</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+
     <script>
         window.addEventListener("confirm-delete", function() {
             Swal.fire({
