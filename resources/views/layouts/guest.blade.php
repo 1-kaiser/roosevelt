@@ -7,6 +7,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
         <title>{{ config('app.name') }} | {{ isset($title) ? $title : 'Roosevelt' }} </title>
+        <link rel="icon" type="image/x-icon" href="/img/solid_logo.png">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
