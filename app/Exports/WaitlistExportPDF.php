@@ -34,7 +34,7 @@ class WaitlistExportPDF implements FromCollection, WithHeadings, WithMapping, Wi
 
     public function headings(): array
     {
-        return ['name', 'email', 'contact', 'course', 'transmission', 'date'];
+        return ['Name', 'Email', 'Contact', 'Course', 'Transmission', 'Date'];
     }
 
     public function styles(Worksheet $sheet)

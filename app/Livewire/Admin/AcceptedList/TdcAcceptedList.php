@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Admin\AcceptedList;
 
+use App\Exports\TDCAcceptedExportPDF;
+use App\Exports\TDCAcceptedExportXLSX;
 use App\Mail\TDCAcceptedMail;
 use App\Models\AcceptedList;
 use App\Models\Instructor;
@@ -11,6 +13,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TdcAcceptedList extends Component
 {
@@ -49,6 +52,16 @@ class TdcAcceptedList extends Component
             Mail::to($mailData['email'])->send(new TDCAcceptedMail($mailData));
             $this->dispatch('swal');
         }
+    }
+
+    public function exportXLSX() 
+    {
+        return Excel::download(new TDCAcceptedExportXLSX, 'solid_tdc_accepted.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+    }
+
+    public function exportPDF()
+    {
+        return Excel::download(new TDCAcceptedExportPDF, 'solid_tdc_accepted.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 
     #[Title('TDC')]

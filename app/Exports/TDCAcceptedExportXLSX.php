@@ -2,23 +2,21 @@
 
 namespace App\Exports;
 
-use App\Models\Customer;
-use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Models\AcceptedList;
+use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class WaitlistExportXLSX implements FromCollection, WithHeadings, WithMapping, WithStyles
+class TDCAcceptedExportXLSX implements FromQuery, WithHeadings, WithMapping, WithStyles
 {
-    use Exportable;
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+    public function query()
     {
-        return Customer::all();
+        return AcceptedList::where('course', 'like', '%'. 'TDC'. '%');
     }
 
     public function map($row): array

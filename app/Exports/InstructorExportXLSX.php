@@ -2,41 +2,39 @@
 
 namespace App\Exports;
 
-use App\Models\Customer;
-use Maatwebsite\Excel\Concerns\Exportable;
+use App\Models\Instructor;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class WaitlistExportXLSX implements FromCollection, WithHeadings, WithMapping, WithStyles
+class InstructorExportXLSX implements FromCollection, WithHeadings, WithMapping, WithStyles
 {
-    use Exportable;
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Customer::all();
+        return Instructor::all();
     }
 
     public function map($row): array
     {
         $fields = [
-            $row->name,
+            $row->f_name,
+            $row->l_name,
             $row->email,
             $row->contact,
-            $row->course,
-            $row->transmission,
-            $row->date,
+            $row->gender,
+            $row->age
         ];
         return $fields;
     }
 
     public function headings(): array
     {
-        return ['Name', 'Email', 'Contact', 'Course', 'Transmission', 'Date'];
+        return ['First Name', 'Last Name', 'Email', 'Contact', 'Gender', 'Age'];
     }
 
     public function styles(Worksheet $sheet)

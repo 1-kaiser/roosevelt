@@ -2,12 +2,15 @@
 
 namespace App\Livewire\Admin\Instructor;
 
+use App\Exports\InstructorExportPDF;
+use App\Exports\InstructorExportXLSX;
 use App\Models\Instructor;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InstructorIndex extends Component
 {
@@ -29,5 +32,15 @@ class InstructorIndex extends Component
     public function viewInstructor($f_name) {
         $this->modalView = true;
         $this->viewData = Instructor::where('f_name', '=', $f_name)->get();
+    }
+
+    public function exportXLSX() 
+    {
+        return Excel::download(new InstructorExportXLSX, 'solid_instructor.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+    }
+
+    public function exportPDF()
+    {
+        return Excel::download(new InstructorExportPDF, 'solid_instructor.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 }

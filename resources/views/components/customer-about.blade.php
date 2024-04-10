@@ -9,14 +9,15 @@
             </h2>
             <p
                 class="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
-                Our templates allow for maximum customization. No technical skills required – our intuitive design tools
-                let
-                you get the job done easily.
+                SOLIDifying  Safety in Driving Mission and Vision:
+                Our Mission is to teach driving with style, passion
+                and sense of campassion infused with humor.
             </p>
         </div>
 
 
-        <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-2">
+
             <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
                 <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
                     style="background-image: linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%); border-color: rgb(93, 79, 240);">
@@ -30,10 +31,11 @@
                         <line x1="17" y1="17" x2="17" y2="17.01"></line>
                     </svg>
                 </div>
-                <h3 class="mt-6 text-gray-400">Customizable</h3>
-                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">Tailor your landing page's
-                    look
-                    and feel, from the color scheme to the font size, to the design of the page.
+                <h3 class="mt-6 text-gray-400">theoretical Driving Course (TDC)</h3>
+                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400"> 
+                    With experienced
+                    instructors and comprehensive instruction, we prepare aspiring
+                    drivers for the theoretical aspect of obtaining a driver’s license.
                 </p>
             </div>
 
@@ -48,14 +50,18 @@
                         <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline>
                     </svg>
                 </div>
-                <h3 class="mt-6 text-gray-400">Fast Performance</h3>
-                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">We build our templates for
-                    speed in mind, for super-fast load times so your customers never waver.
+                <h3 class="mt-6 text-gray-400">Practical Driving Course</h3>
+                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
+                    Led by experienced instructors, our hands-
+                    on sessions ensure students develop essential driving skills and
+                    confidence. Whether it's automatic or manual cars, or motorcycle
+                    riding, our comprehensive courses prepare you for real-world
+                    driving. 
                 </p>
             </div>
 
 
-            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+            {{-- <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
                 <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
                     style="background-image: linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%); border-color: rgb(93, 79, 240);">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools" width="24"
@@ -76,7 +82,7 @@
                     succeed
                     and launch your landing page, right out of the box. No need to install anything else.
                 </p>
-            </div>
+            </div> --}}
 
 
         </div>

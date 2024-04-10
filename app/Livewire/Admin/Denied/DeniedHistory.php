@@ -2,11 +2,14 @@
 
 namespace App\Livewire\Admin\Denied;
 
+use App\Exports\DeniedExportPDF;
+use App\Exports\DeniedExportXLSX;
 use App\Models\DeniedList;
 use Illuminate\View\View;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DeniedHistory extends Component
 {
@@ -31,5 +34,15 @@ class DeniedHistory extends Component
 
     public function delete() {
         $this->modelName->each->delete();
+    }
+
+    public function exportXLSX() 
+    {
+        return Excel::download(new DeniedExportXLSX, 'solid_denied.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+    }
+
+    public function exportPDF()
+    {
+        return Excel::download(new DeniedExportPDF, 'solid_denied.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
 }
