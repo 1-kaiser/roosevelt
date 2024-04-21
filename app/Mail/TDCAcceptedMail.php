@@ -10,9 +10,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class TDCAcceptedMail extends Mailable
+class TDCAcceptedMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
+    
     public $mailData;
 
     /**

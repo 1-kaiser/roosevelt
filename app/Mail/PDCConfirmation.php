@@ -13,6 +13,7 @@ use Illuminate\Queue\SerializesModels;
 class PDCConfirmation extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
+    
     public $mailData;
 
     /**

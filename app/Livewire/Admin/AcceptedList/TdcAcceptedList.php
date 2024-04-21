@@ -49,7 +49,7 @@ class TdcAcceptedList extends Component
                 'instructor' => $this->instructor
             ];  
 
-            Mail::to($mailData['email'])->send(new TDCAcceptedMail($mailData));
+            Mail::to($mailData['email'])->queue(new TDCAcceptedMail($mailData));
             $this->dispatch('swal');
         }
     }
