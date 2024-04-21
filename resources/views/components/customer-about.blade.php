@@ -31,7 +31,7 @@
                         <line x1="17" y1="17" x2="17" y2="17.01"></line>
                     </svg>
                 </div>
-                <h3 class="mt-6 text-gray-400">theoretical Driving Course (TDC)</h3>
+                <h3 class="mt-6 text-gray-400">Theoretical Driving Course (TDC)</h3>
                 <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400"> 
                     With experienced
                     instructors and comprehensive instruction, we prepare aspiring

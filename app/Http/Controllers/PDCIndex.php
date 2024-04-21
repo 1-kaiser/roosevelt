@@ -38,25 +38,26 @@ class PDCIndex extends Controller
 
         $mailData = [
             'title' => 'Reservation Request',
-            'pic' => $validate['pic'],
             'name' => $validate['name'],
             'email' => $validate['email'],
             'contact' => $validate['contact'],
             'date' => $validate['date'],
             'course' => $validate['course'],
-            'paid_attachment' => $validate['paid_attachment'],
             'transmission' => $validate['transmission'],
         ];
 
         if ($data) {
-            Mail::to($validate['email'])->send(new PDCConfirmation($mailData));
+
+            Mail::to($validate['email'])->queue(new PDCConfirmation($mailData));
             session()->flash('success');
+
         } else {
+
             session()->flash('error', 'Error while processing your registration');
-            return redirect(route('tdc-index'));
+            return redirect(route('pdc-index'));
         }
         
-        return redirect(route('tdc-index'));
+        return redirect(route('pdc-index'));
     }
 
     public function render(): View

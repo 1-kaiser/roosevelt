@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Mail\TDCConfirmation;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -15,6 +14,10 @@ class TDCIndex extends Controller
     use WithFileUploads;
 
     public function save(Request $request) {
+
+        // $name = $request->input('name');
+        // $file = $request->file('pic');
+
         $validate = $request->validate([
             'pic' => 'required|image|mimes:jpeg,png,jpg,gif',
             'name' => 'required|min:3',
@@ -39,20 +42,21 @@ class TDCIndex extends Controller
 
         $mailData = [
             'title' => 'Reservation Request',
-            'pic' => $validate['pic'],
             'name' => $validate['name'],
             'email' => $validate['email'],
             'contact' => $validate['contact'],
             'date' => $validate['date'],
             'course' => $validate['course'],
-            'paid_attachment' => $validate['paid_attachment'],
             'transmission' => $validate['transmission'],
         ];
 
         if ($data) {
-            Mail::to($validate['email'])->send(new TDCConfirmation($mailData));
+
+            Mail::to($validate['email'])->queue(new TDCConfirmation($mailData));
             session()->flash('success');
+
         } else {
+
             session()->flash('error', 'Error while processing your registration');
             return redirect(route('tdc-index'));
         }

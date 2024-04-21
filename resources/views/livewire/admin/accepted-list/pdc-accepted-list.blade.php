@@ -159,7 +159,7 @@
         </div>
     </div>
 
-    <footer class="fixed left-0 bottom-0 w-full">
+    {{-- <footer class="fixed left-0 bottom-0 w-full">
         <div class="max-w-full sm:px-6 lg:px-1">
             <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex flex-col items-start justify-between border-t border-gray-100 md:flex-row md:items-center">
@@ -171,7 +171,7 @@
             </div>
             </div>
         </div>
-    </footer>
+    </footer> --}}
     
     @if(session()->has('success'))
         <script>
