@@ -38,7 +38,7 @@
                         <strong class="text-gray-700">Name</strong>
         
                         <div class="flex flex-col">
-                            <x-input type="text" class="text-sm bg-gray-200 w-56" id="name" name="name" />
+                            <x-input type="text" class="text-sm bg-gray-200 w-56" value="{{ old('name') }}" id="name" name="name" />
                         
                             <x-input-error for="name" class="mt-1"/>
                         </div>
@@ -50,7 +50,7 @@
                         <strong class="text-gray-700">Email</strong>
         
                         <div class="flex flex-col">
-                            <x-input type="email" class="text-sm bg-gray-200 w-56" id="email"  name="email" />
+                            <x-input type="email" class="text-sm bg-gray-200 w-56" value="{{ old('email') }}" id="email"  name="email" />
                             <x-input-error for="email" class="mt-1"/>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="flex gap-x-6 items-center mt-7">
                         <strong class="text-gray-700">Contact</strong>
                         <div class="flex flex-col">
-                            <x-input type="number" class="text-sm bg-gray-200 w-56" id="contact"  name="contact" />
+                            <x-input type="number" class="text-sm bg-gray-200 w-56" value="{{ old('contact') }}" id="contact"  name="contact" />
                             <x-input-error for="contact" class="mt-1"/>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         <strong class="text-gray-700">Date</strong>
         
                         <div class="flex flex-col">
-                            <x-input type="date" class="text-xs bg-gray-200" id="date" name="date" />
+                            <x-input type="date" class="text-xs bg-gray-200" value="{{ old('date') }}" id="date" name="date" />
                             <x-input-error for="date" class="mt-1"/>
                         </div>
 
@@ -86,7 +86,7 @@
                         <strong class="text-gray-700">Transmission</strong>
         
                         <div class="flex flex-col">
-                            <x-select class="text-sm bg-gray-200" id="transmission" name="transmission">
+                            <x-select class="text-sm bg-gray-200" value="{{ old('transmission') }}" id="transmission" name="transmission">
                                 <option value=""></option>
                                 <option value="Manual">Manual</option>
                                 <option value="Automatic">Automatic</option>
