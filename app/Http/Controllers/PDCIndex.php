@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailPDCConfirmationJob;
 use App\Mail\PDCConfirmation;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -48,7 +49,8 @@ class PDCIndex extends Controller
 
         if ($data) {
 
-            Mail::to($validate['email'])->queue(new PDCConfirmation($mailData));
+            SendEmailPDCConfirmationJob::dispatch($mailData);
+            // Mail::to($validate['email'])->queue(new PDCConfirmation($mailData));
             session()->flash('success');
 
         } else {

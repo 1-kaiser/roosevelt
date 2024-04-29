@@ -15,14 +15,14 @@ class PDCAcceptedMail extends Mailable implements ShouldQueue, ShouldBeEncrypted
 {
     use Queueable, SerializesModels;
     
-    public $mailData;
+    public $data;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($mailData)
+    public function __construct($data)
     {
-        $this->mailData = $mailData;
+        $this->data = $data;
     }
 
     /**

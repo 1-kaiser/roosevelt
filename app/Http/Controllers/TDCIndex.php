@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailTDCConfirmationJob;
 use App\Mail\TDCConfirmation;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -52,7 +53,8 @@ class TDCIndex extends Controller
 
         if ($data) {
 
-            Mail::to($validate['email'])->queue(new TDCConfirmation($mailData));
+            SendEmailTDCConfirmationJob::dispatch($mailData);
+            // Mail::to($validate['email'])->queue(new TDCConfirmation($mailData));
             session()->flash('success');
 
         } else {

@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\AcceptedList;
 
 use App\Exports\TDCAcceptedExportPDF;
 use App\Exports\TDCAcceptedExportXLSX;
+use App\Jobs\SendEmailTDCAcceptedMailJob;
 use App\Mail\TDCAcceptedMail;
 use App\Models\AcceptedList;
 use App\Models\Instructor;
@@ -49,7 +50,8 @@ class TdcAcceptedList extends Component
                 'instructor' => $this->instructor
             ];  
 
-            Mail::to($mailData['email'])->queue(new TDCAcceptedMail($mailData));
+            SendEmailTDCAcceptedMailJob::dispatch($mailData);
+            // Mail::to($mailData['email'])->queue(new TDCAcceptedMail($mailData));
             $this->dispatch('swal');
         }
     }

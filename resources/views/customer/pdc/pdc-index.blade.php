@@ -162,10 +162,10 @@
     @endif
 
     @if(session()->has('error'))
-                <span class="bg-red-500 text-black px-4 py-2">
-                    {{session('error')}}
-                </span>
-            @endif
+        <span class="bg-red-500 text-black px-4 py-2">
+            {{session('error')}}
+        </span>
+    @endif
 
     <script>
         function previewImage(event) {

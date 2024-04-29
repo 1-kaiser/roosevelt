@@ -50,7 +50,7 @@ class WaitlistTable extends Component
                 'transmission' => $data['transmission'],
             ]);
 
-            ($data['course'] === 'PDC') ? Mail::to($data['email'])->queue(new PDCAcceptedMail($data))
+            ($data['course'] === 'PDC') ? Mail::to($data['email'])->send(new PDCAcceptedMail($data))
             : ''; 
         }
 
