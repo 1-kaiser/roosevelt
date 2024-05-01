@@ -23,9 +23,12 @@ class PDCAcceptedExportPDF implements FromQuery, WithHeadings, WithMapping, With
     public function map($row): array
     {
         $fields = [
-            $row->name,
+            $row->first_name,
+            $row->last_name,
             $row->email,
             $row->contact,
+            $row->age,
+            $row->birthday,
             $row->course,
             $row->transmission,
             $row->date,
@@ -35,7 +38,7 @@ class PDCAcceptedExportPDF implements FromQuery, WithHeadings, WithMapping, With
 
     public function headings(): array
     {
-        return ['Name', 'Email', 'Contact', 'Course', 'Transmission', 'Date'];
+        return ['First Name', 'Last Name', 'Email', 'Contact', 'Age', 'Birthday', 'Course', 'Transmission', 'Date'];
     }
 
     public function styles(Worksheet $sheet)

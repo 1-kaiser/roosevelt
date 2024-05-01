@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Admin\Waitlist;
 
 use App\Livewire\Admin\AcceptedList\PdcAcceptedList;
@@ -24,28 +23,32 @@ class WaitlistTable extends Component
     public function render()
     {
         return view('livewire.admin.waitlist.waitlist-table', [
-            'data' => Customer::whereAny(['name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
+            'data' => Customer::whereAny(['first_name', 'last_name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
             ->paginate($this->paginate)
         ]);
     }
 
-    public function viewCustomer($name) {
+    public function viewCustomer($first_name) {
         $this->modalView = true;
-        $this->viewData = Customer::where('name', '=', $name)->get();
+        $this->viewData = Customer::where('first_name', '=', $first_name)->get();
     }
 
-    public function accepted($name) {
-        $sourceData = Customer::where('name', '=', $name)->get();
-        $getData = Customer::where('name', '=', $name)->get()->toArray();
+    public function accepted($first_name) {
+        $sourceData = Customer::where('first_name', '=', $first_name)->get();
+        $getData = Customer::where('first_name', '=', $first_name)->get()->toArray();
         
         foreach ($getData as $data) {
             AcceptedList::insert([
                 'pic' => $data['pic'],
-                'name' => $data['name'],
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
                 'email' => $data['email'],
                 'contact' => $data['contact'],
+                'age' => $data['age'],
+                'birthday' => $data['birthday'],
                 'date' => $data['date'],
                 'course' => $data['course'],
+                'valid_id' => $data['valid_id'],
                 'paid_attachment' => $data['paid_attachment'],
                 'transmission' => $data['transmission'],
             ]);
@@ -61,18 +64,22 @@ class WaitlistTable extends Component
         $sourceData->each->delete();  
     }
 
-    public function denied($name) {
-        $sourceData = Customer::where('name', '=', $name)->get();
-        $getData = Customer::where('name', '=', $name)->get()->toArray();
+    public function denied($first_name) {
+        $sourceData = Customer::where('first_name', '=', $first_name)->get();
+        $getData = Customer::where('first_name', '=', $first_name)->get()->toArray();
         
         foreach ($getData as $data) {
             DeniedList::insert([
                 'pic' => $data['pic'],
-                'name' => $data['name'],
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
                 'email' => $data['email'],
                 'contact' => $data['contact'],
+                'age' => $data['age'],
+                'birthday' => $data['birthday'],
                 'date' => $data['date'],
                 'course' => $data['course'],
+                'valid_id' => $data['valid_id'],
                 'paid_attachment' => $data['paid_attachment'],
                 'transmission' => $data['transmission'],
             ]);

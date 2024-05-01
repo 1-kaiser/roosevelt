@@ -1,4 +1,4 @@
-<div class="faqs_bg min-h-screen">
+<div class="">
     <div id="FAQs" class="pt-20 ml-10">
         <strong class="text-3xl">Frequently Asked Questions</strong>
         <p>Our courses and services are backed by four decades of experience.</p>
@@ -158,9 +158,9 @@
       </div>
 </div>
 
-<style>
+{{-- <style>
     .faqs_bg {
         background: url('img/faqs_bg.svg') no-repeat;
         background-size: cover; 
     }
-</style>
+</style> --}}

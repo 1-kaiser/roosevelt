@@ -21,14 +21,14 @@ class DeniedHistory extends Component
     public function render(): View
     {
         return view('livewire.admin.denied.denied-history', [
-            'data' => DeniedList::whereAny(['name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
+            'data' => DeniedList::whereAny(['first_name', 'last_name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
             ->paginate($this->paginate)
         ]);
     }
 
-    public function confirmDelete($name) 
+    public function confirmDelete($first_name) 
     {
-        $this->modelName = DeniedList::where('name', '=', $name)->get();
+        $this->modelName = DeniedList::where('first_name', '=', $first_name)->get();
         $this->dispatch('confirm-delete');
     }
 

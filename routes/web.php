@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CustomerLoginController;
+use App\Http\Controllers\CustomerRegisterController;
 use App\Http\Controllers\FAQ;
 use App\Http\Controllers\PDCIndex;
 use App\Http\Controllers\TDCIndex;
@@ -38,6 +40,9 @@ Route::get('/', function () {
     Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
     Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
     Route::post('/customer', [FAQ::class, 'save'])->name('faqs');
+
+    Route::get('customer-login', [CustomerLoginController::class, 'render'])->name('customer-login');
+    Route::get('customer-register', [CustomerRegisterController::class, 'render'])->name('customer-register');
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])

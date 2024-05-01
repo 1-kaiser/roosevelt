@@ -24,29 +24,23 @@ class TdcAcceptedList extends Component
     public $reserve = false;
     public $accepted, $instructorList, $instructor;
 
-    public function edit($name)
+    public function edit($first_name)
     {
         $this->modalTDCEdit = true;
-        $this->accepted = AcceptedList::where('name', '=', $name)->get();
+        $this->accepted = AcceptedList::where('first_name', '=', $first_name)->get();
         $this->instructorList = Instructor::all();
     }
 
-    public function save($name = null) {
+    public function save($first_name = null) {
 
-        AcceptedList::where('name', '=', $name)->update(['instructor' => $this->instructor]);
+        AcceptedList::where('first_name', '=', $first_name)->update(['instructor' => $this->instructor]);
 
-        $this->accepted = AcceptedList::where('name', '=', $name)->get();
+        $this->accepted = AcceptedList::where('first_name', '=', $first_name)->get();
 
         foreach ($this->accepted as $accepted) {
             $mailData = [
-                'pic' => $accepted['pic'],
-                'name' => $accepted['name'],
                 'email' => $accepted['email'],
-                'contact' => $accepted['contact'],
                 'date' => $accepted['date'],
-                'course' => $accepted['course'],
-                'instructor' => $accepted['instructor'],
-                'transmission' => $accepted['transmission'],
                 'instructor' => $this->instructor
             ];  
 
@@ -70,7 +64,7 @@ class TdcAcceptedList extends Component
     public function render(): View
     {
         return view('livewire.admin.accepted-list.tdc-accepted-list', [
-            'data' => AcceptedList::whereAny(['name', 'email', 'date'], 'like', '%' . $this->searchCustomer . '%')
+            'data' => AcceptedList::whereAny(['first_name', 'last_name', 'email', 'date'], 'like', '%' . $this->searchCustomer . '%')
             ->where('course', 'like', '%'. 'TDC'. '%')
             ->paginate($this->paginate)
         ]);

@@ -126,7 +126,7 @@
                             {{-- Name --}}
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                               <p class="text-gray-900 whitespace-no-wrap">
-                                {{$customer->name}}
+                                {{$customer->first_name}} {{$customer->last_name}}
                               </p>
                             </td>
                             {{-- Name --}}
@@ -146,7 +146,7 @@
                             {{-- Action --}}
                             <td class="px-5 py-5 border-b border-gray-200 text-sm">
                               
-                                <x-button class="text-sm text-white bg-sky-700" @click="$wire.edit({ name: '{{ $customer->name }}' })" >Edit</x-button>
+                                <x-button class="text-sm text-white bg-sky-700" @click="$wire.edit({ first_name: '{{ $customer->first_name }}' })" >Edit</x-button>
 
                             </td>
                             {{-- Action --}}
@@ -200,7 +200,7 @@
                     {{-- Name --}}
                     <div class="mt-1">
                       <x-label for="name" value="Name" />
-                      <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                      <x-input wire:model.lazy="name" value="{{$row->first_name}} {{$row->last_name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
                     </div>
                     {{-- Name --}}
 
@@ -249,7 +249,7 @@
             {{ __('Cancel') }}
           </x-secondary-button>
   
-          <x-button class="ms-3" @click="$wire.save({ name: '{{ $row->name }}' })">
+          <x-button class="ms-3" @click="$wire.save({ first_name: '{{ $row->first_name }}' })">
               Reserve
           </x-button>
         </x-slot>

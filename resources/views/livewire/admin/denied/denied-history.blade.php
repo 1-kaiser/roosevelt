@@ -120,7 +120,7 @@
                             {{-- Name --}}
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                    {{$customer->name}}
+                                    {{$customer->first_name}} {{$customer->last_name}}
                                 </p>
                             </td>
                             {{-- Name --}}
@@ -146,7 +146,7 @@
                             {{-- Action --}}
                             <td class="px-5 py-5 border-b border-gray-200 text-center text-sm">
                                 
-                                <x-danger-button @click="$wire.confirmDelete({ name: '{{ $customer->name }}' })" class="text-sm text-white">Delete Permanently</x-danger-button>
+                                <x-danger-button @click="$wire.confirmDelete({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">Delete Permanently</x-danger-button>
                 
                             </td>
                             {{-- Action --}}

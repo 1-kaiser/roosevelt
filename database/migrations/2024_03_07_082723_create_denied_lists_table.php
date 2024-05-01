@@ -14,11 +14,15 @@ return new class extends Migration
         Schema::create('denied_lists', function (Blueprint $table) {
             $table->id();
             $table->string('pic');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email');
             $table->string('contact');
+            $table->string('age');
+            $table->string('birthday');
             $table->date('date');
             $table->string('course');
+            $table->string('valid_id');
             $table->string('paid_attachment');
             $table->string('transmission');
             $table->timestamps();

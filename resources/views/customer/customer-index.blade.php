@@ -23,13 +23,19 @@
 
         <x-customer-courses />
 
-      {{-- FEATURED COURSES --}}  
+      {{-- FEATURED COURSES --}} 
 
       {{-- ABOUT ROOSEVELT --}}
 
         <x-customer-about />
 
       {{-- ABOUT ROOSEVELT --}}  
+
+      {{-- CALENDAR --}}
+
+      {{-- <x-customer-calendar /> --}}
+
+      {{-- CALENDAR --}}
 
       {{-- FAQS --}}
         

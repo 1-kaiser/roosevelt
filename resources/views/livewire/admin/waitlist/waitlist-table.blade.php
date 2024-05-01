@@ -76,7 +76,7 @@
 
             {{-- Name --}}
             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="text-gray-900 whitespace-no-wrap">{{$customer->name}}</p>
+                <p class="text-gray-900 whitespace-no-wrap">{{$customer->first_name}} {{$customer->last_name}}</p>
             </td>
             {{-- Name --}}
 
@@ -107,11 +107,11 @@
             {{-- Action --}}
             <td class="px-5 py-5 border-b border-gray-200 text-sm text-center">
 
-                <x-button @click="$wire.viewCustomer({ name: '{{ $customer->name }}' })" class="text-sm text-white">View</x-button>
+                <x-button @click="$wire.viewCustomer({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">View</x-button>
                 
-                <x-button @click="$wire.accepted({ name: '{{ $customer->name }}' })" class="text-sm text-white bg-sky-700">Accept</x-button>
+                <x-button @click="$wire.accepted({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white bg-sky-700">Accept</x-button>
                             
-                <x-danger-button @click="$wire.denied({ name: '{{ $customer->name }}' })" class="text-sm text-white">Deny</x-danger-button>
+                <x-danger-button @click="$wire.denied({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">Deny</x-danger-button>
 
             </td>
             {{-- Action --}}
@@ -161,7 +161,7 @@
                             {{-- Name --}}
                             <div class="mt-1">
                                 <x-label for="name" value="Name" />
-                                <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                                <x-input wire:model.lazy="name" value="{{$row->first_name}} {{$row->last_name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
                             </div>
                             {{-- Name --}}
         
@@ -178,6 +178,20 @@
                                 <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
                             </div>
                             {{-- Email --}}
+
+                            {{-- Age --}}
+                            <div class="mt-1">
+                                <x-label for="age" value="Age" />
+                                <x-input wire:model.lazy="age" value="{{$row->age}}" id="age" name="age" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Age --}}
+
+                            {{-- Birthday --}}
+                            <div class="mt-1">
+                                <x-label for="birthday" value="Birthday" />
+                                <x-input wire:model.lazy="birthday" value="{{$row->birthday}}" id="birthday" name="birthday" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Birthday --}}
         
                             {{-- Date --}}
                             <div class="mt-1">
@@ -185,6 +199,13 @@
                                 <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
                             </div>
                             {{-- Date --}}
+
+                            {{-- Course --}}
+                            <div class="mt-1">
+                                <x-label for="course" value="Course" />
+                                <x-input wire:model.lazy="course" value="{{$row->course}}" id="course" name="course" type="text" class="mt-2 w-full text-black" readonly />
+                            </div>
+                            {{-- Course --}}
         
                             {{-- Transmission --}}
                             <div class="mt-1">

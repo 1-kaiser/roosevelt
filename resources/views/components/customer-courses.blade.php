@@ -1,9 +1,9 @@
-<div class="courses_bg min-h-screen">
+<div class="min-h-screen">
 
   <div id="Courses" class="pt-14 ml-10">
     <strong class="text-3xl">Featured Courses</strong>
     <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
-</div>
+  </div>
 
   <div class="flex pt-16 pb-16 items-center justify-center">
     <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2">
@@ -17,7 +17,7 @@
           <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Theoretical Driving Course</p>
           <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Aspiring drivers are now required to attend 15-hour Theoretical Driving Course before applying for student permits.</span>
           <strong class="text-red-400 mb-3">Starts at Php 500</strong>
-          <a href="{{ route('tdc-index') }}" class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</a>
+          <a href="{{ route('tdc-index') }}" class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">Reserve Now</a>
         </div>
       </div>
 
@@ -31,16 +31,16 @@
           <p class="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Practical Driving Course</p>
           <span class="text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mb-3">Drive any of our 170+ latest training vehicles at scheduled time slots.</span>
           <strong class="text-red-400 mb-3">Starts at Php 500</strong>
-          <a href="{{ route('pdc-index') }}" class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">See More</a>
+          <a href="{{ route('pdc-index') }}" class="rounded-full bg-neutral-900 px-3.5 py-2 font-com text-sm capitalize text-white shadow shadow-black/60">Reserve Now</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<style>
+{{-- <style>
   .courses_bg {
     background: url('img/courses_bg.svg') no-repeat;
     background-size: cover;
   }
-</style>
+</style> --}}
 

@@ -1,5 +1,5 @@
-<div class="contact_bg min-h-screen">
-    <div class="contact-1 py-4 md:py-12 pt-20">
+<div class="pt-10">
+    <div class="contact-1 py-4 md:py-12 pt-10">
         <div class="container mx-auto px-4">
           <div class="xl:flex -mx-4">
             <div class="xl:w-10/12 xl:mx-auto px-4">
@@ -60,12 +60,12 @@
       </div>
 </div>
 
-<style>
+{{-- <style>
     .contact_bg {
         background: url('img/contact_bg.svg') no-repeat;
         background-size: cover; 
     }
-</style>
+</style> --}}
 
 @if(session()->has('success'))
     <script>

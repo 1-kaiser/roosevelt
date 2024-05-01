@@ -22,19 +22,22 @@ class InstructorExportXLSX implements FromCollection, WithHeadings, WithMapping,
     public function map($row): array
     {
         $fields = [
-            $row->f_name,
-            $row->l_name,
+            $row->first_name,
+            $row->last_name,
             $row->email,
             $row->contact,
-            $row->gender,
-            $row->age
+            $row->age,
+            $row->birthday,
+            $row->course,
+            $row->transmission,
+            $row->date,
         ];
         return $fields;
     }
 
     public function headings(): array
     {
-        return ['First Name', 'Last Name', 'Email', 'Contact', 'Gender', 'Age'];
+        return ['First Name', 'Last Name', 'Email', 'Contact', 'Age', 'Birthday', 'Course', 'Transmission', 'Date'];
     }
 
     public function styles(Worksheet $sheet)

@@ -11,11 +11,15 @@ class Customer extends Model
 
     protected $fillable = [
         'pic',
-        'name', 
+        'first_name', 
+        'last_name',
         'email', 
-        'contact', 
+        'contact',
+        'age',
+        'birthday', 
         'date',
         'course',
+        'valid_id',
         'paid_attachment',
         'transmission',
     ];
