@@ -1,7 +1,6 @@
 <div>
     <x-guest-layout>
         
-
         <body class>
             <div class="lg:flex">
                 <div class="lg:w-1/2 xl:max-w-screen-sm">
@@ -13,18 +12,18 @@
                             <div class="text-[17px] text-amber-800 tracking-wide ml-2 font-semibold">Solid Driving School</div>
                         </div>
                     </div>
-                    <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24 xl:max-w-2xl">
+                    <div class="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24 xl:max-w-2xl">
                         <h2 class="text-center text-4xl text-amber-900 font-display font-semibold lg:text-left xl:text-5xl
-                        xl:text-bold">Register</h2>
+                        xl:text-bold">Sign Up</h2>
                         <div class="mt-12">
 
-                            <form action="" method="POST">
+                            <form action="{{ route('register-process') }}" method="POST">
                                 @csrf
                                 
                                 <div class="mb-4">
-                                    <div class="text-sm font-bold text-gray-700 tracking-wide">Name</div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Juan Dela Cruz" name="name" value="{{ old('name') }}">
-                                    <x-input-error for="name" class="mt-1"/>
+                                    <div class="text-sm font-bold text-gray-700 tracking-wide">Full Name</div>
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Juan Dela Cruz" name="full_name" value="{{ old('full_name') }}">
+                                    <x-input-error for="full_name" class="mt-1"/>
                                 </div>
                                 <div class="mb-4">
                                     <div class="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
@@ -42,14 +41,13 @@
                                     <div class="text-sm font-bold text-gray-700 tracking-wide">
                                         Confirm Password
                                     </div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Confirm your password" name="password">
-                                    <x-input-error for="password" class="mt-1"/>
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Confirm your password" name="password_confirmation">
                                 </div>
                                 <div class="mt-10">
                                     <button class="bg-amber-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                                     font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-amber-600
                                     shadow-lg" type="submit">
-                                        Log In
+                                        Sign Up
                                     </button>
                                 </div>
                             </form>
@@ -63,7 +61,7 @@
                 <div class="hidden lg:flex items-center justify-center bg-amber-100 flex-1 h-screen">
                     <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
                         <svg class="w-5/6 mx-auto" xmlns="http://www.w3.org/2000/svg" id="f080dbb7-9b2b-439b-a118-60b91c514f72" data-name="Layer 1" viewBox="0 0 528.71721 699.76785">
-                            <title>Login</title>
+                            <title>Sign Up</title>
                             <rect y="17.06342" width="444" height="657" fill="#535461"/>
                             <polygon points="323 691.063 0 674.063 0 17.063 323 0.063 323 691.063" fill="#FFBF00"/>
                             <circle cx="296" cy="377.06342" r="4" fill="#535461"/>

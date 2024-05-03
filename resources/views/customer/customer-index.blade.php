@@ -1,6 +1,17 @@
 <div>
     <x-guest-layout>
 
+      @if (Session::has('successLogin'))
+
+          <script>
+            Swal.fire({
+            icon: "success",
+            title: "Logged in successfully",
+            });
+          </script>
+    
+      @endif
+
       {{-- NAVBAR --}}
 
         <x-customer-navbar />

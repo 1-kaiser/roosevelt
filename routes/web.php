@@ -42,7 +42,12 @@ Route::get('/', function () {
     Route::post('/customer', [FAQ::class, 'save'])->name('faqs');
 
     Route::get('customer-login', [CustomerLoginController::class, 'render'])->name('customer-login');
+    Route::post('customer-authenticate', [CustomerLoginController::class, 'authenticate'])->name('customer-authenticate');
+    
     Route::get('customer-register', [CustomerRegisterController::class, 'render'])->name('customer-register');
+    Route::post('register-process', [CustomerRegisterController::class, 'registerProcessRequest'])->name('register-process');
+
+    Route::get('customer-logout', [CustomerLoginController::class, 'logout'])->name('customer-logout');
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])

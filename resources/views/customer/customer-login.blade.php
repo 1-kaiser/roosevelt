@@ -1,7 +1,6 @@
 <div>
     <x-guest-layout>
         
-
         <body class>
             <div class="lg:flex">
                 <div class="lg:w-1/2 xl:max-w-screen-sm">
@@ -17,7 +16,8 @@
                         <h2 class="text-center text-4xl text-amber-900 font-display font-semibold lg:text-left xl:text-5xl
                         xl:text-bold">Log in</h2>
                         <div class="mt-12">
-                            <form action="" method="POST">
+
+                            <form action="{{ route('customer-authenticate') }}" method="POST">
                                 @csrf
                                 
                                 <div>
@@ -49,7 +49,7 @@
                                 </div>
                             </form>
                             <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                                Don't have an account ? <a href="{{ route('customer-register') }}" class="cursor-pointer text-amber-600 hover:text-amber-800">Sign up</a>
+                                Don't have an account ? <a href="{{ route('customer-register') }}" class="cursor-pointer text-amber-600 hover:text-amber-800">Sign Up</a>
                             </div>
                         </div>
                     </div>
@@ -94,4 +94,15 @@
         </body>
 
     </x-guest-layout>
+
+    @if (Session::has('successRegister'))
+
+        <script>
+        Swal.fire({
+        icon: "success",
+        title: "Registered Successfully",
+        });
+        </script>
+  
+    @endif
 </div>
