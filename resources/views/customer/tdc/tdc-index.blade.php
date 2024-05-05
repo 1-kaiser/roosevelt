@@ -47,7 +47,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             First Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('first_name') }}" id="first_name" name="first_name" type="text" placeholder="Juan">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->first_name }}" id="first_name" name="first_name" type="text" placeholder="Juan">
                         <x-input-error for="first_name" class="mt-1"/>
                     </div>
                     {{-- First Name --}}
@@ -57,7 +57,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                         Last Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('last_name') }}" id="last_name" name="last_name" type="text" placeholder="Dela Cruz">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->last_name }}" id="last_name" name="last_name" type="text" placeholder="Dela Cruz">
                         <x-input-error for="last_name" class="mt-1"/>
                     </div>
                     {{-- Last Name --}}
@@ -70,7 +70,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                         Email Address
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('email') }}" id="email" name="email" type="text" placeholder="********@*****.**">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->email }}" id="email" name="email" type="text" placeholder="********@*****.**">
                     <x-input-error for="email" class="mb-2"/>
                     </div>
                     {{-- Email Address --}}

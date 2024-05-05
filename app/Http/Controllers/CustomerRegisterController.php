@@ -18,7 +18,8 @@ class CustomerRegisterController extends Controller
     public function registerProcessRequest(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'full_name' => 'required|min:3',
+            'first_name' => 'required|min:3',
+            'last_name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
         ]);
@@ -26,7 +27,8 @@ class CustomerRegisterController extends Controller
         if ($validator->passes()) {
 
             $user = new CustomerAccount();
-            $user->full_name = $request->full_name;
+            $user->first_name = $request->first_name;
+            $user->last_name = $request->last_name;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->save();

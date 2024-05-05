@@ -76,7 +76,7 @@
         </li>
         <li>
 
-          @if (Auth::guard('customer')->user()->full_name)
+          @if (Auth::guard('customer')->user()->first_name)
 
             <a
             class="md:p-4 py-2 block hover:text-purple-400 font-bold flex items-center"

@@ -20,10 +20,17 @@
                             <form action="{{ route('register-process') }}" method="POST">
                                 @csrf
                                 
-                                <div class="mb-4">
-                                    <div class="text-sm font-bold text-gray-700 tracking-wide">Full Name</div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Juan Dela Cruz" name="full_name" value="{{ old('full_name') }}">
-                                    <x-input-error for="full_name" class="mt-1"/>
+                                <div class="flex flex-wrap justify-between">
+                                    <div class="mb-4">
+                                        <div class="text-sm font-bold text-gray-700 tracking-wide">First Name</div>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Juan" name="first_name" value="{{ old('first_name') }}">
+                                        <x-input-error for="first_name" class="mt-1"/>
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="text-sm font-bold text-gray-700 tracking-wide">Last Name</div>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Dela Cruz" name="last_name" value="{{ old('last_name') }}">
+                                        <x-input-error for="last_name" class="mt-1"/>
+                                    </div>
                                 </div>
                                 <div class="mb-4">
                                     <div class="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
