@@ -45,6 +45,6 @@ class CustomerLoginController extends Controller
     public function logout()
     {
         Auth::guard('customer')->logout();  
-        return redirect()->route('customer-index');
+        return redirect()->route('customer-index-before')->with('successLogout', 'Logout Success');
     }
 }

@@ -35,10 +35,18 @@ Route::get('/', function () {
         return view('customer/customer-index');
     })->name('customer-index');
 
-    Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
-    Route::post('/tdc', [TDCIndex::class, 'save'])->name('tdc-save');
-    Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
-    Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
+    Route::get('/customer_view', function () {
+        return view('customer/customer-index-before');
+    })->name('customer-index-before');
+
+    Route::group(['middleware', 'guest'], function () {
+
+        Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
+        Route::post('/tdc', [TDCIndex::class, 'save'])->name('tdc-save');
+        Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
+        Route::post('/pdc', [TDCIndex::class, 'save'])->name('pdc-save');
+
+    });
     Route::post('/customer', [FAQ::class, 'save'])->name('faqs');
 
     Route::get('customer-login', [CustomerLoginController::class, 'render'])->name('customer-login');

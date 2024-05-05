@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <div class="max-w-screen-md mx-auto p-5">
+        <div class="max-w-full mx-auto px-32">
             <div class="text-center mb-8">
                 <h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-gray-900">
                   Reservation <span class="text-indigo-600">Form</span>

@@ -21,12 +21,12 @@
                                 @csrf
                                 
                                 <div>
-                                    <div class="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="mike@gmail.com" name="email" value="{{ old('email') }}">
+                                    <div class="text-sm font-bold text-gray-700 tracking-wide pb-1">Email Address</div>
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="email" placeholder="mike@gmail.com" name="email" value="{{ old('email') }}">
                                     <x-input-error for="email" class="mt-1"/>
                                 </div>
                                 <div class="mt-8">
-                                    <div class="flex justify-between items-center">
+                                    <div class="flex justify-between items-center pb-1">
                                         <div class="text-sm font-bold text-gray-700 tracking-wide">
                                             Password
                                         </div>
@@ -37,7 +37,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password" name="password">
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password">
                                     <x-input-error for="password" class="mt-1"/>
                                 </div>
                                 <div class="mt-10">

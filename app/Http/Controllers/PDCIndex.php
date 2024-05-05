@@ -15,36 +15,42 @@ class PDCIndex extends Controller
     use WithFileUploads;
 
     public function save(Request $request) {
+
         $validate = $request->validate([
             'pic' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'name' => 'required|min:3',
+            'first_name' => 'required|min:3',
+            'last_name' => 'required',
             'email' => 'required|email',
             'contact' => 'required|min:11|max:11',
+            'age' => 'required|min:18',
+            'birthday' => 'required',
             'date' => 'required',
             'course' => '',
+            'valid_id' => 'required|image|mimes:jpeg,png,jpg,gif',
             'paid_attachment' => 'required|image|mimes:jpeg,png,jpg,gif',
             'transmission' => 'required',
         ]);
 
         $data = Customer::create([
             'pic' => $validate['pic']->store('img', 'public'),
-            'name' => $validate['name'],
-            'email' => $validate['email'],
+            'first_name' => $validate['first_name'],
+            'last_name' => $validate['last_name'],
+            'email' => $validate['email'], 
             'contact' => $validate['contact'],
+            'age' => $validate['age'],
+            'birthday' => $validate['birthday'],
             'date' => $validate['date'],
             'course' => $validate['course'],
+            'valid_id' => $validate['valid_id']->store('img', 'public'),
             'paid_attachment' => $validate['paid_attachment']->store('img', 'public'),
             'transmission' => $validate['transmission'],
         ]);
 
         $mailData = [
             'title' => 'Reservation Request',
-            'name' => $validate['name'],
+            'first_name' => $validate['first_name'],
             'email' => $validate['email'],
-            'contact' => $validate['contact'],
             'date' => $validate['date'],
-            'course' => $validate['course'],
-            'transmission' => $validate['transmission'],
         ];
 
         if ($data) {
