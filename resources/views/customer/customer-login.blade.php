@@ -30,12 +30,6 @@
                                         <div class="text-sm font-bold text-gray-700 tracking-wide">
                                             Password
                                         </div>
-                                        <div>
-                                            <a class="text-xs font-display font-semibold text-amber-600 hover:text-amber-800
-                                            cursor-pointer">
-                                                Forgot Password?
-                                            </a>
-                                        </div>
                                     </div>
                                     <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password">
                                     <x-input-error for="password" class="mt-1"/>
