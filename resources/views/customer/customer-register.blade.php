@@ -22,33 +22,33 @@
                                 
                                 <div class="flex flex-wrap justify-between">
                                     <div class="mb-4">
-                                        <div class="text-sm font-bold text-gray-700 tracking-wide">First Name</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Juan" name="first_name" value="{{ old('first_name') }}">
+                                        <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">First Name</div>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Juan" name="first_name" value="{{ old('first_name') }}">
                                         <x-input-error for="first_name" class="mt-1"/>
                                     </div>
                                     <div class="mb-4">
-                                        <div class="text-sm font-bold text-gray-700 tracking-wide">Last Name</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Dela Cruz" name="last_name" value="{{ old('last_name') }}">
+                                        <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">Last Name</div>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Dela Cruz" name="last_name" value="{{ old('last_name') }}">
                                         <x-input-error for="last_name" class="mt-1"/>
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <div class="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="mike@gmail.com" name="email" value="{{ old('email') }}">
+                                    <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="mike@gmail.com" name="email" value="{{ old('email') }}">
                                     <x-input-error for="email" class="mt-1"/>
                                 </div>
                                 <div class="mb-3">
-                                    <div class="text-sm font-bold text-gray-700 tracking-wide">
+                                    <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">
                                         Password
                                     </div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password" name="password">
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password">
                                     <x-input-error for="password" class="mt-1"/>
                                 </div>
                                 <div>
-                                    <div class="text-sm font-bold text-gray-700 tracking-wide">
+                                    <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">
                                         Confirm Password
                                     </div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Confirm your password" name="password_confirmation">
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Confirm your password" name="password_confirmation">
                                 </div>
                                 <div class="mt-10">
                                     <button class="bg-amber-500 text-gray-100 p-4 w-full rounded-full tracking-wide
