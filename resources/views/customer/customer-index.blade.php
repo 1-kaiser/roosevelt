@@ -12,6 +12,17 @@
     
       @endif
 
+      @if (Session::has('successLogout'))
+
+          <script>
+            Swal.fire({
+            icon: "success",
+            title: "Logged out successfully",
+            });
+          </script>
+    
+      @endif
+
       {{-- NAVBAR --}}
 
         <x-customer-navbar />

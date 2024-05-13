@@ -33,7 +33,7 @@
                         Your Picture
                         </label>
                     
-                        <img src="#" id="preview" class="border border-gray-400 w-36 h-34">
+                        <img src="#" id="preview" class="border border-gray-500 w-36 h-34">
             
                     <x-input type="file" class="text-sm w-44 mt-2" id="pic" name="pic" onchange="previewImage(event)"/>
                     <x-input-error for="pic" class="mt-1"/>
@@ -47,7 +47,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             First Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('first_name') }}" id="first_name" name="first_name" type="text" placeholder="Juan">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->first_name }}" id="first_name" name="first_name" type="text" placeholder="Juan">
                         <x-input-error for="first_name" class="mt-1"/>
                     </div>
                     {{-- First Name --}}
@@ -57,7 +57,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                         Last Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('last_name') }}" id="last_name" name="last_name" type="text" placeholder="Dela Cruz">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->last_name }}" id="last_name" name="last_name" type="text" placeholder="Dela Cruz">
                         <x-input-error for="last_name" class="mt-1"/>
                     </div>
                     {{-- Last Name --}}
@@ -70,7 +70,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
                         Email Address
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('email') }}" id="email" name="email" type="text" placeholder="********@*****.**">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->email }}" id="email" name="email" type="text" placeholder="********@*****.**">
                     <x-input-error for="email" class="mb-2"/>
                     </div>
                     {{-- Email Address --}}
@@ -121,7 +121,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Birthday
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" value="{{ old('birthday') }}" id="birthday" name="birthday" type="date" placeholder="Jane">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" value="{{ old('birthday') }}" id="birthday" name="birthday" type="date" max="2008-01-01">
                     <x-input-error for="birthday" class="mt-1"/>
                     </div>
                     {{-- Birthday --}}

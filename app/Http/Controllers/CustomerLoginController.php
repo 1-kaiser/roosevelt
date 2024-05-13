@@ -11,7 +11,6 @@ class CustomerLoginController extends Controller
 {
     public function render(): View
     {
-        
         return view('customer.customer-login');
     }
 
@@ -30,11 +29,12 @@ class CustomerLoginController extends Controller
 
             } else {
 
-                return redirect()->route('customer-login')->with('errorLogin');
+                return redirect()->route('customer-login')->with('errorLogin', 'Error Login');
+
             } 
 
         } else {
-
+            
             return redirect()
             ->route('customer-login')
             ->withInput()
@@ -45,6 +45,6 @@ class CustomerLoginController extends Controller
     public function logout()
     {
         Auth::guard('customer')->logout();  
-        return redirect()->route('customer-index-before')->with('successLogout', 'Logout Success');
+        return redirect()->route('customer-index')->with('successLogout', 'Logout Success');
     }
 }

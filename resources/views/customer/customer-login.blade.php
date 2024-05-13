@@ -99,4 +99,15 @@
         </script>
   
     @endif
+
+    @if (Session::has('errorLogin'))
+
+          <script>
+            Swal.fire({
+            icon: "error",
+            title: "Error upon logging in",
+            });
+          </script>
+    
+      @endif
 </div>

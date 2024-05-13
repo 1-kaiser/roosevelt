@@ -1,5 +1,6 @@
 <div>
     <x-guest-layout>
+
         {{-- Navbar --}}
         <x-customer-navbar />
 
@@ -33,7 +34,7 @@
                         Your Picture
                         </label>
                     
-                        <img src="#" id="preview" class="border border-gray-400 w-36 h-34">
+                        <img src="#" id="previewPic" class="border border-gray-400 w-36 h-34">
             
                     <x-input type="file" class="text-sm w-44 mt-2" id="pic" name="pic" onchange="previewImage(event)"/>
                     <x-input-error for="pic" class="mt-1"/>
@@ -103,7 +104,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Birthday
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" value="{{ old('birthday') }}" id="birthday" name="birthday" type="date" placeholder="Jane">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" value="{{ old('birthday') }}" id="birthday" name="birthday" type="date" max="2008-01-01">
                     <x-input-error for="birthday" class="mt-1"/>
                     </div>
                     {{-- Birthday --}}
@@ -126,7 +127,10 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Valid ID
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file">
+
+                    {{-- <img src="#" id="previewID" class="border border-gray-400 mb-3 w-60 h-32"> --}}
+
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file" onchange="previewImageID(event)">
                     <x-input-error for="valid_id" class="mt-1"/>
                     </div>
                     {{-- Valid ID --}}
@@ -221,7 +225,19 @@
             var reader = new FileReader();
             reader.onload = function(){
                 var dataURL = reader.result;
-                var preview = document.getElementById('preview');
+                var preview = document.getElementById('previewPic');
+                preview.src = dataURL;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewImageID(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function(){
+                var dataURL = reader.result;
+                var preview = document.getElementById('previewID');
                 preview.src = dataURL;
                 preview.style.display = 'block';
             };

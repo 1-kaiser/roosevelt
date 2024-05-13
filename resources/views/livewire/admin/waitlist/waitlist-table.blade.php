@@ -213,6 +213,13 @@
                                 <x-input wire:model.lazy="transmission" value="{{$row->transmission}}" id="transmission" name="transmission" type="text" class="mt-2 w-full text-black" readonly />
                             </div>
                             {{-- Transmission --}}
+
+                            {{-- Valid ID --}}
+                            <div class="mt-1">
+                                <x-label for="valid_id" value="Valid ID" class="mt-2"/>
+                                <img src="{{ asset('storage/'.$row->valid_id) }}" class="w-40 h-33 mt-1" />
+                            </div> 
+                            {{-- Valid ID --}}
                         </div>
                     </div>
                 @endforeach
