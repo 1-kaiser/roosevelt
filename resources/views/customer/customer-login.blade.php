@@ -17,7 +17,7 @@
                         xl:text-bold">Log in</h2>
                         <div class="mt-12">
 
-                            <form action="{{ route('customer-authenticate') }}" method="POST">
+                            <form action="{{ route('customer-authenticate') }}" id="loginForm" method="POST">
                                 @csrf
                                 
                                 <div>
@@ -105,9 +105,26 @@
           <script>
             Swal.fire({
             icon: "error",
-            title: "Error upon logging in",
+            title: "Either Username or Password is incorrect",
             });
           </script>
     
       @endif
+
+      <style>
+        #email-error, #password-error {
+            color: red;
+        }
+      </style>
+
+      <script>
+        $(document).ready(function() {
+            $('#loginForm').validate({
+                rules: {
+                    email: {required: true},
+                    password: {required: true},
+                }
+            })
+        })
+      </script>
 </div>

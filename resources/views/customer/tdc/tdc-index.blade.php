@@ -24,9 +24,8 @@
                 </h3>
             </div>
             
-            <form class="w-full" action="" method="POST" enctype="multipart/form-data">
+            <form class="w-full" action="{{ route('tdc-save') }}" id="tdcForm" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('post')
         
                 {{-- Picture --}}
                 <div class="flex flex-col items-center mb-6">
@@ -197,7 +196,7 @@
         <div class="mt-40">
             <x-customer-footer />
         </div>
-    </x-guest-layout>
+    
 
     @if(session()->has('success'))
         <script>
@@ -218,6 +217,25 @@
             {{session('error')}}
         </span>
     @endif
+
+    <style>
+        #contact-error {
+            color: red;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('#tdcForm').validate({
+                rules: {
+                    first_name: {required: true},
+                    last_name: {required: true},
+                    email: {required: true},
+                    contact: {required: true},
+                }
+            })
+        })
+    </script>
 
     <script>
         function previewImage(event) {
@@ -244,4 +262,6 @@
             reader.readAsDataURL(input.files[0]);
         }
     </script>
+
+    </x-guest-layout>
 </div>

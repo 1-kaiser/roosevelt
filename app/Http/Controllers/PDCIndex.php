@@ -14,7 +14,7 @@ class PDCIndex extends Controller
 {
     use WithFileUploads;
 
-    public function save(Request $request) {
+    public function savePDC(Request $request) {
 
         $validate = $request->validate([
             'pic' => 'required|image|mimes:jpeg,png,jpg,gif',

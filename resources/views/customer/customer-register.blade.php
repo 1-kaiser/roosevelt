@@ -16,7 +16,7 @@
                         xl:text-bold">Sign Up</h2>
                         <div class="mt-12">
 
-                            <form action="{{ route('register-process') }}" method="POST">
+                            <form action="{{ route('register-process') }}" id="registerForm" method="POST">
                                 @csrf
                                 
                                 <div class="flex flex-wrap justify-between">
@@ -103,4 +103,22 @@
             </div>
 
     </x-guest-layout>
+
+    <style>
+        #email-error, #password-error {
+            color: red;
+            margin-top: 1rem;
+        }
+      </style>
+
+      <script>
+        $(document).ready(function() {
+            $('#loginForm').validate({
+                rules: {
+                    first_name: {required: true},
+                    last_name: {required: true},
+                }
+            })
+        })
+      </script>
 </div>

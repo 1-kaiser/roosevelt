@@ -25,7 +25,6 @@
             
             <form class="w-full" action="" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('post')
         
                 {{-- Picture --}}
                 <div class="flex flex-col items-center mb-6">
