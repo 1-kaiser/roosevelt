@@ -146,6 +146,8 @@
                             {{-- Action --}}
                             <td class="px-5 py-5 border-b border-gray-200 text-center text-sm">
                                 
+                                <x-button @click="$wire.confirmRestore({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">Restore</x-button>
+
                                 <x-danger-button @click="$wire.confirmDelete({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">Delete Permanently</x-danger-button>
                 
                             </td>
@@ -191,7 +193,27 @@
                     @this.delete()
                     Swal.fire({
                     title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    text: "Your data has been deleted.",
+                    icon: "success"
+                    });
+                }
+            }); 
+        });
+
+        window.addEventListener("confirm-restore", function() {
+            Swal.fire({
+                title: "Are you sure you want to restore?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, restore it!"
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    @this.restore()
+                    Swal.fire({
+                    title: "Restored!",
+                    text: "Your data has been restored.",
                     icon: "success"
                     });
                 }

@@ -114,6 +114,15 @@
       <style>
         #email-error, #password-error {
             color: red;
+            margin-top: 1rem;
+            font-size: 13px;
+            outline: none;
+        }
+        .error {
+            outline: 1px solid red;
+        }
+        .valid {
+            outline: 1px solid rgb(15, 255, 15);
         }
       </style>
 
@@ -123,6 +132,12 @@
                 rules: {
                     email: {required: true},
                     password: {required: true},
+                },
+                highlight: function (element) {
+                    $(element).removeClass('valid').addClass('error');
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass('error').addClass('valid');
                 }
             })
         })

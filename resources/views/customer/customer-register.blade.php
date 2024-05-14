@@ -19,18 +19,17 @@
                             <form action="{{ route('register-process') }}" id="registerForm" method="POST">
                                 @csrf
                                 
-                                <div class="flex flex-wrap justify-between">
-                                    <div class="mb-4">
-                                        <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">First Name</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Juan" name="first_name" value="{{ old('first_name') }}">
-                                        <x-input-error for="first_name" class="mt-1"/>
-                                    </div>
-                                    <div class="mb-4">
-                                        <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">Last Name</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Dela Cruz" name="last_name" value="{{ old('last_name') }}">
-                                        <x-input-error for="last_name" class="mt-1"/>
-                                    </div>
+                                <div class="mb-4">
+                                    <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">First Name</div>
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Juan" name="first_name" value="{{ old('first_name') }}">
+                                    <x-input-error for="first_name" class="mt-1"/>
                                 </div>
+                                <div class="mb-4">
+                                    <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">Last Name</div>
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Dela Cruz" name="last_name" value="{{ old('last_name') }}">
+                                    <x-input-error for="last_name" class="mt-1"/>
+                                </div>
+                                
                                 <div class="mb-4">
                                     <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
                                     <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="mike@gmail.com" name="email" value="{{ old('email') }}">
@@ -40,7 +39,7 @@
                                     <div class="mb-1 text-sm font-bold text-gray-700 tracking-wide">
                                         Password
                                     </div>
-                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password">
+                                    <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password" id="password">
                                     <x-input-error for="password" class="mt-1"/>
                                 </div>
                                 <div>
@@ -105,18 +104,44 @@
     </x-guest-layout>
 
     <style>
-        #email-error, #password-error {
+        #first_name-error, #last_name-error, #email-error, #password-error, #password_confirmation-error {
             color: red;
             margin-top: 1rem;
+            font-size: 13px;
+            outline: none;
+        }
+        .error {
+            outline: 1px solid red;
+        }
+        .valid {
+            outline: 1px solid rgb(15, 255, 15);
         }
       </style>
 
       <script>
         $(document).ready(function() {
-            $('#loginForm').validate({
+            $('#registerForm').validate({
                 rules: {
                     first_name: {required: true},
                     last_name: {required: true},
+                    email: {required: true},
+                    password: {required: true},
+                    password_confirmation: {
+                        required: true,
+                        equalTo: "#password"
+                    },
+
+                },
+                messages: {
+                    password_confirmation: {
+                        equalTo: "Please enter the same password as above"
+                    }
+                },
+                highlight: function (element) {
+                    $(element).removeClass('valid').addClass('error');
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass('error').addClass('valid');
                 }
             })
         })

@@ -77,20 +77,20 @@
             
                     {{-- Contact --}}
                     <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-password">
                         Contact
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('contact') }}" id="contact" name="contact" type="number" placeholder="09*********">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('contact') }}" id="contact" name="contact" type="number" placeholder="09*********">
                     <x-input-error for="contact" class="mb-2"/>
                     </div>
                     {{-- Contact --}}
             
                     {{-- Age --}}
                     <div class="w-full px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-5" for="grid-password">
                         Age
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('age') }}" id="age" name="age" type="number" placeholder="20">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('age') }}" id="age" name="age" type="number" placeholder="20">
                         <x-input-error for="age" class="mt-1"/>
                     </div>
                     {{-- Age --}}
@@ -103,7 +103,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Birthday
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" value="{{ old('birthday') }}" id="birthday" name="birthday" type="date" max="2008-01-01">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" value="{{ old('birthday') }}" id="birthday" name="birthday" type="date" max="2008-01-01">
                     <x-input-error for="birthday" class="mt-1"/>
                     </div>
                     {{-- Birthday --}}
@@ -127,9 +127,9 @@
                         Valid ID
                     </label>
 
-                    {{-- <img src="#" id="previewID" class="border border-gray-400 mb-3 w-60 h-32"> --}}
+                    {{-- <img src="#" id="previewID" class="border border-gray-400 w-60 h-32"> --}}
 
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file" onchange="previewImageID(event)">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file" onchange="previewImageID(event)">
                     <x-input-error for="valid_id" class="mt-1"/>
                     </div>
                     {{-- Valid ID --}}
@@ -219,8 +219,17 @@
     @endif
 
     <style>
-        #contact-error {
+        #pic-error, #contact-error, #age-error, #grid-first-name-error, #date-error, #valid_id-error, #paid_attachment-error {
             color: red;
+            font-size: 13px;
+            /* margin-bottom: 1rem; */
+            outline: none;
+        }
+        .error {
+            outline: 1px solid red;
+        }
+        .valid {
+            outline: 1px solid rgb(15, 255, 15);
         }
     </style>
 
@@ -228,10 +237,28 @@
         $(document).ready(function() {
             $('#tdcForm').validate({
                 rules: {
+                    pic: {required: true},
                     first_name: {required: true},
                     last_name: {required: true},
                     email: {required: true},
                     contact: {required: true},
+                    age: {
+                        required: true,
+                        min: 17
+                    },
+                    birthday: {required: true},
+                    date: {required: true},
+                    valid_id: {required: true},
+                    paid_attachment: {required: true},
+                },
+                messages: {
+                    age: {min: "Only 17 years old and above are eligible for reservation."}
+                },
+                highlight: function (element) {
+                    $(element).removeClass('valid').addClass('error');
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass('error').addClass('valid');
                 }
             })
         })
