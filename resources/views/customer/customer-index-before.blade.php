@@ -1,7 +1,7 @@
 <div>
     <x-guest-layout>
 
-      @if (Session::has('successLogout'))
+      {{-- @if (Session::has('successLogout'))
 
           <script>
             Swal.fire({
@@ -10,7 +10,7 @@
             });
           </script>
     
-      @endif
+      @endif --}}
 
       {{-- NAVBAR --}}
 

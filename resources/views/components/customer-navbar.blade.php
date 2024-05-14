@@ -78,13 +78,6 @@
 
           @if (Auth::guard('customer')->user()?->first_name)
 
-          <script>
-            Swal.fire({
-            icon: "error",
-            title: "Logged out successfully",
-            });
-          </script>
-
             <a
             class="md:p-4 py-2 block hover:text-purple-400 font-bold flex items-center"
             href="{{ route('customer-logout') }}"

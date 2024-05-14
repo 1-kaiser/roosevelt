@@ -1,7 +1,6 @@
 <div>
     <x-guest-layout>
         
-        <body class>
             <div class="lg:flex">
                 <div class="lg:w-1/2 xl:max-w-screen-sm">
                     <div class="py-12 bg-amber-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
@@ -102,7 +101,6 @@
                     </div>
                 </div>
             </div>
-        </body>
 
     </x-guest-layout>
 </div>
