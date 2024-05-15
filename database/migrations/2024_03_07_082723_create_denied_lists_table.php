@@ -9,6 +9,9 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    // 2024_03_07_082723_create_denied_lists_table.php
+    
     public function up(): void
     {
         Schema::create('denied_lists', function (Blueprint $table) {
@@ -25,6 +28,7 @@ return new class extends Migration
             $table->string('valid_id');
             $table->string('paid_attachment');
             $table->string('transmission');
+            $table->string('deny_reason');
             $table->timestamps();
         });
     }

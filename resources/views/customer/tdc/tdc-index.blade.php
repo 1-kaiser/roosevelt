@@ -127,9 +127,10 @@
                         Valid ID
                     </label>
 
-                    {{-- <img src="#" id="previewID" class="border border-gray-400 w-60 h-32"> --}}
-
                     <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file" onchange="previewImageID(event)">
+
+                    <img src="#" id="previewID" class="border mt-2 border-gray-400 w-60 h-32">
+
                     <x-input-error for="valid_id" class="mt-1"/>
                     </div>
                     {{-- Valid ID --}}
@@ -139,7 +140,10 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                         Proof of Payment
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paid_attachment" name="paid_attachment" type="file" placeholder="Doe">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paid_attachment" name="paid_attachment" type="file" onchange="previewImageGcash(event)">
+
+                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-80">
+
                     <x-input-error for="paid_attachment" class="mt-1"/>
                     </div>
                     <x-input type="hidden" value="---" name="transmission" />
@@ -147,13 +151,13 @@
                 </div>
             
             
-                <div class="flex justify-between w-full px-3">
+                <div class="flex justify-between w-full px-3 py-4">
                     <div class="md:flex md:items-center">
                     <label class="block text-gray-500 font-bold">
                         <input class="mr-2 leading-tight" type="hidden">
                     </label>
                     </div>
-                    <button class="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded" type="submit">
+                    <button class="shadow w-44 bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded" type="submit">
                     Reserve Now
                     </button>
                 </div>
@@ -222,7 +226,6 @@
         #pic-error, #contact-error, #age-error, #grid-first-name-error, #date-error, #valid_id-error, #paid_attachment-error {
             color: red;
             font-size: 13px;
-            /* margin-bottom: 1rem; */
             outline: none;
         }
         .error {
@@ -283,6 +286,18 @@
             reader.onload = function(){
                 var dataURL = reader.result;
                 var preview = document.getElementById('previewID');
+                preview.src = dataURL;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewImageGcash(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function(){
+                var dataURL = reader.result;
+                var preview = document.getElementById('previewPaid');
                 preview.src = dataURL;
                 preview.style.display = 'block';
             };

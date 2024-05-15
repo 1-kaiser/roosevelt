@@ -22,5 +22,6 @@ class DeniedList extends Model
         'valid_id',
         'paid_attachment',
         'transmission',
+        'deny_reason'
     ];
 }

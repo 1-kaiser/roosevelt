@@ -33,7 +33,10 @@ class TdcAcceptedList extends Component
 
     public function save($first_name = null) {
 
-        AcceptedList::where('first_name', '=', $first_name)->update(['instructor' => $this->instructor]);
+        AcceptedList::where('first_name', '=', $first_name)->update([
+            'instructor' => $this->instructor,
+            'status' => 'reserved',
+        ]);
 
         $this->accepted = AcceptedList::where('first_name', '=', $first_name)->get();
 

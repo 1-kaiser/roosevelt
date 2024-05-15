@@ -111,7 +111,10 @@
                 
                 <x-button @click="$wire.accepted({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white bg-sky-700">Accept</x-button>
                             
-                <x-danger-button @click="$wire.denied({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">Deny</x-danger-button>
+                {{-- <x-danger-button @click="$wire.denied({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">Deny</x-danger-button> --}}
+
+                {{-- Reason for Denial --}}
+                <x-danger-button @click="$wire.reasonForDenial({ first_name: '{{ $customer->first_name }}' })" class="text-sm text-white">Deny</x-danger-button>
 
             </td>
             {{-- Action --}}
@@ -131,6 +134,107 @@
             });
         });
     </script>
+
+    {{-- Reason For Denial --}}
+
+    @isset ($viewDataDeny)
+    @foreach ($viewDataDeny as $row)
+    <x-dialog-modal wire:model.live="modalReasonForDenial" submit="denied">
+        <x-slot name="title">
+            Reason for Denial
+        </x-slot>
+    
+        <x-slot name="content">
+            <div class="grid grid-cols-2 gap-2">
+                {{-- Name --}}
+                <div class="mt-1">
+                    <x-label for="name" value="Name" />
+                    <x-input wire:model.lazy="name" value="{{$row->first_name}} {{$row->last_name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Name --}}
+                {{-- Contact --}}
+                <div class="mt-1">
+                    <x-label for="contact" value="Contact" />
+                    <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Contact --}}
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 mt-3">
+                {{-- Email --}}
+                <div class="mt-1">
+                    <x-label for="email" value="Email" />
+                    <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Email --}}
+
+                {{-- Age --}}
+                <div class="mt-1">
+                    <x-label for="age" value="Age" />
+                    <x-input wire:model.lazy="age" value="{{$row->age}}" id="age" name="age" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Age --}}
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 mt-3">
+                {{-- Birthday --}}
+                <div class="mt-1">
+                    <x-label for="birthday" value="Birthday" />
+                    <x-input wire:model.lazy="birthday" value="{{$row->birthday}}" id="birthday" name="birthday" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Birthday --}}
+
+                {{-- Date --}}
+                <div class="mt-1">
+                    <x-label for="date" value="Date" />
+                    <x-input wire:model.lazy="date" value="{{$row->date}}" id="date" name="date" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Date --}}
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 mt-3">
+                {{-- Course --}}
+                <div class="mt-1">
+                    <x-label for="course" value="Course" />
+                    <x-input wire:model.lazy="course" value="{{$row->course}}" id="course" name="course" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Course --}}
+
+                {{-- Transmission --}}
+                <div class="mt-1">
+                    <x-label for="transmission" value="Transmission" />
+                    <x-input wire:model.lazy="transmission" value="{{$row->transmission}}" id="transmission" name="transmission" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Transmission --}}
+            </div>
+
+            {{-- Deny Reason --}}
+                <div class="mt-3">
+                    <x-label for="deny_reason" value="Reason to Deny" />
+                    <x-select name="deny_reason" class="text-black mt-2" wire:model.lazy="deny_reason">
+                        <option value=""></option>
+                        <option value="Cancel of Reservation">Cancel of reservation</option>
+                        <option value="Not Responding to Confirmation">Not responding to confirmation</option>
+                        <option value="Change of mind">Change of mind</option>
+                    </x-select>
+                </div>
+            {{-- Deny Reason --}}
+        </x-slot>
+    
+        <x-slot name="footer">
+            <x-secondary-button @click="$wire.set('modalReasonForDenial', false)">
+                {{ __('Cancel') }}
+              </x-secondary-button>
+      
+              <x-danger-button type="submit" class="ms-3" @click="$wire.denied({ first_name: '{{ $row->first_name }}' })">
+                  Deny
+              </x-danger-button>
+        </x-slot>
+    </x-dialog-modal>
+    @endforeach
+    @endisset
+
+    {{-- End Reason For Denial --}}
 
     <x-dialog-modal wire:model.live="modalView" submit="save">
         <x-slot name="title">

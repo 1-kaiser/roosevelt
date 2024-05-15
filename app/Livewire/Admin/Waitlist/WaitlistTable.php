@@ -8,6 +8,7 @@ use App\Mail\PDCAcceptedMail;
 use App\Models\AcceptedList;
 use App\Models\Customer;
 use App\Models\DeniedList;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -18,7 +19,9 @@ class WaitlistTable extends Component
 
     public $paginate = 5, $searchCustomer =  '';
     public $modalView = false;
-    public $viewData;
+    public $modalReasonForDenial = false;
+    public $viewData, $viewDataDeny;
+    public $deny_reason;
         
     public function render()
     {
@@ -64,7 +67,7 @@ class WaitlistTable extends Component
         $sourceData->each->delete();  
     }
 
-    public function denied($first_name) {
+    public function denied($first_name = null) {
         $sourceData = Customer::where('first_name', '=', $first_name)->get();
         $getData = Customer::where('first_name', '=', $first_name)->get()->toArray();
         
@@ -82,8 +85,11 @@ class WaitlistTable extends Component
                 'valid_id' => $data['valid_id'],
                 'paid_attachment' => $data['paid_attachment'],
                 'transmission' => $data['transmission'],
+                'deny_reason' => $this->deny_reason
             ]);
         }
+
+        DeniedList::where('first_name', '=', $first_name)->update(['deny_reason' => $this->deny_reason]);
 
         $this->dispatch('swal',
             title: 'Success',
@@ -94,5 +100,12 @@ class WaitlistTable extends Component
         $this->dispatch('dispatch-customer-accepted')->to(DeniedHistory::class);
 
         $sourceData->each->delete();  
+        $this->modalReasonForDenial = false;
+    }
+
+    public function reasonForDenial($first_name)
+    {
+        $this->modalReasonForDenial = true;
+        $this->viewDataDeny = Customer::where('first_name', '=', $first_name)->get();
     }
 }
