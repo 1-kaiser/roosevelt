@@ -21,6 +21,7 @@ class CustomerRegisterController extends Controller
             'first_name' => 'required|min:3',
             'last_name' => 'required|min:3',
             'email' => 'required|email|unique:users',
+            'contact' => 'required|min:11|max:11',
             'password' => 'required|confirmed',
         ]);
 
@@ -30,6 +31,7 @@ class CustomerRegisterController extends Controller
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             $user->email = $request->email;
+            $user->contact = $request->contact;
             $user->password = Hash::make($request->password);
             $user->save();
 

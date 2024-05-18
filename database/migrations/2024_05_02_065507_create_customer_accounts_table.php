@@ -9,6 +9,9 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    //  2024_05_02_065507_create_customer_accounts_table.php
+    
     public function up(): void
     {
         Schema::create('customer_accounts', function (Blueprint $table) {
@@ -16,6 +19,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
+            $table->string('contact');
             $table->string('password');
             $table->timestamps();
         });

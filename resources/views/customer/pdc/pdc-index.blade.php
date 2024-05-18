@@ -23,7 +23,7 @@
                 </h3>
             </div>
             
-            <form class="w-full" action="" method="POST" enctype="multipart/form-data">
+            <form class="w-full" action="" id="pdcForm" method="POST" enctype="multipart/form-data">
                 @csrf
         
                 {{-- Picture --}}
@@ -144,7 +144,10 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Valid ID
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file" onchange="previewImageID(event)">
+
+                    <img src="#" id="previewID" class="border mt-2 border-gray-400 w-60 h-32">
+
                     <x-input-error for="valid_id" class="mt-1"/>
                     </div>
                     {{-- Valid ID --}}
@@ -154,7 +157,10 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                         Proof of Payment
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paid_attachment" name="paid_attachment" type="file" placeholder="Doe">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paid_attachment" name="paid_attachment" type="file" onchange="previewImageGcash(event)">
+
+                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-80">
+
                     <x-input-error for="paid_attachment" class="mt-1"/>
                     </div>
                     {{-- Proof of Payment --}}
@@ -211,6 +217,51 @@
         </span>
     @endif
 
+    <style>
+        #pic-error, #contact-error, #age-error, #grid-first-name-error, #date-error, #valid_id-error, #paid_attachment-error {
+            color: red;
+            font-size: 13px;
+            outline: none;
+        }
+        .error {
+            outline: 1px solid red;
+        }
+        .valid {
+            outline: 1px solid rgb(15, 255, 15);
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('#pdcForm').validate({
+                rules: {
+                    pic: {required: true},
+                    first_name: {required: true},
+                    last_name: {required: true},
+                    email: {required: true},
+                    contact: {required: true},
+                    age: {
+                        required: true,
+                        min: 18
+                    },
+                    birthday: {required: true},
+                    date: {required: true},
+                    valid_id: {required: true},
+                    paid_attachment: {required: true},
+                },
+                messages: {
+                    age: {min: "Only 18 years old and above are eligible for reservation."}
+                },
+                highlight: function (element) {
+                    $(element).removeClass('valid').addClass('error');
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass('error').addClass('valid');
+                }
+            })
+        })
+    </script>
+
     <script>
         function previewImage(event) {
             var input = event.target;
@@ -218,6 +269,30 @@
             reader.onload = function(){
                 var dataURL = reader.result;
                 var preview = document.getElementById('preview');
+                preview.src = dataURL;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewImageID(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function(){
+                var dataURL = reader.result;
+                var preview = document.getElementById('previewID');
+                preview.src = dataURL;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewImageGcash(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function(){
+                var dataURL = reader.result;
+                var preview = document.getElementById('previewPaid');
                 preview.src = dataURL;
                 preview.style.display = 'block';
             };

@@ -33,7 +33,7 @@
                         Your Picture
                         </label>
                     
-                        <img src="#" id="previewPic" class="border border-gray-400 w-36 h-34">
+                        <img src="#" id="previewPic" class="border border-gray-400 w-36 h-34" hidden>
             
                     <x-input type="file" class="text-sm w-44 mt-2" id="pic" name="pic" onchange="previewImage(event)"/>
                     <x-input-error for="pic" class="mt-1"/>
@@ -80,7 +80,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-password">
                         Contact
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('contact') }}" id="contact" name="contact" type="number" placeholder="09*********">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->contact }}" id="contact" name="contact" type="number" placeholder="09*********">
                     <x-input-error for="contact" class="mb-2"/>
                     </div>
                     {{-- Contact --}}
@@ -129,7 +129,7 @@
 
                     <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file" onchange="previewImageID(event)">
 
-                    <img src="#" id="previewID" class="border mt-2 border-gray-400 w-60 h-32">
+                    <img src="#" id="previewID" class="border mt-2 border-gray-400 w-60 h-32" hidden>
 
                     <x-input-error for="valid_id" class="mt-1"/>
                     </div>
@@ -142,7 +142,7 @@
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paid_attachment" name="paid_attachment" type="file" onchange="previewImageGcash(event)">
 
-                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-80">
+                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-80" hidden>
 
                     <x-input-error for="paid_attachment" class="mt-1"/>
                     </div>
@@ -247,7 +247,7 @@
                     contact: {required: true},
                     age: {
                         required: true,
-                        min: 17
+                        min: 18
                     },
                     birthday: {required: true},
                     date: {required: true},
@@ -255,7 +255,7 @@
                     paid_attachment: {required: true},
                 },
                 messages: {
-                    age: {min: "Only 17 years old and above are eligible for reservation."}
+                    age: {min: "Only 18 years old and above are eligible for reservation."}
                 },
                 highlight: function (element) {
                     $(element).removeClass('valid').addClass('error');

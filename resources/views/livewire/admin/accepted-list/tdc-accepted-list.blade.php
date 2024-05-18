@@ -148,11 +148,11 @@
                               
                                 <x-button class="text-sm text-white bg-sky-700" @click="$wire.edit({ first_name: '{{ $customer->first_name }}' })" >Edit</x-button>
 
-                                @if (Customer::query()->status == 'reserved')
+                                {{-- @if (Customer::query()->status == 'reserved')
 
                                 <p>---</p>
 
-                                @endif
+                                @endif --}}
 
                             </td>
                             {{-- Action --}}

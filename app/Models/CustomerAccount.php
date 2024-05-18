@@ -12,5 +12,5 @@ class CustomerAccount extends Model implements Authenticatable
     use HasFactory;
     use AuthAuthenticatable;
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'password'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'contact', 'password'];
 }
