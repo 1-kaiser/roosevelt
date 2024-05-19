@@ -6,10 +6,10 @@
   </div>
 
   <div class="flex pt-16 pb-16 items-center justify-center">
-    <div class="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2">
+    <div class="grid grid-cols-2 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2 w-full px-20">
       <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-        <div class="h-96 w-72">
-          <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/TDC.jpeg" alt="" />
+        <div class="">
+          <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/tdc-classroom.jpg" alt="" />
         </div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
         <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
@@ -24,7 +24,7 @@
 
           @else
 
-            <span class="mt-2 text-md capitalize text-white shadow shadow-black/60"><i>You must login first</i></span>
+            <span class="login_first mt-2 text-md capitalize text-white"><i>You must login first</i></span>
 
           @endif
           
@@ -32,7 +32,7 @@
       </div>
 
       <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-        <div class="h-96 w-72">
+        <div class="">
           <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/PDC.jpg" alt="" />
         </div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
@@ -48,7 +48,7 @@
 
         @else
 
-          <span class="mt-2 text-md capitalize text-white shadow shadow-black/60"><i>You must login first</i></span>
+          <span class="login_first mt-2 text-md capitalize text-white shadow"><i>You must login first</i></span>
 
         @endif
         </div>
@@ -56,10 +56,20 @@
     </div>
   </div>
 </div>
-{{-- <style>
-  .courses_bg {
-    background: url('img/courses_bg.svg') no-repeat;
-    background-size: cover;
-  }
-</style> --}}
+
+<script>
+  $(document).ready(function () {
+    $('.login_first').on('click', function() {
+      Swal.fire({
+        icon: "info",
+        title: "You must login first",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = '{{ route('customer-login') }}';
+        }
+      });
+      
+    })
+  })
+</script>
 

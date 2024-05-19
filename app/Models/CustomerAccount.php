@@ -13,4 +13,11 @@ class CustomerAccount extends Model implements Authenticatable
     use AuthAuthenticatable;
 
     protected $fillable = ['first_name', 'last_name', 'email', 'contact', 'password'];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
 }

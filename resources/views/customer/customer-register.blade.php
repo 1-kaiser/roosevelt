@@ -67,6 +67,10 @@
                                 </x-label>
                             </div>
 
+                            <div class="mt-5">
+                                <img src="{{ captcha_img() }}" alt="captcha">
+                            </div>
+
                             <div class="mt-10">
                                 <button class="bg-amber-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-amber-600
@@ -82,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden lg:flex items-center justify-center bg-amber-100 flex-1 h-screen">
+            <div class="hidden lg:flex items-center justify-center bg-amber-100 flex-1 h-[160vh]">
                 <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
                     <svg class="w-5/6 mx-auto" xmlns="http://www.w3.org/2000/svg" id="f080dbb7-9b2b-439b-a118-60b91c514f72" data-name="Layer 1" viewBox="0 0 528.71721 699.76785">
                         <title>Sign Up</title>

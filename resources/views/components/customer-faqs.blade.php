@@ -34,7 +34,7 @@
                             role="region"
                             aria-labelledby="faqs-title-01"
                             class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
-                            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+                            :class="expanded  'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
                             >
                             <div class="overflow-hidden">
                                 <p class="pb-3">

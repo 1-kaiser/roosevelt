@@ -18,9 +18,9 @@ class CustomerRegisterController extends Controller
     public function registerProcessRequest(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'contact' => 'required|min:11|max:11',
             'password' => 'required|confirmed',
         ]);
