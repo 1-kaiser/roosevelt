@@ -246,7 +246,17 @@
                     </div>
                     {{-- Instructor --}}
 
+                    {{-- Accepted By --}}
+                    <div class="mt-7">
+                      <x-label for="accepted_by" value="Accepted By: {{Auth::user()->name}}" />
+                      <x-label for="role" value="Role: Admin" />
+                    
+                    </div>
+                    {{-- Accepted By --}}
+
                   </div>
+
+                  
                 </div>
         </x-slot>
     

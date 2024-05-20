@@ -35,6 +35,10 @@ Route::get('/', function () {
         return view('customer/customer-index');
     })->name('customer-index');
 
+    Route::get('/customer_view', function () {
+        return view('customer/customer-index-before');
+    })->name('customer-index-before');
+
     Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
     Route::post('/tdc-process', [TDCIndex::class, 'save'])->name('tdc-save');
 

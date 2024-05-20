@@ -23,6 +23,7 @@ class CustomerRegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'contact' => 'required|min:11|max:11',
             'password' => 'required|confirmed',
+            'captcha' => 'required|captcha',
         ]);
 
         if ($validator->passes()) {

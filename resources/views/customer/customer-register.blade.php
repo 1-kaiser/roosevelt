@@ -56,19 +56,46 @@
                                 <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Confirm your password" name="password_confirmation">
                             </div>
 
-                            <div class="flex flex-row mt-5 gap-3">
+                            <div class="flex flex-row mt-5 gap-1">
                                 <input type="checkbox" name="terms_conditions">
-                                <x-label>I agree to the 
-                                    <span class="font-bold text-blue-500 text-sm">
-                                        <i>
-                                            <button type="button">Terms and Conditions</button>
-                                        </i>
-                                    </span>
-                                </x-label>
+                                <x-label>I agree to the</x-label>
+                                <span class="font-bold text-blue-500 text-sm">
+                                    
+                                        <div x-data="{open: false}" class="relative z-10">
+                                            <button @click="open = true" type="button">Terms and Conditions</button>
+
+                                            <div x-show="open" x-transition:enter="transition ease-out duration-300"
+                                            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                                            x-transition:leave="transition ease-in duration-200"
+                                            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+                                            @click.away="open = false"
+                                            class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+                                            <!-- Modal content -->
+                                            <div x-show="open" x-transition:enter="transition ease-out duration-300"
+                                                x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100"
+                                                x-transition:leave="transition ease-in duration-200"
+                                                x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95"
+                                                class="bg-white rounded-lg shadow-lg p-6 w-1/3">
+                                                <h2 class="text-xl font-bold mb-4">Terms & Conditions</h2>
+                                                <p class="mb-4 text-black">This website is operated by Solid Driving School, Inc. Throughout the site, the terms “we”, “us” and “our” refer to Solid Driving School, Inc. Solid Driving School, Inc. offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.
+
+                                                    By visiting our site and/ or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/ or contributors of content.
+                                                    
+                                                    Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.</p>
+                                                <button @click="open = false" type="button" class="bg-red-500 text-white px-4 py-2 rounded float-end">Close</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    
+                                </span>
                             </div>
 
-                            <div class="mt-5">
-                                <img src="{{ captcha_img() }}" alt="captcha">
+                            <div class="mt-5 flex gap-3">
+                                {!! captcha_img() !!}
+                                <div>
+                                    <x-input type="text" class="text-sm" placeholder="Your captcha" name="captcha"></x-input>
+                                    <x-input-error for="captcha" class="mt-1"/>
+                                </div>
                             </div>
 
                             <div class="mt-10">
@@ -127,7 +154,7 @@
     </x-guest-layout>
 
     <style>
-        #first_name-error, #last_name-error, #email-error, #contact-error, #password-error, #password_confirmation-error {
+        #first_name-error, #last_name-error, #email-error, #contact-error, #password-error, #password_confirmation-error, #captcha-error {
             color: red;
             margin-top: 1rem;
             font-size: 13px;
@@ -161,7 +188,8 @@
                         required: true,
                         equalTo: "#password"
                     },
-                    terms_conditions: {required: true}
+                    terms_conditions: {required: true},
+                    captcha: {required: true}
 
                 },
                 messages: {
