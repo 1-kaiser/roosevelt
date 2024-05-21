@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\SendEmailTDCConfirmationJob;
+use App\Http\Requests\TDCFormRequest;
 use App\Mail\TDCConfirmation;
 use App\Models\Customer;
 use Illuminate\Http\Request;
@@ -14,25 +14,9 @@ class TDCIndex extends Controller
 {
     use WithFileUploads;
 
-    public function save(Request $request) {
+    public function save(TDCFormRequest $request) {
 
-        // $name = $request->input('name');
-        // $file = $request->file('pic');
-
-        $validate = $request->validate([
-            'pic' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'first_name' => 'required|min:3',
-            'last_name' => 'required',
-            'email' => 'required|email',
-            'contact' => 'required|min:11|max:11',
-            'age' => 'required',
-            'birthday' => 'required',
-            'date' => 'required',
-            'course' => '',
-            'valid_id' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'paid_attachment' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'transmission' => 'required',
-        ]);
+        $validate = $request->validated();
 
         $data = Customer::create([
             'pic' => $validate['pic']->store('img', 'public'),

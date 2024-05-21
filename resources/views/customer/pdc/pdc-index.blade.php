@@ -159,7 +159,7 @@
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paid_attachment" name="paid_attachment" type="file" onchange="previewImageGcash(event)">
 
-                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-80" hidden>
+                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-96" hidden>
 
                     <x-input-error for="paid_attachment" class="mt-1"/>
                     </div>
