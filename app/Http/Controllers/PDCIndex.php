@@ -49,10 +49,10 @@ class PDCIndex extends Controller
         } else {
 
             session()->flash('error', 'Error while processing your registration');
-            return redirect(route('pdc-index'));
+            return redirect()->route('pdc-index');
         }
         
-        return redirect(route('pdc-index'));
+        return redirect()->route('pdc-index');
     }
 
     public function render(): View

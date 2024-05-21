@@ -13,22 +13,21 @@
               <div class="md:flex md:-mx-4 mt-4 md:mt-10">
       
                 <div class="md:w-2/3 md:px-4">
-                  <form class="contact-form" action="{{route('faqs')}}" method="POST">
+                  <form class="contact-form" id="contact-form" action="{{route('faqs')}}" method="POST">
                     @csrf
-                    @method('POST')
                     
                     <div class="sm:flex sm:flex-wrap -mx-3">
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="text" placeholder="Full Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="name">
+                        <input type="text" placeholder="Full Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->first_name }} {{ Auth::guard('customer')->user()->last_name }}" name="name">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="number" placeholder="Age" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="age">
+                        <input type="number" placeholder="Age" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->age }}" name="age">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="email" placeholder="E-mail address" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="email">
+                        <input type="email" placeholder="E-mail address" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->email }}" name="email">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="number" placeholder="Phone Number" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="contact">
+                        <input type="number" placeholder="Phone Number" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->contact }}" name="contact">
                       </div>
                       <div class="sm:w-full px-3">
                         <textarea name="message" id="message" cols="30" rows="4" placeholder="Your message here" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="message"></textarea>
@@ -50,22 +49,12 @@
                     <p class="text-gray-700">You can move to <a href="#" class="text-indigo-600 border-b border-transparent hover:border-indigo-600 inline-block">FAQs</a> or <a href="#" class="text-indigo-600 border-b border-transparent hover:border-indigo-600 inline-block">Support</a> page to get more information about our site.</p>
                   </div>
                 </div>
-      
               </div>
-      
             </div>
           </div>
-      
         </div>
       </div>
 </div>
-
-{{-- <style>
-    .contact_bg {
-        background: url('img/contact_bg.svg') no-repeat;
-        background-size: cover; 
-    }
-</style> --}}
 
 @if(session()->has('success'))
     <script>
@@ -80,3 +69,40 @@
         }, 3000);
     </script>
 @endif
+
+<style>
+  #name-error, #age-error, #email-error, #contact-error, #message-error {
+      color: red;
+      font-size: 13px;
+      outline: none;
+  }
+  .error {
+      outline: 1px solid red;
+  }
+  .valid {
+      outline: 1px solid rgb(15, 255, 15);
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+      $('#contact-form').validate({
+          rules: {
+              name: {required: true},
+              age: {required: true,},
+              email: {required: true},
+              contact: {required: true},
+              message: {required: true},
+          },
+          messages: {
+              age: {min: "Only 18 years old and above are eligible for reservation."}
+          },
+          highlight: function (element) {
+              $(element).removeClass('valid').addClass('error');
+          },
+          unhighlight: function (element) {
+              $(element).removeClass('error').addClass('valid');
+          }
+      })
+  })
+</script>

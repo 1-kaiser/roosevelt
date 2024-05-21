@@ -9,6 +9,9 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    // 2024_03_31_071523_create_f_a_q_s_table.php
+
     public function up(): void
     {
         Schema::create('f_a_q_s', function (Blueprint $table) {
@@ -18,6 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('contact');
             $table->string('message');
+            $table->string('admin_reply')->nullable();
             $table->timestamps();
         });
     }

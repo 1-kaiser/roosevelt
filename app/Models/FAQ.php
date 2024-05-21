@@ -9,5 +9,5 @@ class FAQ extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'age', 'email', 'contact', 'message'];
+    protected $fillable = ['name', 'age', 'email', 'contact', 'message', 'admin_reply'];
 }

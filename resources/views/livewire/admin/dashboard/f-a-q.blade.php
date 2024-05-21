@@ -65,57 +65,124 @@
         </thead>
         <tbody>
             @isset($inquiries)
-            @foreach ($inquiries as $customer)
-            <tr>
-            {{-- # --}}
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
-                <p class="text-gray-900 whitespace-no-wrap">{{$loop->iteration}}</p>
-                </td>
-            {{-- # --}}
+                @foreach ($inquiries as $customer)
+                    <tr>
+                    {{-- # --}}
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                        <p class="text-gray-900 whitespace-no-wrap">{{$loop->iteration}}</p>
+                        </td>
+                    {{-- # --}}
 
-            {{-- Name --}}
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="text-gray-900 whitespace-no-wrap">{{$customer->name}}</p>
-            </td>
-            {{-- Name --}}
+                    {{-- Name --}}
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{$customer->name}}</p>
+                    </td>
+                    {{-- Name --}}
 
-            {{-- Email --}}
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="text-gray-900 whitespace-no-wrap">{{$customer->email}}</p>
-            </td>
-            {{-- Email --}}
+                    {{-- Email --}}
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{$customer->email}}</p>
+                    </td>
+                    {{-- Email --}}
 
-            {{-- Contact --}}
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="text-gray-900 whitespace-no-wrap">{{$customer->contact}}</p>
-            </td>
-            {{-- Contact --}}
+                    {{-- Contact --}}
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{$customer->contact}}</p>
+                    </td>
+                    {{-- Contact --}}
 
-            {{-- Inquiry --}}
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="text-gray-900 whitespace-no-wrap">{{$customer->message}}</p>
-            </td>
-            {{-- Inquiry --}}
+                    {{-- Inquiry --}}
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <p class="text-gray-900 whitespace-no-wrap">{{$customer->message}}</p>
+                    </td>
+                    {{-- Inquiry --}}
 
-            {{-- Action --}}
-            <td class="px-5 py-5 border-b border-gray-200 text-sm text-center">
+                    {{-- Action --}}
+                    <td class="px-5 py-5 border-b border-gray-200 text-sm text-center">
 
-                <x-button @click="$wire.answer({ name: '{{ $customer->name }}' })" class="text-sm text-white">Answer</x-button>
+                        <x-button @click="$wire.viewInquiry({ name: '{{ $customer->name }}' })" class="text-sm text-white">Answer</x-button>
 
-            </td>
-            {{-- Action --}}
-            </tr>
-            @endforeach
+                    </td>
+                    {{-- Action --}}
+                    </tr>
+                @endforeach
             @endisset
         </tbody>
     </table>
     <div class="mt-3">{{$inquiries->links()}}</div>
 
+    @isset ($viewData)
+    @foreach ($viewData as $row)
+    <x-dialog-modal wire:model.live="modalViewInquiry" submit="save">
+        <x-slot name="title">
+            Customer Inquiry
+        </x-slot>
+    
+        <x-slot name="content">
+            
+            <div class="grid grid-cols-2 gap-4 w-full">
+                {{-- Name --}}
+                <div class="mt-1">
+                    <x-label for="name" value="Name" />
+                    <x-input wire:model.lazy="name" value="{{$row->name}}" id="name" name="name" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Name --}}
+
+                {{-- Email --}}
+                <div class="mt-1">
+                    <x-label for="email" value="Email" />
+                    <x-input wire:model.lazy="email" value="{{$row->email}}" id="email" name="email" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Email --}}
+
+                {{-- Age --}}
+                <div class="mt-1">
+                    <x-label for="age" value="Age" />
+                    <x-input wire:model.lazy="age" value="{{$row->age}}" id="age" name="age" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Age --}}
+                
+                {{-- Contact --}}
+                <div class="mt-1">
+                    <x-label for="contact" value="Contact" />
+                    <x-input wire:model.lazy="contact" value="{{$row->contact}}" id="contact" name="contact" type="text" class="mt-2 w-full text-black" readonly />
+                </div>
+                {{-- Contact --}}
+            </div>
+
+            {{-- Message --}}
+            <div class="mt-3">
+                <x-label for="message" value="Customer message" />
+                <x-input wire:model.lazy="message" value="{{$row->message}}" id="message" name="message" type="text" class="mt-2 w-full text-black" readonly />
+            </div>
+            {{-- Message --}}
+
+            {{-- Admin Reply --}}
+            <div class="mt-3">
+                <x-label for="admin_reply" value="Your reply" />
+                <textarea wire:model.lazy="admin_reply" id="admin_reply" name="admin_reply" type="text" class="mt-2 w-full text-black rounded-md"></textarea>
+            </div>
+            {{-- Admin Reply --}}
+        </x-slot>
+    
+        <x-slot name="footer">
+            <x-secondary-button @click="$wire.set('modalViewInquiry', false)">
+            {{ __('Cancel') }}
+            </x-secondary-button>
+    
+            <x-button type="submit" class="ms-3" @click="$wire.save({ name: '{{ $row->name }}' })">
+                Answer
+            </x-button>
+        </x-slot>
+    </x-dialog-modal>
+    @endforeach
+    @endisset
+
     <script>
         window.addEventListener("swal", () => {
             Swal.fire({
                 title: 'Success',
-                text: 'Customer status successfully updated',
+                text: 'Replied successfully',
                 icon: 'success',
             });
         });
