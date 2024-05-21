@@ -154,11 +154,18 @@
     </x-guest-layout>
 
     <style>
-        #first_name-error, #last_name-error, #email-error, #contact-error, #password-error, #password_confirmation-error, #captcha-error {
+        #first_name-error, #last_name-error, #email-error, #contact-error, #password-error, #password_confirmation-error {
             color: red;
             margin-top: 1rem;
             font-size: 13px;
             outline: none;
+        }
+        #captcha-error {
+            color: red;
+            margin-top: 1rem;
+            margin: 1rem 0 0 1rem;
+            font-size: 13px;
+            outline: none; 
         }
         #terms_conditions-error {
             color: red;

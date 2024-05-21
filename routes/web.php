@@ -43,7 +43,7 @@ Route::get('/', function () {
     Route::post('/tdc-process', [TDCIndex::class, 'save'])->name('tdc-save');
 
     Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
-    Route::post('/pdc', [PDCIndex::class, 'save'])->name('pdc-save');
+    Route::post('/pdc', [PDCIndex::class, 'savePDC'])->name('pdc-save');
 
     Route::post('/customer', [FAQ::class, 'save'])->name('faqs');
 

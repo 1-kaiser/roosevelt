@@ -23,7 +23,7 @@
                 </h3>
             </div>
             
-            <form class="w-full" action="" id="pdcForm" method="POST" enctype="multipart/form-data">
+            <form class="w-full" action="{{ route('pdc-save') }}" id="pdcForm" method="POST" enctype="multipart/form-data">
                 @csrf
         
                 {{-- Picture --}}
@@ -32,7 +32,7 @@
                         Your Picture
                         </label>
                     
-                        <img src="#" id="preview" class="border border-gray-500 w-36 h-34">
+                        <img src="#" id="preview" class="border border-gray-500 w-36 h-34" hidden>
             
                     <x-input type="file" class="text-sm w-44 mt-2" id="pic" name="pic" onchange="previewImage(event)"/>
                     <x-input-error for="pic" class="mt-1"/>
@@ -62,7 +62,7 @@
                     {{-- Last Name --}}
         
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap -mx-3 mb-3">
         
                     {{-- Email Address --}}
                     <div class="w-full px-3">
@@ -146,7 +146,7 @@
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-70 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="valid_id" name="valid_id" type="file" onchange="previewImageID(event)">
 
-                    <img src="#" id="previewID" class="border mt-2 border-gray-400 w-60 h-32">
+                    <img src="#" id="previewID" class="border mt-2 border-gray-400 w-60 h-32" hidden>
 
                     <x-input-error for="valid_id" class="mt-1"/>
                     </div>
@@ -159,7 +159,7 @@
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="paid_attachment" name="paid_attachment" type="file" onchange="previewImageGcash(event)">
 
-                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-80">
+                    <img src="#" id="previewPaid" class="border mt-2 border-gray-400 w-48 h-80" hidden>
 
                     <x-input-error for="paid_attachment" class="mt-1"/>
                     </div>
@@ -180,6 +180,27 @@
                
             </form>
         </div>
+
+        {{-- Gcash --}}
+        <div class="flex flex-col ms-10 mt-10">
+            <div class="flex flex-col items-center">
+                <strong class="text-gray-700">Gcash QR Code</strong>
+                <img src="img/gcash_qr.jpg" class="w-48 h-48">
+            </div>
+
+            <div class="inline-flex items-center justify-center w-full">
+                <hr class="w-36 h-px my-8 bg-gray-700 border-0">
+                <span class="absolute px-3 left-[51.4%] font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-900">or</span>
+            </div>
+
+            <div class="flex flex-col items-center">
+                <strong class="text-gray-700">Gcash Account</strong>
+                <p class="text-sm mt-1">Name: AE**N RO***T D.</p>
+                <p class="text-sm mt-1">#: 09665077801</p>
+            </div>
+
+        </div>
+        {{-- Gcash --}}
 
         <div class="mt-20 ml-44 shadow-xl w-[70%]">
             <div class="p-6">

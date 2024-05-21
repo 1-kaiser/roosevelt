@@ -9,6 +9,9 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    // 2024_03_03_053640_create_accepted_lists_table.php
+    
     public function up(): void
     {
         Schema::create('accepted_lists', function (Blueprint $table) {

@@ -63,6 +63,7 @@
                     {{-- Last Name --}}
         
                 </div>
+                
                 <div class="flex flex-wrap -mx-3 mb-6">
         
                     {{-- Email Address --}}
@@ -76,18 +77,18 @@
                     {{-- Email Address --}}
             
                     {{-- Contact --}}
-                    <div class="w-full px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-password">
-                        Contact
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->contact }}" id="contact" name="contact" type="number" placeholder="09*********">
-                    <x-input-error for="contact" class="mb-2"/>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-password">
+                            Contact
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ Auth::guard('customer')->user()->contact }}" id="contact" name="contact" type="number" placeholder="09*********">
+                        <x-input-error for="contact" class="mb-2"/>
                     </div>
                     {{-- Contact --}}
             
                     {{-- Age --}}
-                    <div class="w-full px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-5" for="grid-password">
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-password">
                         Age
                         </label>
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ old('age') }}" id="age" name="age" type="number" placeholder="20">

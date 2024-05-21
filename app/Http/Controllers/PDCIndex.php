@@ -22,7 +22,7 @@ class PDCIndex extends Controller
             'last_name' => 'required',
             'email' => 'required|email',
             'contact' => 'required|min:11|max:11',
-            'age' => 'required|min:18',
+            'age' => 'required',
             'birthday' => 'required',
             'date' => 'required',
             'course' => '',
