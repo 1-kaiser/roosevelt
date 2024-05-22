@@ -18,16 +18,16 @@
                     
                     <div class="sm:flex sm:flex-wrap -mx-3">
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="text" placeholder="Full Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->first_name }} {{ Auth::guard('customer')->user()->last_name }}" name="name">
+                        <input type="text" placeholder="Full Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->first_name }} {{ Auth::guard('customer')->user()?->last_name }}" name="name">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="number" placeholder="Age" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->age }}" name="age">
+                        <input type="number" placeholder="Age" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->age }}" name="age">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="email" placeholder="E-mail address" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->email }}" name="email">
+                        <input type="email" placeholder="E-mail address" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->email }}" name="email">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="number" placeholder="Phone Number" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()->contact }}" name="contact">
+                        <input type="number" placeholder="Phone Number" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->contact }}" name="contact">
                       </div>
                       <div class="sm:w-full px-3">
                         <textarea name="message" id="message" cols="30" rows="4" placeholder="Your message here" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="message"></textarea>
