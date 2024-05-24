@@ -9,6 +9,9 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    // 2024_02_05_090105_create_customers_table.php
+    
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {

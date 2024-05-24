@@ -16,9 +16,9 @@
         </div>
 
 
-        <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-2">
+        <div class="relative mx-auto max-w-7xl z-[1] grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-2">
 
-            <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
+            <div class="rounded-md border z-0 border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
                 <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
                     style="background-image: linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%); border-color: rgb(93, 79, 240);">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-color-swatch" width="24"

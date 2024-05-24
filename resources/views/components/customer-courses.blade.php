@@ -5,7 +5,7 @@
     <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
   </div>
 
-  <div class="flex pt-16 pb-16 items-center justify-center">
+  <div class="flex flex-wrap pt-16 pb-16 items-center justify-center">
     <div class="grid grid-cols-2 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2 w-full px-20">
       <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
         <div class="">
@@ -68,7 +68,6 @@
           window.location.href = '{{ route('customer-login') }}';
         }
       });
-      
     })
   })
 </script>

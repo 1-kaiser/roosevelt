@@ -12,25 +12,25 @@
       
               <div class="md:flex md:-mx-4 mt-4 md:mt-10">
       
-                <div class="md:w-2/3 md:px-4">
+                <div class="md:w-2/3 md:px-4">                                
                   <form class="contact-form" id="contact-form" action="{{route('faqs')}}" method="POST">
                     @csrf
                     
                     <div class="sm:flex sm:flex-wrap -mx-3">
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="text" placeholder="Full Name" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->first_name }} {{ Auth::guard('customer')->user()?->last_name }}" name="name">
+                        <input type="text" placeholder="Full Name" class="border-1 rounded px-3 py-1 w-full border-indigo-400 focus:border-indigo-400 input" value="" name="name">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="number" placeholder="Age" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->age }}" name="age">
+                        <input type="number" placeholder="Age" class="border-1 rounded px-3 py-1 w-full border-indigo-400 focus:border-indigo-400 input" value="" name="age">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="email" placeholder="E-mail address" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->email }}" name="email">
+                        <input type="email" placeholder="E-mail address" class="border-1 rounded px-3 py-1 w-full border-indigo-400 focus:border-indigo-400 input" value="" name="email">
                       </div>
                       <div class="sm:w-1/2 px-3 mb-6">
-                        <input type="number" placeholder="Phone Number" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" value="{{ Auth::guard('customer')->user()?->contact }}" name="contact">
+                        <input type="number" placeholder="Phone Number" class="border-1 rounded px-3 py-1 w-full border-indigo-400 focus:border-indigo-400 input" value="" name="contact">
                       </div>
                       <div class="sm:w-full px-3">
-                        <textarea name="message" id="message" cols="30" rows="4" placeholder="Your message here" class="border-2 rounded px-3 py-1 w-full focus:border-indigo-400 input" name="message"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="4" placeholder="Your message here" class="border-1 rounded px-3 py-1 w-full border-indigo-400 focus:border-indigo-400 input" name="message"></textarea>
                       </div>
                     </div>
                     <div class="text-right mt-4 md:mt-12">
@@ -86,23 +86,28 @@
 
 <script>
   $(document).ready(function() {
-      $('#contact-form').validate({
-          rules: {
-              name: {required: true},
-              age: {required: true,},
-              email: {required: true},
-              contact: {required: true},
-              message: {required: true},
-          },
-          messages: {
-              age: {min: "Only 18 years old and above are eligible for reservation."}
-          },
-          highlight: function (element) {
-              $(element).removeClass('valid').addClass('error');
-          },
-          unhighlight: function (element) {
-              $(element).removeClass('error').addClass('valid');
-          }
-      })
+
+    $.validator.addMethod("lettersOnly", function(value, element) {
+        return this.optional(element) || /^[a-zA-Z]+$/.test(value);
+    }, "Please enter only letters.");
+
+    $('#contact-form').validate({
+        rules: {
+            name: {required: true, lettersOnly: true},
+            age: {required: true,},
+            email: {required: true},
+            contact: {required: true},
+            message: {required: true, lettersOnly: true},
+        },
+        messages: {
+            age: {min: "Only 18 years old and above are eligible for reservation."}
+        },
+        highlight: function (element) {
+            $(element).removeClass('valid').addClass('error');
+        },
+        unhighlight: function (element) {
+            $(element).removeClass('error').addClass('valid');
+        }
+    })
   })
 </script>

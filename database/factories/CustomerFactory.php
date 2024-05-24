@@ -18,14 +18,15 @@ class CustomerFactory extends Factory
     {
 
         $phCode = +639;
-        // $customCourse = ['TDC'];
-        // $paidAttachment = ['---'];
-        // $customTransmission = ['---'];
-        
-        $customCourse = ['PDC'];
+        $customCourse = ['TDC'];
         $paidAttachment = ['---'];
         $valid_id = ['---'];
-        $customTransmission = ['Manual', 'Automatic'];
+        $customTransmission = ['---'];
+        
+        // $customCourse = ['PDC'];
+        // $paidAttachment = ['---'];
+        // $valid_id = ['---'];
+        // $customTransmission = ['Manual', 'Automatic'];
         
         return [
             'pic' => $this->faker->imageUrl(640, 480, 'people'),

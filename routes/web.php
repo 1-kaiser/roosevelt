@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\CustomerIndex;
 use App\Http\Controllers\CustomerLoginController;
 use App\Http\Controllers\CustomerRegisterController;
 use App\Http\Controllers\FAQ;
 use App\Http\Controllers\PDCIndex;
 use App\Http\Controllers\TDCIndex;
+use App\Http\Middleware\CustomerRedirectLogin;
 use App\Livewire\Admin\AcceptedList\PdcAcceptedList;
 use App\Livewire\Admin\AcceptedList\TdcAcceptedList;
 use App\Livewire\Admin\Calendar\CalendarIndex;
@@ -31,13 +33,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-    Route::get('/customer', function () {
-        return view('customer/customer-index');
-    })->name('customer-index');
+    // Route::get('/customer_view', function () {
+    //     return view('customer/customer-index-before');
+    // })->name('customer-index-before');
 
-    Route::get('/customer_view', function () {
-        return view('customer/customer-index-before');
-    })->name('customer-index-before');
+    Route::get('/customer', [CustomerIndex::class, 'render'])->name('customer-index');
 
     Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
     Route::post('/tdc-process', [TDCIndex::class, 'save'])->name('tdc-save');
@@ -47,7 +47,7 @@ Route::get('/', function () {
 
     Route::post('/customer', [FAQ::class, 'save'])->name('faqs');
 
-    Route::get('customer-login', [CustomerLoginController::class, 'render'])->name('customer-login');
+    Route::get('customer-login', [CustomerLoginController::class, 'render'])->middleware(CustomerRedirectLogin::class)->name('customer-login');
     Route::post('customer-authenticate', [CustomerLoginController::class, 'authenticate'])->name('customer-authenticate');
     
     Route::get('customer-register', [CustomerRegisterController::class, 'render'])->name('customer-register');

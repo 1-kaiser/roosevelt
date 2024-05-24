@@ -184,10 +184,15 @@
 
       <script>
         $(document).ready(function() {
+
+            $.validator.addMethod("lettersOnly", function(value, element) {
+                return this.optional(element) || /^[a-zA-Z]+$/.test(value);
+            }, "Please enter only letters.");
+
             $('#registerForm').validate({
                 rules: {
-                    first_name: {required: true},
-                    last_name: {required: true},
+                    first_name: {required: true, lettersOnly: true},
+                    last_name: {required: true, lettersOnly: true},
                     email: {required: true},
                     contact: {required: true},
                     password: {required: true},
