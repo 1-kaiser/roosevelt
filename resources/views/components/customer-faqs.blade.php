@@ -1,13 +1,13 @@
 <div class="">
-    <div id="FAQs" class="pt-20 ml-10">
+    <div id="FAQs" class="pt-20 ml-10" data-aos="fade-up" data-aos-duration="900">
         <strong class="text-3xl">Frequently Asked Questions</strong>
-        <p>Our courses and services are backed by four decades of experience.</p>
+        <p data-aos="fade-up" data-aos-duration="1200">Our courses and services are backed by four decades of experience.</p>
       </div>
     
       <div class="relative font-inter antialiased">
     
         <main class="mt-16 flex flex-col justify-center overflow-hidden">
-            <div class="w-full max-w-2xl mx-auto px-4 md:px-6">
+            <div class="w-full max-w-2xl mx-auto px-4 md:px-6" data-aos="fade-up" data-aos-duration="1300">
     
                 <!-- Accordion component -->
                 <div class="divide-y divide-slate-200">
@@ -158,9 +158,6 @@
       </div>
 </div>
 
-{{-- <style>
-    .faqs_bg {
-        background: url('img/faqs_bg.svg') no-repeat;
-        background-size: cover; 
-    }
-</style> --}}
+<script>
+    AOS.init()
+</script>

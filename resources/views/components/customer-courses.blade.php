@@ -1,12 +1,12 @@
 <div class="min-h-screen">
 
-  <div id="Courses" class="pt-14 ml-10">
+  <div id="Courses" class="pt-14 ml-10" data-aos="fade-up" data-aos-duration="900">
     <strong class="text-3xl">Featured Courses</strong>
-    <p>Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
+    <p data-aos="fade-up" data-aos-duration="1200">Choose from a variety of vehicles, schedule and instructors that fits your needs</p>
   </div>
 
   <div class="flex flex-wrap pt-16 pb-16 items-center justify-center">
-    <div class="grid grid-cols-2 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2 w-full px-20">
+    <div data-aos="fade-up" data-aos-duration="900" class="grid grid-cols-2 gap-x-12 gap-y-12 md:grid-cols-1 lg:grid-cols-2 w-full px-20">
       <div class="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
         <div class="">
           <img class="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src="img/tdc-classroom.jpg" alt="" />
@@ -72,3 +72,6 @@
   })
 </script>
 
+<script>
+  AOS.init();
+</script>

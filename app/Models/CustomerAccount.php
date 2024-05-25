@@ -20,4 +20,9 @@ class CustomerAccount extends Model implements Authenticatable
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

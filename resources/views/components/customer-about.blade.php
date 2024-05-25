@@ -4,10 +4,12 @@
 
         <div class="relative mx-auto max-w-5xl text-center">
             <h2
+                data-aos="fade-up" data-aos-duration="900"
                 class="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
                 About Solid Driving School
             </h2>
             <p
+                data-aos="fade-up" data-aos-duration="1200"
                 class="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
                 SOLIDifying  Safety in Driving Mission and Vision:
                 Our Mission is to teach driving with style, passion
@@ -16,7 +18,7 @@
         </div>
 
 
-        <div class="relative mx-auto max-w-7xl z-[1] grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-2">
+        <div data-aos="fade-up" data-aos-duration="1500" class="relative mx-auto max-w-7xl z-[1] grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-2">
 
             <div class="rounded-md border z-0 border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
                 <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
@@ -59,32 +61,6 @@
                     driving. 
                 </p>
             </div>
-
-
-            {{-- <div class="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
-                <div class="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border "
-                    style="background-image: linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%); border-color: rgb(93, 79, 240);">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"></path>
-                        <line x1="14.5" y1="5.5" x2="18.5" y2="9.5"></line>
-                        <polyline points="12 8 7 3 3 7 8 12"></polyline>
-                        <line x1="7" y1="8" x2="5.5" y2="9.5"></line>
-                        <polyline points="16 12 21 17 17 21 12 16"></polyline>
-                        <line x1="16" y1="17" x2="14.5" y2="18.5"></line>
-                    </svg>
-                </div>
-                <h3 class="mt-6 text-gray-400">Fully Featured</h3>
-                <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
-                    Everything you need to
-                    succeed
-                    and launch your landing page, right out of the box. No need to install anything else.
-                </p>
-            </div> --}}
-
-
         </div>
 
         <div class="absolute bottom-0 left-0 z-0 h-1/3 w-full border-b"
@@ -95,3 +71,7 @@
         </div>
     </section>
   </div>
+
+<script>
+    AOS.init()
+</script>
