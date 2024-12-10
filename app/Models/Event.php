@@ -13,3 +13,4 @@ class Event extends Model
         'title', 'description', 'status', 'date'
     ];
 }
+

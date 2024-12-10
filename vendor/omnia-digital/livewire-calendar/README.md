@@ -35,9 +35,10 @@ You can use `make:livewire` to create a new component. For example.
 php artisan make:livewire AppointmentsCalendar
 ```
 
-In the `AppointmentsCalendar` class, instead of extending from the base `Component` Livewire class,
-extend from `LivewireCalendar`. Also, remove the `render` method.
-You'll have a class similar to this snippet.
+- In the `AppointmentsCalendar` class, instead of extending from the base `Component` Livewire class,
+extend from `LivewireCalendar`. 
+- **Remove the `render` method or you will override the parent and the calendar will not display.**
+- You'll have a class similar to this snippet.
 
 ``` php
 class AppointmentsCalendar extends LivewireCalendar
@@ -119,17 +120,27 @@ Example
 
 This will render a calendar grid.
 
-![example](https://github.com/omnia-digital/livewire-calendar/raw/master/example.png)
-
 By default, the component will render the current month. If you want to change the
-starting month, you can set the `year` and `month` props.
+starting month, you can set the `initialYear` and `initialMonth` props.
 
  Example
 
  ```blade
 <livewire:appointments-calendar
-    year="2019"
-    month="12"
+    initialYear="2019"
+    initialMonth="12"
+/>
+ ```
+
+If you use it as a nested component, you can use variables and make it dynamic (:key prop will force livewire to re-render calendar).
+
+Example
+
+ ```blade
+<livewire:appointments-calendar
+    initialYear="{{ $currentYear }}"
+    initialMonth="{{ $currentMonth }}"
+    :key="$currentYear.$currentMonth"
 />
  ```
 

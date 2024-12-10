@@ -163,8 +163,8 @@ class LivewireCalendar extends Component
 
     public function calculateGridStartsEnds()
     {
-        $this->gridStartsAt = $this->startsAt->clone()->startOfWeek($this->weekStartsAt);
-        $this->gridEndsAt = $this->endsAt->clone()->endOfWeek($this->weekEndsAt);
+        $this->gridStartsAt = $this->startsAt->clone()->startOfWeek($this->weekStartsAt)->shiftTimezone(config('app.timezone'));;
+        $this->gridEndsAt = $this->endsAt->clone()->endOfWeek($this->weekEndsAt)->shiftTimezone(config('app.timezone'));;
     }
 
     /**
@@ -175,8 +175,8 @@ class LivewireCalendar extends Component
         $firstDayOfGrid = $this->gridStartsAt;
         $lastDayOfGrid = $this->gridEndsAt;
 
-        $numbersOfWeeks = $lastDayOfGrid->diffInWeeks($firstDayOfGrid) + 1;
-        $days = $lastDayOfGrid->diffInDays($firstDayOfGrid) + 1;
+        $numbersOfWeeks = floor(abs($firstDayOfGrid->diffInWeeks($lastDayOfGrid)) + 1);
+        $days = floor(abs($firstDayOfGrid->diffInDays($lastDayOfGrid)) + 1);
 
         if ($days % 7 != 0) {
             throw new Exception("Livewire Calendar not correctly configured. Check initial inputs.");

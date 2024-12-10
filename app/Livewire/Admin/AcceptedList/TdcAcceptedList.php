@@ -66,10 +66,10 @@ class TdcAcceptedList extends Component
     #[Title('TDC')]
     public function render(): View
     {
-        return view('livewire.admin.accepted-list.tdc-accepted-list', [
-            'data' => AcceptedList::whereAny(['first_name', 'last_name', 'email', 'date'], 'like', '%' . $this->searchCustomer . '%')
-            ->where('course', 'like', '%'. 'TDC'. '%')
-            ->paginate($this->paginate)
-        ]);
+        $data = AcceptedList::whereAny(['first_name', 'last_name', 'email', 'date'], 'like', '%' . $this->searchCustomer . '%')
+        ->where('course', 'like', '%'. 'TDC'. '%')
+        ->paginate($this->paginate);
+
+        return view('livewire.admin.accepted-list.tdc-accepted-list', ['data' => $data]);
     }
 }

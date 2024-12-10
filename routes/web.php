@@ -29,40 +29,45 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
     // Route::get('/customer_view', function () {
     //     return view('customer/customer-index-before');
     // })->name('customer-index-before');
 
     Route::get('/customer', [CustomerIndex::class, 'render'])->name('customer-index');
-
-    Route::get('/tdc', [TDCIndex::class, 'render'])->name('tdc-index');
-    Route::post('/tdc-process', [TDCIndex::class, 'save'])->name('tdc-save');
-
-    Route::get('/pdc', [PDCIndex::class, 'render'])->name('pdc-index');
-    Route::post('/pdc', [PDCIndex::class, 'savePDC'])->name('pdc-save');
-
     Route::post('/customer', [FAQ::class, 'save'])->name('faqs');
 
-    Route::get('customer-login', [CustomerLoginController::class, 'render'])->middleware(CustomerRedirectLogin::class)->name('customer-login');
-    Route::post('customer-authenticate', [CustomerLoginController::class, 'authenticate'])->name('customer-authenticate');
+    Route::controller(TDCIndex::class)->group(function () {
+        Route::get('/tdc', 'render')->name('tdc-index');
+        Route::post('/tdc-process', 'save')->name('tdc-save');
+    });
     
-    Route::get('customer-register', [CustomerRegisterController::class, 'render'])->name('customer-register');
-    Route::post('register-process', [CustomerRegisterController::class, 'registerProcessRequest'])->name('register-process');
+    Route::controller(PDCIndex::class)->group(function () {
+        Route::get('/pdc', 'render')->name('pdc-index');
+        Route::post('/pdc', 'savePDC')->name('pdc-save');
+    });
+    
+    Route::controller(CustomerLoginController::class)->group(function () {
+        Route::get('customer-login','render')->middleware(CustomerRedirectLogin::class)->name('customer-login');
+        Route::post('customer-authenticate','authenticate')->name('customer-authenticate');
+        Route::get('customer-logout','logout')->name('customer-logout');
+    });
+    
+    Route::controller(CustomerRegisterController::class)->group(function () {
+        Route::get('customer-register','render')->name('customer-register');
+        Route::post('register-process','registerProcessRequest')->name('register-process');
+    });
 
-    Route::get('customer-logout', [CustomerLoginController::class, 'logout'])->name('customer-logout');
-
-
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
-    ->group(function () {
-    Route::get('/dashboard', DashboardIndex::class)->name('dashboard');
-    Route::get('/waitlist', WaitlistIndex::class)->name('waitlist');
-    Route::get('/tdc-accepted-list', TdcAcceptedList::class)->name('tdc-accepted-list');
-    Route::get('/pdc-accepted-list', PdcAcceptedList::class)->name('pdc-accepted-list');
-    Route::get('/denied-history', DeniedHistory::class)->name('denied-history');
-    Route::get('/instructor', InstructorIndex::class)->name('instructor');
-    Route::get('/calendar', CalendarIndex::class)->name('calendar');
-});
+    Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
+        ->group(function () {
+        Route::get('/dashboard', DashboardIndex::class)->name('dashboard');
+        Route::get('/waitlist', WaitlistIndex::class)->name('waitlist');
+        Route::get('/tdc-accepted-list', TdcAcceptedList::class)->name('tdc-accepted-list');
+        Route::get('/pdc-accepted-list', PdcAcceptedList::class)->name('pdc-accepted-list');
+        Route::get('/denied-history', DeniedHistory::class)->name('denied-history');
+        Route::get('/instructor', InstructorIndex::class)->name('instructor');
+        Route::get('/calendar', CalendarIndex::class)->name('calendar');
+    });

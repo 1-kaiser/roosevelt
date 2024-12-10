@@ -17,7 +17,7 @@ class WaitlistTable extends Component
 {
     use WithPagination;
 
-    public $paginate = 5, $searchCustomer =  '';
+    public $searchCustomer =  '';
     public $modalView = false;
     public $modalReasonForDenial = false;
     public $viewData, $viewDataDeny;
@@ -26,82 +26,98 @@ class WaitlistTable extends Component
     public function render()
     {
         return view('livewire.admin.waitlist.waitlist-table', [
-            'data' => Customer::whereAny(['first_name', 'last_name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
-            ->paginate($this->paginate)
+            'data' => Customer::latest()->whereAny(['first_name', 'last_name', 'email', 'date', 'course'], 'like', '%' . $this->searchCustomer . '%')
+            ->paginate(5)
         ]);
     }
 
-    public function viewCustomer($first_name) {
+    public function viewCustomer($first_name)
+    {
+        // Get the customer data where the first_name is equal to the
+        // parameter passed in.
+        $this->viewData = Customer::where('first_name', '=', $first_name)
+            ->get();
+
+        // Set the $modalView property to true so that the customer's
+        // information is shown in the modal.
         $this->modalView = true;
-        $this->viewData = Customer::where('first_name', '=', $first_name)->get();
     }
 
-    public function accepted($first_name) {
-        $sourceData = Customer::where('first_name', '=', $first_name)->get();
-        $getData = Customer::where('first_name', '=', $first_name)->get()->toArray();
-        
-        foreach ($getData as $data) {
-            AcceptedList::insert([
-                'pic' => $data['pic'],
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
-                'contact' => $data['contact'],
-                'age' => $data['age'],
-                'birthday' => $data['birthday'],
-                'date' => $data['date'],
-                'course' => $data['course'],
-                'valid_id' => $data['valid_id'],
-                'paid_attachment' => $data['paid_attachment'],
-                'transmission' => $data['transmission'],
-            ]);
 
-            ($data['course'] === 'PDC') ? Mail::to($data['email'])->send(new PDCAcceptedMail($data))
-            : ''; 
+
+    public function accepted($first_name) {
+        // get the customer data
+        $data = Customer::where('first_name', '=', $first_name)->get()->toArray();
+
+        // map the customer data to a new array
+        $acceptedData = array_map(function ($item) {
+            return [
+                'pic' => $item['pic'],
+                'first_name' => $item['first_name'],
+                'last_name' => $item['last_name'],
+                'email' => $item['email'],
+                'contact' => $item['contact'],
+                'age' => $item['age'],
+                'birthday' => $item['birthday'],
+                'date' => $item['date'],
+                'course' => $item['course'],
+                'valid_id' => $item['valid_id'],
+                'paid_attachment' => $item['paid_attachment'],
+                'transmission' => $item['transmission'],
+            ];
+        }, $data);
+
+        // insert the mapped data into the accepted_lists table
+        AcceptedList::insert($acceptedData);
+
+        // send an email to the customer if the course is PDC
+        foreach ($data as $item) {
+            if ($item['course'] === 'PDC') {
+                Mail::to($item['email'])->queue(new PDCAcceptedMail($item));
+            }
         }
 
+        // dispatch swal and dispatch-customer-accepted events
         $this->dispatch('swal');
         $this->dispatch('dispatch-customer-accepted')->to(TdcAcceptedList::class);
         $this->dispatch('dispatch-customer-accepted')->to(PdcAcceptedList::class);
 
-        $sourceData->each->delete();  
+        // delete the customer data from the customer table
+        Customer::where('first_name', '=', $first_name)->delete();
     }
 
     public function denied($first_name = null) {
-        $sourceData = Customer::where('first_name', '=', $first_name)->get();
-        $getData = Customer::where('first_name', '=', $first_name)->get()->toArray();
         
-        foreach ($getData as $data) {
-            DeniedList::insert([
-                'pic' => $data['pic'],
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
-                'contact' => $data['contact'],
-                'age' => $data['age'],
-                'birthday' => $data['birthday'],
-                'date' => $data['date'],
-                'course' => $data['course'],
-                'valid_id' => $data['valid_id'],
-                'paid_attachment' => $data['paid_attachment'],
-                'transmission' => $data['transmission'],
-                'deny_reason' => $this->deny_reason
-            ]);
-        }
+        // Get the customer data where the first name matches the provided.
+        // The data is limited to the fields we need.
+        $data = Customer::where('first_name', '=', $first_name)
+            ->get(['pic', 'first_name', 'last_name', 'email', 'contact', 'age', 'birthday', 'date', 'course', 'valid_id', 'paid_attachment', 'transmission']);
 
-        DeniedList::where('first_name', '=', $first_name)->update(['deny_reason' => $this->deny_reason]);
+        // Add the denial reason to each item.
+        $data->each(function ($item) {
+            $item->deny_reason = $this->deny_reason;
+        });
 
-        $this->dispatch('swal',
-            title: 'Success',
-            text: 'Customer successfully denied',
-            icon: 'success',
-        );
+        // Insert the data into the denied_lists table.
+        DeniedList::insert($data->toArray());
 
+        // Dispatch a swal event to notify the admin that the customer was denied.
+        $this->dispatch('swal', [
+            'title' => 'Success',
+            'text' => 'Customer successfully denied',
+            'icon' => 'success',
+        ]);
+
+        // Dispatch a dispatch-customer-accepted event to the denied_list component.
         $this->dispatch('dispatch-customer-accepted')->to(DeniedHistory::class);
 
-        $sourceData->each->delete();  
+        // Delete the customer from the customer table.
+        Customer::where('first_name', '=', $first_name)->delete();
+
+        // Hide the denial modal.
         $this->modalReasonForDenial = false;
     }
+
 
     public function reasonForDenial($first_name)
     {
